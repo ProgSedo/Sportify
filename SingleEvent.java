@@ -14,6 +14,9 @@ public class SingleEvent extends Events{
         super(eventTime, eventName, sportType);
         this.team1Size = team1Size;
         this.team2Size = team2Size;
+        team1Participants = new ArrayList<>();
+        team2Participants = new ArrayList<>();
+
     }
 
     public int getTeam1Size() {
@@ -34,6 +37,10 @@ public class SingleEvent extends Events{
         if (team2Participants.size() < team2Size)
             return false;
         return true;
+    }
+
+    public String toString() {
+        return super.toString() + " SingleGame";        
     }
     
 }

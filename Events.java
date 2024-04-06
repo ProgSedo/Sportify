@@ -38,4 +38,8 @@ import java.util.*;
     public void setSportType(SportType sportType) {
         this.sportType = sportType;
     }
+
+    public String toString() {
+        return eventName + eventTime;
+    }
 }
