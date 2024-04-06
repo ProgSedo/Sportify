@@ -19,7 +19,7 @@ public class User
     private ArrayList<User> friendRequests;
     private ArrayList<Event> eventsEngagedIn;
 
-    public User(String userEmail, String userPassword, Date dateOfBirth
+    public User(String userEmail, String userPassword, Date dateOfBirth,
                 boolean isFootball, boolean isVolleyball, boolean isTennis)
     {
         email = userEmail;
