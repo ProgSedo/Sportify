@@ -18,6 +18,7 @@ public class User
     private ArrayList<User> friends;
     private ArrayList<User> friendRequests;
     private ArrayList<Event> eventsEngagedIn;
+    private ArrayList<Comment> comments;
 
     public User(String userEmail, String userPassword, Date dateOfBirth
                 boolean isFootball, boolean isVolleyball, boolean isTennis)
