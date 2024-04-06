@@ -2,6 +2,7 @@ import java.util.*;
 
 public class User 
 {
+    //personal info
     private String email;
     private String password;
     private String name;
@@ -11,13 +12,29 @@ public class User
     private Image profilePhoto;
     private int age;
 
+    //interests
     private boolean football;
     private boolean volleyball;
     private boolean tennis;
 
+    //friends, events and comments
     private ArrayList<User> friends;
     private ArrayList<User> friendRequests;
     private ArrayList<Event> eventsEngagedIn;
+    private ArrayList<Comment> comments;
+
+    //statistics
+    private int footballGamesPlayed;
+    private int footballGamesWon;
+    private int footballGamesLost;
+    private int volleyballGamesPlayed;
+    private int volleyballGamesWon;
+    private int volleyballGamesLost;
+    private int tennisGamesPlayed;
+    private int tennisGamesWon;
+    private int tennisGamesLost;
+
+
 
     public User(String userEmail, String userPassword, Date dateOfBirth,
                 boolean isFootball, boolean isVolleyball, boolean isTennis)
@@ -28,6 +45,16 @@ public class User
         football = isFootball;
         volleyball = isVolleyball;
         tennis = isTennis;
+
+        footballGamesPlayed = 0;
+        footballGamesWon = 0;
+        footballGamesLost = 0;
+        volleyballGamesPlayed = 0;
+        volleyballGamesWon = 0;
+        volleyballGamesLost = 0;
+        tennisGamesPlayed = 0;
+        tennisGamesWon = 0;
+        tennisGamesLost = 0;
     }
 
     //getter methods
@@ -140,6 +167,46 @@ public class User
     public void setTennis(boolean tennis)
     {
         this.tennis = tennis;
+    }
+
+    //statistics updater methods
+    public void increaseFootballGamesPlayed(boolean win)
+    {
+        footballGamesPlayed++;
+        if(win)
+        {
+            footballGamesWon++;
+        }
+        else
+        {
+            footballGamesLost++;
+        }
+    }
+
+    public void increaseVolleyballGamesPlayed(boolean win)
+    {
+        volleyballGamesPlayed++;
+        if(win)
+        {
+            volleyballGamesWon++;
+        }
+        else
+        {
+            volleyballGamesLost++;
+        }
+    }
+
+    public void increaseTennisGamesPlayed(boolean win)
+    {
+        tennisGamesPlayed++;
+        if(win)
+        {
+            tennisGamesWon++;
+        }
+        else
+        {
+            tennisGamesLost++;
+        }
     }
 
 }
