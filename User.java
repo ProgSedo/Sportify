@@ -20,7 +20,7 @@ public class User
     //friends, events and comments
     private ArrayList<User> friends;
     private ArrayList<User> friendRequests;
-    private ArrayList<Event> eventsEngagedIn;
+    private ArrayList<Events> eventsEngagedIn;
     private ArrayList<Comment> comments;
 
     //statistics
@@ -207,6 +207,29 @@ public class User
         {
             tennisGamesLost++;
         }
+    }
+
+    public ArrayList<User> getFriends() {
+        return friends;
+    }
+
+    public ArrayList<User> getFriendRequests() {
+        return friendRequests;
+    }
+
+    public ArrayList<Events> getEventsEngagedIn() {
+        return eventsEngagedIn;
+    }
+
+    public void sendFriendRequest(User u) {
+        u.getFriendRequests().add(this);
+    }
+
+    public void interactFriendRequest(boolean answer, User u) {
+        if (answer) {
+            //to be completed by Ata.
+        }
+        this.getFriendRequests().remove(u);
     }
 
 }
