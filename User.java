@@ -36,7 +36,7 @@ public class User
 
 
 
-    public User(String userEmail, String userPassword, Date dateOfBirth
+    public User(String userEmail, String userPassword, Date dateOfBirth,
                 boolean isFootball, boolean isVolleyball, boolean isTennis)
     {
         email = userEmail;
