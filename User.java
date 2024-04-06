@@ -1,5 +1,3 @@
-package Project;
-
 import java.util.*;
 
 public class User 
@@ -143,8 +141,5 @@ public class User
     {
         this.tennis = tennis;
     }
-
-
-
 
 }
