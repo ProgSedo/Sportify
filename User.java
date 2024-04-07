@@ -227,7 +227,7 @@ public class User
 
     public void interactFriendRequest(boolean answer, User u) {
         if (answer) {
-            //to be completed by Ata.
+            this.getFriends().add(u);
         }
         this.getFriendRequests().remove(u);
     }

@@ -32,7 +32,7 @@ public class Team {
     }
 
     //FIND SOME WAY TO FIND ALL PLAYERS LIST
-    ublic boolean addPlayer(ArrayList<User> allPlayers, User player){
+    public boolean addPlayer(ArrayList<User> allPlayers, User player){
         if(allPlayers.contains(player) && !players.contains(player)){
             System.out.println(player.getName() + " added to the team " + getTeamName() + " succesfully");
             players.add(player);
