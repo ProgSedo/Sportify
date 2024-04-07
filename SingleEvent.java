@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.Date;
-
+/**
+ * Single game events.
+ * 
+ */
 public class SingleEvent extends Events{
 
     
