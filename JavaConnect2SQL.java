@@ -7,12 +7,12 @@ public class JavaConnect2SQL {
        
         
                 String connectionString = "jdbc:sqlserver://MSI;database=UsersDB;IntegratedSecurity=true;trustServerCertificate=true;";
-                //String user = "sa";
-                //String password = "1";
+                String user = "sa";
+                String password = "1";
         
                 try {
                     System.out.println("Attempting to establish connection...");
-                    try (Connection connection = DriverManager.getConnection(connectionString)) {
+                    try (Connection connection = DriverManager.getConnection(connectionString, user, password)) {
                         System.out.println("Connection established successfully!");
                     }
                 } catch (SQLException e) {
