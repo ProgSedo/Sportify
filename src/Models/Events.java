@@ -1,3 +1,5 @@
+package Models;
+
 import java.util.*;
 
  enum SportType {football, volleyball, tennis};
