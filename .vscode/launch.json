@@ -8,7 +8,7 @@
             "type": "java",
             "name": "App",
             "request": "launch",
-            "mainClass": "src.App",
+            "mainClass": "App",
             "projectName": "Sportify_cff5cbf6",
             "vmArgs": "--module-path javafx-sdk-22/lib --add-modules javafx.controls,javafx.fxml"
         }
