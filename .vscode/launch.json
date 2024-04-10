@@ -6,10 +6,9 @@
     "configurations": [
         {
             "type": "java",
-            "name": "App",
+            "name": "Current File",
             "request": "launch",
-            "mainClass": "App",
-            "projectName": "Sportify_cff5cbf6",
+            "mainClass": "${file}",
             "vmArgs": "--module-path javafx-sdk-22/lib --add-modules javafx.controls,javafx.fxml"
         }
     ]
