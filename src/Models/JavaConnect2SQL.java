@@ -8,7 +8,9 @@ public class JavaConnect2SQL {
     public static void main(String[] args) {
        
         
-                String connectionString = "jdbc:sqlserver://MSI;DatabaseName=UsersDB;IntegratedSecurity=true";
+                String connectionString = "jdbc:sqlserver://MSI;DatabaseName=UsersDB;IntegratedSecurity=true;TrustServerCertificate=True";
+                //String connectionString = "jdbc:sqlserver://MSI;DatabaseName=UsersDB;IntegratedSecurity=true;TrustServerCertificate=True;user=sa\\username;password=1";
+
                 String user = "sa";
                 String password = "1";
         
