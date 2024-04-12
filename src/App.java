@@ -1,3 +1,4 @@
+import FXMLandControllers.HomePage.HomePageController;
 import FXMLandControllers.SignInPage.SignInController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,8 +12,8 @@ public class App extends Application{
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLandControllers/SignInPage/SignIn.fxml"));
-        SignInController controller = new SignInController();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLandControllers/HomePage/HomePage.fxml"));
+        HomePageController controller = new HomePageController();
         loader.setController(controller);
         Parent root = loader.load();
         Scene scene = new Scene(root);
