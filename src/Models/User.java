@@ -9,7 +9,7 @@ public class User
     private String password;
     private String name;
     private String surname;
-    private Date birthday;
+    private int birthday;
     private String aboutMe;
     private Image profilePhoto;
     private int age;
@@ -38,12 +38,12 @@ public class User
 
 
 
-    public User(String userEmail, String userPassword, Date dateOfBirth,
+    public User(String userEmail, String userPassword, int birthYear,
                 boolean isFootball, boolean isVolleyball, boolean isTennis)
     {
         email = userEmail;
         password = userPassword;
-        birthday = dateOfBirth;
+        birthday = birthYear;
         football = isFootball;
         volleyball = isVolleyball;
         tennis = isTennis;
@@ -80,7 +80,7 @@ public class User
         return surname;
     }
 
-    public Date getBirthday()
+    public int getBirthYear()
     {
         return birthday;
     }
