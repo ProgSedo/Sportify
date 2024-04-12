@@ -14,7 +14,7 @@
 
 <FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox prefHeight="400.0" prefWidth="350.0">
+      <VBox prefHeight="400.0" prefWidth="346.0">
          <children>
             <Text fx:id="sportifyText" strokeType="OUTSIDE" strokeWidth="0.0" text="Sportify">
                <font>
@@ -26,7 +26,7 @@
             <Insets left="50.0" top="100.0" />
          </padding>
       </VBox>
-      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="250.0" spacing="5.0" style="-fx-background-color: #066839;">
+      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="253.0" spacing="5.0" style="-fx-background-color: #066839;">
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
@@ -94,6 +94,9 @@
          </padding>
          <effect>
             <DropShadow />
-         </effect></VBox>
+         </effect>
+         <FlowPane.margin>
+            <Insets />
+         </FlowPane.margin></VBox>
    </children>
 </FlowPane>
