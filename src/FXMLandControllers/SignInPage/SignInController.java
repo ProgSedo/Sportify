@@ -42,8 +42,14 @@ public class SignInController {
     private Text welcomeText;
 
     @FXML
-    void registerButtonClicked(ActionEvent event) {
+    void registerButtonClicked(ActionEvent event) throws IOException{
+        
 
+        Parent root = FXMLLoader.load(getClass().getResource("Register.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
@@ -51,10 +57,12 @@ public class SignInController {
         if (Database.checkEmail(emailTextField.getText())) {
             if (Database.checkPassword(emailTextField.getText(), passwordTextField.getText())) {
                 User user = Database.getUser(emailTextField.getText());
+                //LATER GOING TO BE USED ON APP
                 Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
                  stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
                  scene = new Scene(root);
                  stage.setScene(scene);
+                 stage.centerOnScreen();
                  stage.show();
             }
         }

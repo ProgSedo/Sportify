@@ -84,8 +84,8 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                <children>
-                  <Button fx:id="registerButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="161.0" text="Register" textAlignment="CENTER" />
-                  <Button fx:id="signInButton" mnemonicParsing="false" text="Sign In" textAlignment="CENTER" />
+                  <Button fx:id="registerButton" mnemonicParsing="false" onAction="#registerButtonClicked" prefHeight="30.0" prefWidth="161.0" text="Register" textAlignment="CENTER" />
+                  <Button fx:id="signInButton" mnemonicParsing="false" onAction="#signInClicked" text="Sign In" textAlignment="CENTER" />
                </children>
             </HBox>
          </children>
