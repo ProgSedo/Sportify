@@ -1,6 +1,7 @@
 package FXMLandControllers.SignInPage;
 
 import Models.Database;
+import Models.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.PieChart.Data;
@@ -40,6 +41,7 @@ public class SignInController {
     void signInButtonClicked(ActionEvent event) {
         if (Database.checkEmail(emailTextField.getText())) {
             if (Database.checkPassword(emailTextField.getText(), passwordTextField.getText())) {
+                User user = Database.getUser(emailTextField.getText());
                 //TBC by ata
             }
         }
