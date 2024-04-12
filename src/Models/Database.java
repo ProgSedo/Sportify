@@ -32,4 +32,19 @@ public class Database {
         }
         return eMailExists;
     }
+
+    public static boolean checkPassword(String email, String password) {
+        String userPassword = "";
+        try {
+            Statement st = connection.createStatement();
+            String sql = "SELECT password FROM User WHERE email = '" + email + "'";
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                userPassword = rs.getString(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return password.equals(userPassword);
+    }
 }
