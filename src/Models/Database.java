@@ -8,5 +8,5 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Database {
-    
+    private static Connection connection = JavaConnect2SQL.connect2Database();
 }
