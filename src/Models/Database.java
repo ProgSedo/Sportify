@@ -47,4 +47,30 @@ public class Database {
         }
         return password.equals(userPassword);
     }
+
+    public static User getUser(String email) {
+        String password = "";
+        String name = "";
+        String surname = "";
+        int birthYearr = 0;
+
+        try {
+            Statement statement = connection.createStatement();
+            String sql = "SELECT * FROM User WHERE email = '" + email + "'";
+            ResultSet rs = statement.executeQuery(sql);
+            while(rs.next()) {
+                email = rs.getString(2);
+                password = rs.getString(1);
+                name = rs.getString(2);
+                surname = rs.getString(3);
+                birthYearr = rs.getInt(4);
+
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return new User(email, password, birthYearr, false, false, false);
+    }
 }
