@@ -57,6 +57,7 @@ public class SignInController {
         if (Database.checkEmail(emailTextField.getText())) {
             if (Database.checkPassword(emailTextField.getText(), passwordTextField.getText())) {
                 User user = Database.getUser(emailTextField.getText());
+                //LATER GOING TO BE USED ON APP
                 Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
                  stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
                  scene = new Scene(root);
