@@ -43,7 +43,11 @@ public class SignInController {
 
     @FXML
     void registerButtonClicked(ActionEvent event) {
-
+        String email = emailTextField.getText();
+        String password = passwordTextField.getText();
+        if (!Database.checkEmail(email)) {
+            if (password.equals())
+        }
     }
 
     @FXML
