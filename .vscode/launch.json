@@ -6,13 +6,6 @@
     "configurations": [
         {
             "type": "java",
-            "name": "JavaConnect2SQL",
-            "request": "launch",
-            "mainClass": "Models.JavaConnect2SQL",
-            "projectName": "Sportify_b1eae2d2"
-        },
-        {
-            "type": "java",
             "name": "App",
             "request": "launch",
             "mainClass": "App",
