@@ -57,6 +57,7 @@ public class User
         tennisGamesPlayed = 0;
         tennisGamesWon = 0;
         tennisGamesLost = 0;
+        Database.insertNewUser(this);
     }
 
     //getter methods
