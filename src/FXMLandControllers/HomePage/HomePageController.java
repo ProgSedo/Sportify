@@ -73,21 +73,36 @@ public class HomePageController {
     @FXML
     void eventsFootballButtonClicked(ActionEvent event) {
 
+        Parent root = FXMLLoader.load(getClass().getResource("FootballEvents.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     void eventsTennisButtonClicked(ActionEvent event) {
 
+        Parent root = FXMLLoader.load(getClass().getResource("TennisEvents.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     void eventsVolleyballlButtonClicked(ActionEvent event) {
 
+        Parent root = FXMLLoader.load(getClass().getResource("VolleyballEvents.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     void footballMatchButtonClicked(ActionEvent event) {
-
+        
     }
 
     @FXML
@@ -98,21 +113,37 @@ public class HomePageController {
     @FXML
     void forumsFootballButtonClicked(ActionEvent event) {
 
+        Parent root = FXMLLoader.load(getClass().getResource("FootballForum.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     void forumsTennisButtonClicked(ActionEvent event) {
 
+        Parent root = FXMLLoader.load(getClass().getResource("TennisForum.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     void forumsVolleyballButtonClicked(ActionEvent event) {
 
+        Parent root = FXMLLoader.load(getClass().getResource("VolleyballForum.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     void friendsPageButtonClicked(ActionEvent event) {
 
+        
     }
 
     @FXML

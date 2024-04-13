@@ -77,10 +77,22 @@ public class Database {
     public static void insertNewUser(User user) {
         try {
             Statement st = connection.createStatement();
-            String sql = "INSERT INTO Users (emial, password, name, surname, aboutMe, birthYear)"
+            String sql = "INSERT INTO Users (email, password, name, surname, aboutMe, birthYear)"
             + "SELECT " + user.getEmail() + ", '" + user.getPassword() + "', '" + user.getName() + "', '" + user.getSurname() + "', '" + user.getAboutMe() + "', '" + user.getBirthYear();
             st.execute(sql);
             
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void insertNewComment(Comment comment) {
+
+        try {
+            Statement st = connection.createStatement();
+            String sql = "INSERT INTO Comments ( user, commentor, comment ) VALUES (" + comment.getUser() + ", " + comment.getCommentor() + ", " + comment.getComment() + ")";
+            st.execute( sql );
+        
         } catch (Exception e) {
             e.printStackTrace();
         }
