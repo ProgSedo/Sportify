@@ -1,6 +1,7 @@
 import FXMLandControllers.AddFriendPage.AddFriendController;
 import FXMLandControllers.HomePage.HomePageController;
 import FXMLandControllers.SignInPage.SignInController;
+import Models.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
@@ -10,6 +11,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class App extends Application{
+    private static User user;
 
     @Override
     public void start(Stage stage) throws Exception {
