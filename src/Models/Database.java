@@ -73,4 +73,16 @@ public class Database {
 
         return new User(email, password, birthYearr, false, false, false);
     }
+
+    public static void insertNewUser(User user) {
+        try {
+            Statement st = connection.createStatement();
+            String sql = "INSERT INTO Users (emial, password, name, surname, aboutMe, birthYear)"
+            + "SELECT " + user.getEmail() + ", '" + user.getPassword() + "', '" + user.getName() + "', '" + user.getSurname() + "', '" + user.getAboutMe() + "', '" + user.getBirthYear();
+            st.execute(sql);
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
