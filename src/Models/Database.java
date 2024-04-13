@@ -2,6 +2,9 @@ package Models;
 
 import java.sql.Statement;
 import java.util.ArrayList;
+
+import org.w3c.dom.events.Event;
+
 import java.sql.Connection;
 import java.time.LocalDate;
 import java.sql.ResultSet;
@@ -91,6 +94,18 @@ public class Database {
         try {
             Statement st = connection.createStatement();
             String sql = "INSERT INTO Comments ( user, commentor, comment ) VALUES (" + comment.getUser() + ", " + comment.getCommentor() + ", " + comment.getComment() + ")";
+            st.execute( sql );
+        
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void insertNewEvent( Events event ) {
+
+        try {
+            Statement st = connection.createStatement();
+            String sql = "INSERT INTO Events ( eventName, eventTime, sportType ) VALUES (" + event.getEventName() + ", " + event.getEventTime() + ", " + event.getSportType() + ")";
             st.execute( sql );
         
         } catch (Exception e) {

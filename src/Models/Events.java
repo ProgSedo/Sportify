@@ -12,9 +12,12 @@ import java.util.*;
     private SportType sportType;
 
     public Events (Date eventTime, String eventName, SportType sportType) {
+        
         this.eventTime = eventTime;
         this.eventName = eventName;
         this.sportType = sportType;
+        
+        Database.insertNewEvent( this );
     }
 
     public Date getEventTime() {
