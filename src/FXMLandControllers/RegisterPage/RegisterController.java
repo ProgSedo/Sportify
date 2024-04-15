@@ -9,19 +9,18 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.PieChart.Data;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.scene.Node;
 
 public class RegisterController {
-    private Stage stage;
-    private Scene scene;
-
+    Stage stage;
+    Scene scene;
+    
     @FXML
     private TextField confirmPasswordTextField;
 
@@ -29,7 +28,7 @@ public class RegisterController {
     private Text dateOfBirthText;
 
     @FXML
-    private ComboBox<Integer> dayComboBox;
+    private ComboBox<?> dayComboBox;
 
     @FXML
     private TextField emailTextField;
@@ -41,10 +40,10 @@ public class RegisterController {
     private Text interestsText;
 
     @FXML
-    private ComboBox<Integer> monthComboBox;
+    private ComboBox<?> monthComboBox;
 
     @FXML
-    private TextField passwordTextField;
+    private PasswordField passwordField;
 
     @FXML
     private Button registerButton;
@@ -73,7 +72,7 @@ public class RegisterController {
     @FXML
     void registerButtonClicked(ActionEvent event) throws IOException{
         String email = emailTextField.getText();
-        String password = passwordTextField.getText();
+        String password = passwordField.getText();
         if (!Database.checkEmail(email)) {
             if (password.equals(confirmPasswordTextField.getText())) {
                 User user = new User(email, password, yearComboBox.getValue(), isFootballSelected(), isVolleyballelected(), isTennisSelected());

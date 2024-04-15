@@ -1,6 +1,9 @@
+import java.io.IOException;
+
 import FXMLandControllers.FriendsPage.FriendsPageController;
 import FXMLandControllers.HomePage.HomePageController;
 import FXMLandControllers.SignInPage.SignInController;
+import Models.Model;
 import Models.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -14,14 +17,8 @@ public class App extends Application{
     private static User user;
 
     @Override
-    public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLandControllers/SignInPage/SignIn.fxml"));
-        SignInController controller = new SignInController();
-        loader.setController(controller);
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    public void start(Stage stage){
+        Model.getInstance().getViewFactory().showSignInWindow();
         
     }
 
