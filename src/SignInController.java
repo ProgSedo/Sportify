@@ -1,11 +1,10 @@
-package FXMLandControllers.SignInPage;
+
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import Models.Database;
-import Models.Model;
 import Models.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

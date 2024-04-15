@@ -1,6 +1,4 @@
-package Models;
 
-import Views.ViewFactory;
 
 public class Model {
     

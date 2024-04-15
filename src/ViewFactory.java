@@ -1,10 +1,6 @@
-package Views;
-
 import java.io.IOException;
 
 import FXMLandControllers.HomePage.HomePageController;
-import FXMLandControllers.RegisterPage.RegisterController;
-import FXMLandControllers.SignInPage.SignInController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -35,7 +31,7 @@ public class ViewFactory {
 
     public void showSignInWindow()
     {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLandControllers/SignInPage/SignIn.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("SignIn.fxml"));
         SignInController controller = new SignInController();
         loader.setController(controller);
         createStage(loader);
@@ -51,7 +47,7 @@ public class ViewFactory {
 
     public void showRegisterPage()
     {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLandControllers/RegisterPage/Register.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Register.fxml"));
         RegisterController controller = new RegisterController();
         loader.setController(controller);
         createStage(loader);

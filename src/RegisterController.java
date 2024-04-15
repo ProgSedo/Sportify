@@ -1,4 +1,4 @@
-package FXMLandControllers.RegisterPage;
+
 
 import java.io.IOException;
 
@@ -87,11 +87,7 @@ public class RegisterController {
 
     @FXML
     void signInClicked(ActionEvent event) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        Model.getInstance().getViewFactory().showSignInWindow();
     }
 
     private boolean isTennisSelected() {

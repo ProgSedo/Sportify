@@ -2,8 +2,6 @@ import java.io.IOException;
 
 import FXMLandControllers.FriendsPage.FriendsPageController;
 import FXMLandControllers.HomePage.HomePageController;
-import FXMLandControllers.SignInPage.SignInController;
-import Models.Model;
 import Models.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -19,10 +17,9 @@ public class App extends Application{
     @Override
     public void start(Stage stage){
         Model.getInstance().getViewFactory().showSignInWindow();
-        
     }
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args){
         launch();
     }
     
