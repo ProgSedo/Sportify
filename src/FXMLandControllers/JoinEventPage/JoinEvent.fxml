@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #0F5132; -fx-border-color: #000000;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Button fx:id="sideBarButton" mnemonicParsing="false" onAction="#sideBarButtonClicked" text="Side Bar">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <FlowPane alignment="CENTER" prefHeight="510.0" prefWidth="760.0" style="-fx-border-color: #000000; -fx-background-color: #0F5132;">
+         <FlowPane.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </FlowPane.margin>
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <HBox prefHeight="490.0" prefWidth="740.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="490.0" prefWidth="370.0" spacing="10.0" style="-fx-background-color: #1B7D4F; -fx-border-color: #000000;">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <children>
+                        <Label alignment="CENTER" prefHeight="27.0" prefWidth="70.0" style="-fx-background-color: #90EE90; -fx-background-radius: 5;" text="Date:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="dateTextField">
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </TextField>
+                        <Label alignment="CENTER" prefHeight="27.0" prefWidth="70.0" style="-fx-background-color: #90EE90; -fx-background-radius: 5;" text="Place:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
+                        <TextField fx:id="placeTextField">
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </TextField>
+                        <Label alignment="CENTER" prefWidth="70.0" style="-fx-background-color: #90EE90; -fx-background-radius: 5;" text="Details:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
+                        <TextArea fx:id="detailsTextArea" prefHeight="200.0" prefWidth="200.0">
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </TextArea>
+                        <Label alignment="CENTER" prefWidth="120.0" style="-fx-background-color: #90EE90; -fx-background-radius: 5;" text="Sport Type:" textAlignment="CENTER">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
+                        <TextField fx:id="sportTypeTextField">
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </TextField>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="490.0" prefWidth="370.0" spacing="5.0" style="-fx-background-color: #0F5132;">
+                     <children>
+                        <FlowPane alignment="TOP_CENTER" layoutX="11.0" layoutY="171.0" prefHeight="490.0" prefWidth="368.0" style="-fx-border-color: #000000; -fx-background-color: #1B7D4F;">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #90EE90; -fx-background-radius: 5;" text="Participants:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <FlowPane.margin>
+                                    <Insets bottom="20.0" top="20.0" />
+                                 </FlowPane.margin>
+                              </Label>
+                              <TextArea fx:id="participantsTextArea" prefHeight="330.0" prefWidth="344.0">
+                                 <FlowPane.margin>
+                                    <Insets />
+                                 </FlowPane.margin>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </TextArea>
+                              <Button fx:id="joinButton" mnemonicParsing="false" onAction="#joinButtonClicked" prefHeight="50.0" prefWidth="90.0" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Join">
+                                 <FlowPane.margin>
+                                    <Insets top="20.0" />
+                                 </FlowPane.margin>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </Button>
+                           </children>
+                        </FlowPane>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </FlowPane>
+   </children>
+</FlowPane>
