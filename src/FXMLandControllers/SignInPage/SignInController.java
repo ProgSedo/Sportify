@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart.Data;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -27,7 +28,7 @@ public class SignInController {
     private Text getStartedText;
 
     @FXML
-    private TextField passwordTextField;
+    private PasswordField passwordField;
 
     @FXML
     private Button registerButton;
@@ -55,7 +56,7 @@ public class SignInController {
     @FXML
     void signInButtonClicked(ActionEvent event) throws IOException{
         if (Database.checkEmail(emailTextField.getText())) {
-            if (Database.checkPassword(emailTextField.getText(), passwordTextField.getText())) {
+            if (Database.checkPassword(emailTextField.getText(), passwordField.getText())) {
                 User user = Database.getUser(emailTextField.getText());
                 //LATER GOING TO BE USED ON APP
                 Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
