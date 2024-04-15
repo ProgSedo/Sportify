@@ -93,7 +93,7 @@
             <DropShadow />
          </effect>
       </VBox>
-      <FlowPane alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="670.0" style="-fx-background-color: #0F5132; -fx-border-color: #000000;">
+      <FlowPane alignment="CENTER_LEFT" prefHeight="167.0" prefWidth="653.0" style="-fx-background-color: #0F5132; -fx-border-color: #000000;">
          <children>
             <Label fx:id="friendsText" text="Friends" textFill="WHITE">
                <font>
@@ -103,9 +103,9 @@
                   <Insets bottom="10.0" />
                </FlowPane.margin>
             </Label>
-            <ScrollPane fx:id="friendsScrollPane" prefHeight="98.0" prefWidth="620.0">
+            <ScrollPane fx:id="friendsScrollPane" prefHeight="98.0" prefWidth="615.0">
                <content>
-                  <TextArea fx:id="friendsTextArea" prefHeight="96.0" prefWidth="618.0" />
+                  <TextArea fx:id="friendsTextArea" prefHeight="96.0" prefWidth="613.0" />
                </content>
                <FlowPane.margin>
                   <Insets />

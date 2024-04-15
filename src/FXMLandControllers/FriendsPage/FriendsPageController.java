@@ -1,4 +1,4 @@
-package FXMLandControllers.AddFriendPage;
+package FXMLandControllers.FriendsPage;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -76,3 +76,5 @@ public class FriendsPageController {
     }
 
 }
+
+

@@ -8,6 +8,9 @@ import javafx.scene.control.Label;
 public class HomePageController {
 
     @FXML
+    private Button createEventButton;
+
+    @FXML
     private Label createEventLabel;
 
     @FXML
@@ -27,12 +30,6 @@ public class HomePageController {
 
     @FXML
     private Button eventsVolleyBallButton;
-
-    @FXML
-    private Button footballMatchButton;
-
-    @FXML
-    private Button footballTournamentButton;
 
     @FXML
     private Button forumsFootballButton;
@@ -59,91 +56,43 @@ public class HomePageController {
     private Button menuBarButton;
 
     @FXML
-    private Button tennisMatchButton;
+    void createEventButtonClicked(ActionEvent event) {
 
-    @FXML
-    private Button tennisTournamentButton;
-
-    @FXML
-    private Button volleyballMatchButton;
-
-    @FXML
-    private Button volleyballTournamentButton;
+    }
 
     @FXML
     void eventsFootballButtonClicked(ActionEvent event) {
 
-        Parent root = FXMLLoader.load(getClass().getResource("FootballEvents.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
     }
 
     @FXML
     void eventsTennisButtonClicked(ActionEvent event) {
 
-        Parent root = FXMLLoader.load(getClass().getResource("TennisEvents.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
     }
 
     @FXML
     void eventsVolleyballlButtonClicked(ActionEvent event) {
-
-        Parent root = FXMLLoader.load(getClass().getResource("VolleyballEvents.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    void footballMatchButtonClicked(ActionEvent event) {
-        
-    }
-
-    @FXML
-    void footballTournamentButtonClicked(ActionEvent event) {
 
     }
 
     @FXML
     void forumsFootballButtonClicked(ActionEvent event) {
 
-        Parent root = FXMLLoader.load(getClass().getResource("FootballForum.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
     }
 
     @FXML
     void forumsTennisButtonClicked(ActionEvent event) {
 
-        Parent root = FXMLLoader.load(getClass().getResource("TennisForum.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
     }
 
     @FXML
     void forumsVolleyballButtonClicked(ActionEvent event) {
 
-        Parent root = FXMLLoader.load(getClass().getResource("VolleyballForum.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
     }
 
     @FXML
     void friendsPageButtonClicked(ActionEvent event) {
 
-        
     }
 
     @FXML
@@ -151,25 +100,6 @@ public class HomePageController {
 
     }
 
-    @FXML
-    void tennisMatchButtonClicked(ActionEvent event) {
-
-    }
-
-    @FXML
-    void tennisTournamentButtonClicked(ActionEvent event) {
-
-    }
-
-    @FXML
-    void volleyballMatchButtonClicked(ActionEvent event) {
-
-    }
-
-    @FXML
-    void volleyballTournamentButtonClicked(ActionEvent event) {
-
-    }
-
 }
+
 

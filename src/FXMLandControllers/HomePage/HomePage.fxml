@@ -11,7 +11,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <FlowPane prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #0F5132;">
+      <FlowPane prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #0F5132; -fx-border-color: #000000;">
          <children>
             <Button fx:id="menuBarButton" mnemonicParsing="false" onAction="#menuBarButtonClicked" prefHeight="30.0" prefWidth="69.0" text="Side Bar">
                <FlowPane.margin>
@@ -48,7 +48,7 @@
          <children>
             <VBox prefHeight="450.0" prefWidth="370.0" spacing="20.0">
                <children>
-                  <VBox alignment="CENTER" prefHeight="225.0" prefWidth="100.0" spacing="20.0" style="-fx-background-color: #0F5132;">
+                  <VBox alignment="CENTER" prefHeight="225.0" prefWidth="100.0" spacing="20.0" style="-fx-background-color: #0F5132; -fx-border-color: #000000;">
                      <children>
                         <Label fx:id="eventsLabel" text="Events" textFill="WHITE">
                            <font>
@@ -58,17 +58,17 @@
                               <DropShadow />
                            </effect>
                         </Label>
-                        <Button fx:id="eventsFootballButton" mnemonicParsing="false" onAction="#eventsFootballButtonClicked" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #90EE90;" text="Football">
+                        <Button fx:id="eventsFootballButton" mnemonicParsing="false" onAction="#eventsFootballButtonClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Football">
                            <effect>
                               <DropShadow />
                            </effect>
                         </Button>
-                        <Button fx:id="eventsVolleyBallButton" mnemonicParsing="false" onAction="#eventsVolleyballlButtonClicked" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #90EE90;" text="Volleyball">
+                        <Button fx:id="eventsVolleyBallButton" mnemonicParsing="false" onAction="#eventsVolleyballlButtonClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Volleyball">
                            <effect>
                               <DropShadow />
                            </effect>
                         </Button>
-                        <Button fx:id="eventsTennisButton" mnemonicParsing="false" onAction="#eventsTennisButtonClicked" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #90EE90;" text="Tennis">
+                        <Button fx:id="eventsTennisButton" mnemonicParsing="false" onAction="#eventsTennisButtonClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Tennis">
                            <effect>
                               <DropShadow />
                            </effect>
@@ -81,7 +81,7 @@
                         <DropShadow />
                      </effect>
                   </VBox>
-                  <VBox alignment="CENTER" prefHeight="225.0" prefWidth="100.0" spacing="20.0" style="-fx-background-color: #0F5132;">
+                  <VBox alignment="CENTER" prefHeight="225.0" prefWidth="100.0" spacing="20.0" style="-fx-background-color: #0F5132; -fx-border-color: #000000;">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" />
                      </VBox.margin>
@@ -94,17 +94,17 @@
                               <DropShadow />
                            </effect>
                         </Label>
-                        <Button fx:id="forumsFootballButton" mnemonicParsing="false" onAction="#forumsFootballButtonClicked" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #90EE90;" text="Football">
+                        <Button fx:id="forumsFootballButton" mnemonicParsing="false" onAction="#forumsFootballButtonClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Football">
                            <effect>
                               <DropShadow />
                            </effect>
                         </Button>
-                        <Button fx:id="forumsVolleyballButton" mnemonicParsing="false" onAction="#forumsVolleyballButtonClicked" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #90EE90;" text="Volleyball">
+                        <Button fx:id="forumsVolleyballButton" mnemonicParsing="false" onAction="#forumsVolleyballButtonClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Volleyball">
                            <effect>
                               <DropShadow />
                            </effect>
                         </Button>
-                        <Button fx:id="forumsTennisButton" mnemonicParsing="false" onAction="#forumsTennisButtonClicked" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #90EE90;" text="Tennis">
+                        <Button fx:id="forumsTennisButton" mnemonicParsing="false" onAction="#forumsTennisButtonClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Tennis">
                            <effect>
                               <DropShadow />
                            </effect>
@@ -115,10 +115,13 @@
                      </effect>
                   </VBox>
                </children>
+               <effect>
+                  <DropShadow />
+               </effect>
             </VBox>
             <VBox prefHeight="200.0" prefWidth="370.0" spacing="20.0">
                <children>
-                  <VBox alignment="CENTER" prefHeight="441.0" prefWidth="350.0" style="-fx-background-color: #0F5132;">
+                  <VBox alignment="CENTER" prefHeight="441.0" prefWidth="350.0" style="-fx-background-color: #0F5132; -fx-border-color: #000000;">
                      <VBox.margin>
                         <Insets left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
@@ -136,9 +139,9 @@
                               <Insets left="20.0" right="20.0" />
                            </VBox.margin>
                            <children>
-                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="155.0" spacing="20.0">
+                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="154.0" spacing="20.0">
                                  <children>
-                                    <Label fx:id="createMatchLabel" text="Match" textFill="WHITE">
+                                    <Label fx:id="createMatchLabel" alignment="CENTER" prefWidth="100.0" style="-fx-border-color: #000000;" text="Match" textFill="WHITE">
                                        <effect>
                                           <DropShadow />
                                        </effect>
@@ -146,26 +149,14 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <Button fx:id="footballMatchButton" mnemonicParsing="false" onAction="#footballMatchButtonClicked" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #90EE90;" text="Football">
-                                       <effect>
-                                          <DropShadow />
-                                       </effect>
-                                    </Button>
-                                    <Button fx:id="volleyballMatchButton" mnemonicParsing="false" onAction="#volleyballMatchButtonClicked" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #90EE90;" text="Volleyball">
-                                       <effect>
-                                          <DropShadow />
-                                       </effect>
-                                    </Button>
-                                    <Button fx:id="tennisMatchButton" mnemonicParsing="false" onAction="#tennisMatchButtonClicked" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #90EE90;" text="Tennis">
-                                       <effect>
-                                          <DropShadow />
-                                       </effect>
-                                    </Button>
+                                    <Label text="Football" textFill="WHITE" />
+                                    <Label text="Volleyball" textFill="WHITE" />
+                                    <Label text="Tennis" textFill="WHITE" />
                                  </children>
                               </VBox>
-                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="155.0" spacing="20.0">
+                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="154.0" spacing="20.0">
                                  <children>
-                                    <Label fx:id="createTournamentButton" alignment="CENTER" text="Tournament" textFill="WHITE">
+                                    <Label fx:id="createTournamentButton" alignment="CENTER" prefWidth="100.0" style="-fx-border-color: #000000;" text="Tournament" textFill="WHITE">
                                        <effect>
                                           <DropShadow />
                                        </effect>
@@ -173,31 +164,24 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <Button fx:id="footballTournamentButton" mnemonicParsing="false" onAction="#footballTournamentButtonClicked" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #90EE90;" text="Football">
-                                       <effect>
-                                          <DropShadow />
-                                       </effect>
-                                    </Button>
-                                    <Button fx:id="volleyballTournamentButton" mnemonicParsing="false" onAction="#volleyballTournamentButtonClicked" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #90EE90;" text="Volleyball">
-                                       <effect>
-                                          <DropShadow />
-                                       </effect>
-                                    </Button>
-                                    <Button fx:id="tennisTournamentButton" mnemonicParsing="false" onAction="#tennisTournamentButtonClicked" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #90EE90;" text="Tennis">
-                                       <effect>
-                                          <DropShadow />
-                                       </effect>
-                                    </Button>
+                                    <Label text="Football" textFill="WHITE" />
+                                    <Label text="Volleyball" textFill="WHITE" />
+                                    <Label text="Tennis" textFill="WHITE" />
                                  </children>
                               </VBox>
                            </children>
                         </FlowPane>
+                        <Button fx:id="createEventButton" mnemonicParsing="false" onAction="#createEventButtonClicked" prefWidth="120.0" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Create Event">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Button>
                      </children>
                      <effect>
                         <DropShadow />
                      </effect>
                   </VBox>
-                  <VBox alignment="CENTER" prefHeight="225.0" prefWidth="370.0" spacing="10.0" style="-fx-background-color: #0F5132;">
+                  <VBox alignment="CENTER" prefHeight="225.0" prefWidth="370.0" spacing="10.0" style="-fx-background-color: #0F5132; -fx-border-color: #000000;">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" />
                      </VBox.margin>
@@ -210,7 +194,7 @@
                               <DropShadow />
                            </effect>
                         </Label>
-                        <Button fx:id="friendsPageButton" mnemonicParsing="false" onAction="#friendsPageButtonClicked" prefHeight="30.0" prefWidth="93.0" style="-fx-background-color: #90EE90;" text="Friends Page">
+                        <Button fx:id="friendsPageButton" mnemonicParsing="false" onAction="#friendsPageButtonClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Friends Page">
                            <effect>
                               <DropShadow />
                            </effect>
@@ -221,6 +205,9 @@
                      </effect>
                   </VBox>
                </children>
+               <effect>
+                  <DropShadow />
+               </effect>
             </VBox>
          </children>
          <effect>

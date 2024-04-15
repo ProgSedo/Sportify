@@ -1,4 +1,4 @@
-import FXMLandControllers.AddFriendPage.FriendsPageController;
+import FXMLandControllers.FriendsPage.FriendsPageController;
 import FXMLandControllers.HomePage.HomePageController;
 import FXMLandControllers.SignInPage.SignInController;
 import Models.User;
