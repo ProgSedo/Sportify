@@ -9,7 +9,10 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
-public class AddFriendController {
+public class FriendsPageController {
+
+    @FXML
+    private Button acceptButton;
 
     @FXML
     private Button addFriendButton;
@@ -18,13 +21,22 @@ public class AddFriendController {
     private Text addFriendsText;
 
     @FXML
+    private Button declineButton;
+
+    @FXML
     private Label friendDisplayLabel;
+
+    @FXML
+    private TextField friendRequestTextField;
 
     @FXML
     private ScrollPane friendsScrollPane;
 
     @FXML
     private Label friendsText;
+
+    @FXML
+    private Label friendsText1;
 
     @FXML
     private TextArea friendsTextArea;
@@ -39,7 +51,17 @@ public class AddFriendController {
     private TextField usernameTextField;
 
     @FXML
+    void acceptButtonClicked(ActionEvent event) {
+
+    }
+
+    @FXML
     void addFriendButtonClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void declineButtonClicked(ActionEvent event) {
 
     }
 
