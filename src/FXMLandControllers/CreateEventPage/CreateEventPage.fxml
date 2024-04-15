@@ -98,11 +98,11 @@
                         <Insets right="5.0" />
                      </HBox.margin>
                   </VBox>
-                  <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="490.0" prefWidth="370.0" spacing="5.0" style="-fx-background-color: #0F5132;">
+                  <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="490.0" prefWidth="370.0" spacing="5.0" style="-fx-background-color: #0F5132;">
                      <children>
-                        <FlowPane alignment="CENTER_LEFT" prefHeight="145.0" prefWidth="200.0" style="-fx-border-color: #000000; -fx-background-color: #1B7D4F;">
+                        <FlowPane alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-border-color: #000000; -fx-background-color: #1B7D4F;">
                            <children>
-                              <RadioButton fx:id="footballRadioButton" mnemonicParsing="false" onAction="#footballRadioButtonClicked" prefWidth="120.0" text="Football" textFill="WHITE">
+                              <RadioButton fx:id="footballRadioButton" mnemonicParsing="false" prefWidth="150.0" text="Football" textFill="WHITE">
                                  <FlowPane.margin>
                                     <Insets left="20.0" />
                                  </FlowPane.margin>
@@ -113,7 +113,7 @@
                                     <DropShadow />
                                  </effect>
                               </RadioButton>
-                              <ComboBox fx:id="footballSizeComboBox" onAction="#footballSizeComboBoxClicked" prefWidth="150.0" promptText="Team Size" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" visibleRowCount="7">
+                              <ComboBox fx:id="footballSizeComboBox" prefWidth="150.0" promptText="Team Size" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" visibleRowCount="7">
                                  <effect>
                                     <DropShadow />
                                  </effect>
@@ -123,9 +123,9 @@
                               <DropShadow />
                            </effect>
                         </FlowPane>
-                        <FlowPane alignment="CENTER_LEFT" layoutX="11.0" layoutY="11.0" prefHeight="145.0" prefWidth="200.0" style="-fx-border-color: #000000; -fx-background-color: #1B7D4F;">
+                        <FlowPane alignment="CENTER_LEFT" layoutX="11.0" layoutY="11.0" prefHeight="100.0" style="-fx-border-color: #000000; -fx-background-color: #1B7D4F;">
                            <children>
-                              <RadioButton fx:id="volleyballRadioButton" mnemonicParsing="false" onAction="#volleyballRadioButtonClicked" prefWidth="120.0" text="Volleyball" textFill="WHITE">
+                              <RadioButton fx:id="volleyballRadioButton" mnemonicParsing="false" prefWidth="150.0" text="Volleyball" textFill="WHITE">
                                  <FlowPane.margin>
                                     <Insets left="20.0" />
                                  </FlowPane.margin>
@@ -136,7 +136,7 @@
                                     <DropShadow />
                                  </effect>
                               </RadioButton>
-                              <ComboBox fx:id="volleyballSizeComboBox" onAction="#volleyballSizeComboBoxClicked" prefWidth="150.0" promptText="Team Size" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" visibleRowCount="4">
+                              <ComboBox fx:id="volleyballSizeComboBox" prefWidth="150.0" promptText="Team Size" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" visibleRowCount="4">
                                  <effect>
                                     <DropShadow />
                                  </effect>
@@ -146,9 +146,9 @@
                               <DropShadow />
                            </effect>
                         </FlowPane>
-                        <FlowPane alignment="CENTER_LEFT" layoutX="11.0" layoutY="171.0" prefHeight="145.0" prefWidth="200.0" style="-fx-border-color: #000000; -fx-background-color: #1B7D4F;">
+                        <FlowPane alignment="CENTER_LEFT" layoutX="11.0" layoutY="171.0" prefHeight="100.0" prefWidth="200.0" style="-fx-border-color: #000000; -fx-background-color: #1B7D4F;">
                            <children>
-                              <RadioButton fx:id="tennisRadioButton" mnemonicParsing="false" onAction="#tennisRadioButtonClicked" prefWidth="120.0" text="Tennis" textFill="WHITE">
+                              <RadioButton fx:id="tennisRadioButton" mnemonicParsing="false" prefWidth="150.0" text="Tennis" textFill="WHITE">
                                  <FlowPane.margin>
                                     <Insets left="20.0" />
                                  </FlowPane.margin>
@@ -159,7 +159,7 @@
                                     <DropShadow />
                                  </effect>
                               </RadioButton>
-                              <ComboBox fx:id="tennisSizeComboBox" onAction="#tennisSizeComboBoxClicked" prefWidth="150.0" promptText="TeamSize" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" visibleRowCount="2">
+                              <ComboBox fx:id="tennisSizeComboBox" prefWidth="150.0" promptText="TeamSize" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" visibleRowCount="2">
                                  <effect>
                                     <DropShadow />
                                  </effect>
@@ -169,7 +169,41 @@
                               <DropShadow />
                            </effect>
                         </FlowPane>
-                        <Button fx:id="createMatchButton" mnemonicParsing="false" onAction="#createMatchButtonClicked" style="-fx-background-color: #90EE90; -fx-border-color: #000000; -fx-background-radius: 5; -fx-border-radius: 5;" text="Create Match">
+                        <FlowPane alignment="CENTER_LEFT" prefHeight="120.0" prefWidth="200.0" style="-fx-background-color: #1B7D4F; -fx-border-color: #000000;">
+                           <children>
+                              <RadioButton fx:id="tournamentRadioButton" layoutX="134.0" layoutY="57.0" mnemonicParsing="false" prefWidth="150.0" text="Tournament" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <FlowPane.margin>
+                                    <Insets left="20.0" />
+                                 </FlowPane.margin>
+                              </RadioButton>
+                              <ComboBox fx:id="roundNumberComboBox" prefWidth="150.0" promptText="Round Number" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" visibleRowCount="3">
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </ComboBox>
+                              <RadioButton fx:id="matchRadioButton" mnemonicParsing="false" prefWidth="150.0" text="Match" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <FlowPane.margin>
+                                    <Insets left="20.0" top="20.0" />
+                                 </FlowPane.margin>
+                              </RadioButton>
+                           </children>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </FlowPane>
+                        <Button fx:id="createEventButton" mnemonicParsing="false" onAction="#createEventButtonClicked" style="-fx-background-color: #90EE90; -fx-border-color: #000000; -fx-background-radius: 5; -fx-border-radius: 5;" text="Create Event">
                            <effect>
                               <DropShadow />
                            </effect>
