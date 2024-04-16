@@ -72,8 +72,6 @@ public class SignInController{
 
     private void onRegister()
     {
-        Stage stage =(Stage) registerButton.getScene().getWindow();
-        Model.getInstance().getViewFactory().closeStage(stage);
         Model.getInstance().getViewFactory().showRegisterPage();
     }
 

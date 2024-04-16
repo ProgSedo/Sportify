@@ -23,8 +23,9 @@ public class SideBarController {
     }
 
     @FXML
-    void logoutButtonClicked(ActionEvent event) {
-
+    void logoutButtonClicked(ActionEvent event) 
+    {
+        Model.getInstance().getViewFactory().getDecider().set("Logout");
     }
 
     @FXML
