@@ -2,6 +2,7 @@ import java.io.IOException;
 
 import FXMLandControllers.CreateEventPage.CreateEventPageController;
 import FXMLandControllers.FootballForumPage.FootballForumController;
+import FXMLandControllers.FootballUpcomingEventsPage.FootballEventsController;
 import FXMLandControllers.SettingsPage.SettingsPageController;
 import FXMLandControllers.VolleyballForumPage.VoleyballForumController;
 import javafx.beans.property.SimpleStringProperty;
@@ -26,6 +27,7 @@ public class ViewFactory {
     private AnchorPane footballForumView;
     private AnchorPane tennisForumView;
     private AnchorPane voleyballForumView;
+
     private AnchorPane footballEventsView;
     private AnchorPane tennisEventsView;
     private AnchorPane voleyballEventsView;
@@ -228,7 +230,7 @@ public class ViewFactory {
         {
             try
             {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("SideBar.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("TennisForumPage.fxml"));
                 TennisForumController controller = new TennisForumController();
                 loader.setController(controller);
                 tennisForumView = loader.load();
@@ -239,5 +241,24 @@ public class ViewFactory {
             }
         }
         return tennisForumView;
+    }
+
+    public AnchorPane getFootballEventsView()
+    {
+        if(footballEventsView== null)
+        {
+            try
+            {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("FootballEvents.fxml"));
+                FootballEventsController controller = new FootballEventsController();
+                loader.setController(controller);
+                footballEventsView = loader.load();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return footballEventsView;
     }
 }
