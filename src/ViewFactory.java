@@ -120,6 +120,7 @@ public class ViewFactory {
         }
         Stage stage = new Stage();
         stage.setScene(scene);
+        stage.sizeToScene();
         stage.setTitle("Sportify");
         stage.show();
     }

@@ -20,8 +20,8 @@ public class MainBorderPaneController implements Initializable{
                     generalPane.setCenter(Model.getInstance().getViewFactory().getHomePageView());
                     break;
                 case "HomePage+":
+                    generalPane.setLeft(Model.getInstance().getViewFactory().getSideBarView());
                     generalPane.setCenter(Model.getInstance().getViewFactory().getHomePageView());
-                    //generalPane.setLeft(Model.getInstance().getViewFactory().getSideBarView());
                     break;
                 default:
                     generalPane.setCenter(Model.getInstance().getViewFactory().getHomePageView());
