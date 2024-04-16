@@ -4,6 +4,7 @@ import FXMLandControllers.CreateEventPage.CreateEventPageController;
 import FXMLandControllers.FootballForumPage.FootballForumController;
 import FXMLandControllers.FootballUpcomingEventsPage.FootballEventsController;
 import FXMLandControllers.FriendsPage.FriendsPageController;
+import FXMLandControllers.JoinEventPage.JoinEventPageController;
 import FXMLandControllers.SettingsPage.SettingsPageController;
 import FXMLandControllers.TennisUpcomingEventsPage.TennisEventsController;
 import FXMLandControllers.VolleyballForumPage.VoleyballForumController;
@@ -320,5 +321,24 @@ public class ViewFactory {
             }
         }
         return friendsPageView;
+    }
+
+    public FlowPane getJoinEventView()
+    {
+        if(joinEventView == null)
+        {
+            try
+            {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("JoinEvent.fxml"));
+                JoinEventPageController controller = new JoinEventPageController();
+                loader.setController(controller);
+                joinEventView = loader.load();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return joinEventView;
     }
 }
