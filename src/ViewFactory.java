@@ -1,5 +1,6 @@
 import java.io.IOException;
 
+import FXMLandControllers.CreateEventPage.CreateEventPageController;
 import FXMLandControllers.SettingsPage.SettingsPageController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -166,5 +167,43 @@ public class ViewFactory {
             }
         }
         return settingsView;
+    }
+
+    public FlowPane getCreateEventView()
+    {
+        if(createEventView == null)
+        {
+            try
+            {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateEventPage.fxml"));
+                CreateEventPageController controller = new CreateEventPageController();
+                loader.setController(controller);
+                createEventView = loader.load();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return createEventView;
+    }
+
+    public AnchorPane getSideBarView()
+    {
+        if(sideBarView == null)
+        {
+            try
+            {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("SideBar.fxml"));
+                SideBarController controller = new SideBarController();
+                loader.setController(controller);
+                sideBarView = loader.load();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return sideBarView;
     }
 }
