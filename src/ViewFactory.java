@@ -1,5 +1,6 @@
 import java.io.IOException;
 
+import FXMLandControllers.SettingsPage.SettingsPageController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
@@ -147,5 +148,23 @@ public class ViewFactory {
     public Stage getStage()
     {
         return stage;
+    }
+    public VBox getSettingsView()
+    {
+        if(settingsView == null)
+        {
+            try
+            {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("SettingsPage.fxml"));
+                SettingsPageController controller = new SettingsPageController();
+                loader.setController(controller);
+                settingsView = loader.load();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return settingsView;
     }
 }
