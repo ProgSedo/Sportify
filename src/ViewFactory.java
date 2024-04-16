@@ -32,11 +32,6 @@ public class ViewFactory {
     private VBox friendsPageView;
     private FlowPane joinEventView;
 
-
-
-
-
-
     public ViewFactory()
     {
         this.decider = new SimpleStringProperty("");
