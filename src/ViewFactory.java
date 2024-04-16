@@ -3,6 +3,7 @@ import java.io.IOException;
 import FXMLandControllers.CreateEventPage.CreateEventPageController;
 import FXMLandControllers.FootballForumPage.FootballForumController;
 import FXMLandControllers.FootballUpcomingEventsPage.FootballEventsController;
+import FXMLandControllers.FriendsPage.FriendsPageController;
 import FXMLandControllers.SettingsPage.SettingsPageController;
 import FXMLandControllers.TennisUpcomingEventsPage.TennisEventsController;
 import FXMLandControllers.VolleyballForumPage.VoleyballForumController;
@@ -300,5 +301,24 @@ public class ViewFactory {
             }
         }
         return voleyballEventsView;
+    }
+
+    public VBox getFriendsPageView()
+    {
+        if(friendsPageView == null)
+        {
+            try
+            {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("FriendsPage.fxml"));
+                FriendsPageController controller = new FriendsPageController();
+                loader.setController(controller);
+                friendsPageView = loader.load();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return friendsPageView;
     }
 }
