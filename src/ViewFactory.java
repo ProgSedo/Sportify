@@ -226,4 +226,23 @@ public class ViewFactory {
         }
         return voleyballForumView;
     }
+    
+    public AnchorPane getTennisForumView()
+    {
+        if(tennisForumView == null)
+        {
+            try
+            {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("SideBar.fxml"));
+                TennisForumController controller = new TennisForumController();
+                loader.setController(controller);
+                tennisForumView = loader.load();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return tennisForumView;
+    }
 }
