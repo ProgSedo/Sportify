@@ -1,9 +1,10 @@
-package FXMLandControllers.HomePage;
+
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 public class HomePageController {
 
@@ -96,8 +97,11 @@ public class HomePageController {
     }
 
     @FXML
-    void menuBarButtonClicked(ActionEvent event) {
-
+    void menuBarButtonClicked(ActionEvent event) 
+    {
+        Stage stage =(Stage) menuBarButton.getScene().getWindow();
+        Model.getInstance().getViewFactory().closeStage(stage);
+        Model.getInstance().getViewFactory().getDecider().set("HomePage+");
     }
 
 }

@@ -2,6 +2,8 @@ package Models;
 
 import java.util.*;
 
+import javafx.scene.image.Image;
+
 public class User 
 {
     //personal info
@@ -95,7 +97,7 @@ public class User
     {
         return profilePhoto;
     }
-
+    
     public int getAge()
     {
         return age;
@@ -137,7 +139,7 @@ public class User
         this.surname = surname;
     }
 
-    public void setBirthday(Date birthday)
+    public void setBirthday(int birthday)
     {
         this.birthday = birthday;
     }

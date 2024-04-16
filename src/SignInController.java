@@ -46,13 +46,14 @@ public class SignInController{
     private Text welcomeText;
 
     @FXML
-    void registerButtonClicked(ActionEvent event) throws IOException
+    void registerButtonClicked(ActionEvent event)
     {
-        Model.getInstance().getViewFactory().showRegisterPage();
+        onRegister();
     }
 
     @FXML
-    void signInButtonClicked(ActionEvent event) throws IOException{
+    void signInButtonClicked(ActionEvent event){
+        /* 
         if (Database.checkEmail(emailTextField.getText())) {
             if (Database.checkPassword(emailTextField.getText(), passwordField.getText())) {
                 User user = Database.getUser(emailTextField.getText());
@@ -65,6 +66,23 @@ public class SignInController{
                  stage.show();
             }
         }
+        */
+        onSignIn();
+    }
+
+    private void onRegister()
+    {
+        Stage stage =(Stage) registerButton.getScene().getWindow();
+        Model.getInstance().getViewFactory().closeStage(stage);
+        Model.getInstance().getViewFactory().showRegisterPage();
+    }
+
+    private void onSignIn()
+    {
+        Stage stage =(Stage) signInButton.getScene().getWindow();
+        Model.getInstance().getViewFactory().closeStage(stage);
+        Model.getInstance().getViewFactory().showGeneralPane();
+        Model.getInstance().getViewFactory().getDecider().set("HomePage");
     }
 
     

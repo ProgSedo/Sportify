@@ -1,7 +1,6 @@
 import java.io.IOException;
 
 import FXMLandControllers.FriendsPage.FriendsPageController;
-import FXMLandControllers.HomePage.HomePageController;
 import Models.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -15,8 +14,9 @@ public class App extends Application{
     private static User user;
 
     @Override
-    public void start(Stage stage){
-        Model.getInstance().getViewFactory().showSignInWindow();
+    public void start(Stage stage)
+    {
+        Model.getInstance().getViewFactory().showSignInPage();
     }
 
     public static void main(String[] args){

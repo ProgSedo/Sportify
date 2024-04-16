@@ -86,8 +86,8 @@ public class RegisterController {
     }
 
     @FXML
-    void signInClicked(ActionEvent event) throws IOException{
-        Model.getInstance().getViewFactory().showSignInWindow();
+    void signInClicked(ActionEvent event){
+        onSignIn();
     }
 
     private boolean isTennisSelected() {
@@ -108,4 +108,10 @@ public class RegisterController {
             return false;
     }
 
+    private void onSignIn()
+    {
+        Stage stage =(Stage) signInButton.getScene().getWindow();
+        Model.getInstance().getViewFactory().closeStage(stage);
+        Model.getInstance().getViewFactory().showSignInPage();
+    }
 }
