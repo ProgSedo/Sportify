@@ -11,6 +11,8 @@ import javafx.stage.Stage;
 
 public class ViewFactory {
 
+    private Stage stage;
+
     private final StringProperty decider;
     
     private AnchorPane sideBarView;
@@ -22,6 +24,7 @@ public class ViewFactory {
     public ViewFactory()
     {
         this.decider = new SimpleStringProperty("");
+        stage = new Stage();
     }
 
     public StringProperty getDecider()
@@ -118,7 +121,6 @@ public class ViewFactory {
         {
             e.printStackTrace();
         }
-        Stage stage = new Stage();
         stage.setScene(scene);
         stage.sizeToScene();
         stage.setTitle("Sportify");
@@ -128,5 +130,10 @@ public class ViewFactory {
     public void closeStage(Stage stage)
     {
         stage.close();
+    }
+
+    public Stage getStage()
+    {
+        return stage;
     }
 }

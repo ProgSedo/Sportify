@@ -3,7 +3,9 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 
 public class MainBorderPaneController implements Initializable{
 
@@ -18,13 +20,15 @@ public class MainBorderPaneController implements Initializable{
             {
                 case "HomePage":
                     generalPane.setCenter(Model.getInstance().getViewFactory().getHomePageView());
+                    Model.getInstance().getViewFactory().getStage().sizeToScene();
                     break;
                 case "HomePage+":
-                    generalPane.setLeft(Model.getInstance().getViewFactory().getSideBarView());
                     generalPane.setCenter(Model.getInstance().getViewFactory().getHomePageView());
+                    generalPane.setLeft(Model.getInstance().getViewFactory().getSideBarView());
+                    Model.getInstance().getViewFactory().getStage().sizeToScene();
                     break;
                 default:
-                    generalPane.setCenter(Model.getInstance().getViewFactory().getHomePageView());
+                    generalPane.getChildren().add(Model.getInstance().getViewFactory().getHomePageView());
             }
         });
     }
