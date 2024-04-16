@@ -3,6 +3,7 @@ import java.io.IOException;
 import FXMLandControllers.CreateEventPage.CreateEventPageController;
 import FXMLandControllers.FootballForumPage.FootballForumController;
 import FXMLandControllers.SettingsPage.SettingsPageController;
+import FXMLandControllers.VolleyballForumPage.VoleyballForumController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
@@ -206,5 +207,23 @@ public class ViewFactory {
             }
         }
         return footballForumView;
+    }
+    public AnchorPane getVoleyballForumView()
+    {
+        if(voleyballForumView == null)
+        {
+            try
+            {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("VoleyballForumPage.fxml"));
+                VoleyballForumController controller = new VoleyballForumController();
+                loader.setController(controller);
+                voleyballForumView = loader.load();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return voleyballForumView;
     }
 }
