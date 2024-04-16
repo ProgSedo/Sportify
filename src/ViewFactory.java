@@ -13,15 +13,10 @@ import javafx.stage.Stage;
 public class ViewFactory {
 
     private Stage stage;
-
     private final StringProperty decider;
-    
     private AnchorPane sideBarView;
-
     private VBox profileView;
-
     private VBox homePageView;
-    
     private VBox settingsView;
     private FlowPane createEventView;
     private AnchorPane footballForumView;
@@ -30,6 +25,9 @@ public class ViewFactory {
     private AnchorPane footballEventsView;
     private AnchorPane tennisEventsView;
     private AnchorPane voleyballEventsView;
+    private VBox friendsPageView;
+    private FlowPane joinEventView;
+
 
 
 
