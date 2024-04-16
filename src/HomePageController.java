@@ -56,6 +56,13 @@ public class HomePageController {
     @FXML
     private Button menuBarButton;
 
+    private boolean sideBarOpen;
+
+    public HomePageController()
+    {
+        sideBarOpen = false;
+    }
+
     @FXML
     void createEventButtonClicked(ActionEvent event) {
 
@@ -99,7 +106,16 @@ public class HomePageController {
     @FXML
     void menuBarButtonClicked(ActionEvent event) 
     {
-        Model.getInstance().getViewFactory().getDecider().set("HomePage+");
+        if(sideBarOpen)
+        {
+            Model.getInstance().getViewFactory().getDecider().set("HomePage");
+            sideBarOpen = false;
+        }
+        else
+        {
+            Model.getInstance().getViewFactory().getDecider().set("HomePage+");
+            sideBarOpen = true;
+        }
     }
 
 }
