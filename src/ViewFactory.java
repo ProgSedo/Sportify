@@ -4,6 +4,7 @@ import FXMLandControllers.CreateEventPage.CreateEventPageController;
 import FXMLandControllers.FootballForumPage.FootballForumController;
 import FXMLandControllers.FootballUpcomingEventsPage.FootballEventsController;
 import FXMLandControllers.SettingsPage.SettingsPageController;
+import FXMLandControllers.TennisUpcomingEventsPage.TennisEventsController;
 import FXMLandControllers.VolleyballForumPage.VoleyballForumController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -260,5 +261,24 @@ public class ViewFactory {
             }
         }
         return footballEventsView;
+    }
+
+    public AnchorPane getTennisEventsView()
+    {
+        if(tennisEventsView == null)
+        {
+            try
+            {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("TennisEvents.fxml"));
+                TennisEventsController controller = new TennisEventsController();
+                loader.setController(controller);
+                tennisEventsView = loader.load();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return tennisEventsView;
     }
 }
