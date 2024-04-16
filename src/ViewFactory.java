@@ -5,6 +5,7 @@ import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -20,6 +21,19 @@ public class ViewFactory {
     private VBox profileView;
 
     private VBox homePageView;
+    
+    private VBox settingsView;
+    private FlowPane createEventView;
+    private AnchorPane footballForumView;
+    private AnchorPane tennisForumView;
+    private AnchorPane voleyballForumView;
+    private AnchorPane footballEventsView;
+    private AnchorPane tennisEventsView;
+    private AnchorPane voleyballEventsView;
+
+
+
+
 
     public ViewFactory()
     {
