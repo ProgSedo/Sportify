@@ -1,6 +1,7 @@
 import java.io.IOException;
 
 import FXMLandControllers.CreateEventPage.CreateEventPageController;
+import FXMLandControllers.FootballForumPage.FootballForumController;
 import FXMLandControllers.SettingsPage.SettingsPageController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -188,22 +189,22 @@ public class ViewFactory {
         return createEventView;
     }
 
-    public AnchorPane getSideBarView()
+    public AnchorPane getFootballForumView()
     {
-        if(sideBarView == null)
+        if(footballForumView == null)
         {
             try
             {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("SideBar.fxml"));
-                SideBarController controller = new SideBarController();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("FootballForumPage.fxml"));
+                FootballForumController controller = new FootballForumController();
                 loader.setController(controller);
-                sideBarView = loader.load();
+                footballForumView = loader.load();
             }
             catch(Exception e)
             {
                 e.printStackTrace();
             }
         }
-        return sideBarView;
+        return footballForumView;
     }
 }
