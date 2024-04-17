@@ -85,17 +85,17 @@ public class HomePageController {
 
     @FXML
     void forumsFootballButtonClicked(ActionEvent event) {
-
+        Model.getInstance().getViewFactory().getDecider().set("FootballForumPage");
     }
 
     @FXML
     void forumsTennisButtonClicked(ActionEvent event) {
-
+        Model.getInstance().getViewFactory().getDecider().set("TennisForumPage");
     }
 
     @FXML
     void forumsVolleyballButtonClicked(ActionEvent event) {
-
+        Model.getInstance().getViewFactory().getDecider().set("VoleyballForumPage");
     }
 
     @FXML
