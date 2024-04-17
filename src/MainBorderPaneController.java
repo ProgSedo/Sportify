@@ -41,6 +41,11 @@ public class MainBorderPaneController implements Initializable{
                     generalPane.setCenter(Model.getInstance().getViewFactory().getSettingsView());
                     Model.getInstance().getViewFactory().getStage().sizeToScene();
                     break;
+                case "Profile":
+                    clearLeft();
+                    generalPane.setCenter(Model.getInstance().getViewFactory().getProfileView());
+                    Model.getInstance().getViewFactory().getStage().sizeToScene();
+                    break;
                 default:
                     generalPane.getChildren().add(Model.getInstance().getViewFactory().getHomePageView());
             }
