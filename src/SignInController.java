@@ -77,7 +77,7 @@ public class SignInController{
 
     private void onSignIn()
     {
-        Stage stage =(Stage) signInButton.getScene().getWindow();
+        Stage stage = (Stage) signInButton.getScene().getWindow();
         Model.getInstance().getViewFactory().closeStage(stage);
         Model.getInstance().getViewFactory().showGeneralPane();
         Model.getInstance().getViewFactory().getDecider().set("HomePage");

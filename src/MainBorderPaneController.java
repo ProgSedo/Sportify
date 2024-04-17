@@ -19,18 +19,19 @@ public class MainBorderPaneController implements Initializable{
             switch(newVal)
             {
                 case "HomePage":
+                    clearLeft();
+                    clearCenter();
                     generalPane.setCenter(Model.getInstance().getViewFactory().getHomePageView());
                     generalPane.setLeft(Model.getInstance().getViewFactory().getEmptyPane());
                     Model.getInstance().getViewFactory().getStage().sizeToScene();
                     break;
                 case "HomePage+":
+                    clearLeft();
+                    clearCenter();
                     generalPane.setCenter(Model.getInstance().getViewFactory().getHomePageView());
                     generalPane.setLeft(Model.getInstance().getViewFactory().getSideBarView());
                     Model.getInstance().getViewFactory().getStage().sizeToScene();
                     break;
-                case "HomePage-":
-                    generalPane.setLeft(Model.getInstance().getViewFactory().getEmptyPane());
-                    Model.getInstance().getViewFactory().getStage().sizeToScene();
                 case "Logout":
                     Model.getInstance().getViewFactory().showSignInPage();
                     Model.getInstance().getViewFactory().getStage().sizeToScene();
@@ -38,6 +39,22 @@ public class MainBorderPaneController implements Initializable{
                     generalPane.getChildren().add(Model.getInstance().getViewFactory().getHomePageView());
             }
         });
+    }
+
+    private void clearLeft()
+    {
+        if(generalPane.getLeft() != null)
+        {
+            generalPane.getChildren().remove(generalPane.getLeft());
+        }
+    }
+
+    private void clearCenter()
+    {
+        if(generalPane.getCenter() != null)
+        {
+            generalPane.getChildren().remove(generalPane.getCenter());
+        }
     }
 
 }

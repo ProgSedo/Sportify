@@ -107,10 +107,11 @@ public class ViewFactory {
 
     public void showSignInPage()
     {
+        stage.close();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("SignIn.fxml"));
         SignInController controller = new SignInController();
         loader.setController(controller);
-        createStage(loader);
+        createNewStage(loader);
     }
 
     public void showRegisterPage()
@@ -140,6 +141,24 @@ public class ViewFactory {
         {
             e.printStackTrace();
         }
+        stage.setScene(scene);
+        stage.sizeToScene();
+        stage.setTitle("Sportify");
+        stage.show();
+    }
+
+    public void createNewStage(FXMLLoader loader)
+    {
+        Scene scene = null;
+        try
+        {
+            scene = new Scene(loader.load());
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        stage = new Stage();
         stage.setScene(scene);
         stage.sizeToScene();
         stage.setTitle("Sportify");
