@@ -45,8 +45,6 @@ public class MainBorderPaneController implements Initializable{
                     generalPane.setLeft(Model.getInstance().getViewFactory().getSideBarView());
                     Model.getInstance().getViewFactory().getStage().sizeToScene();
                     break;
-
-
                 case "Logout":
                     Model.getInstance().getViewFactory().showSignInPage();
                     Model.getInstance().getViewFactory().getStage().sizeToScene();
@@ -66,7 +64,6 @@ public class MainBorderPaneController implements Initializable{
                     clearCenter();
                     generalPane.setCenter(Model.getInstance().getViewFactory().getProfileView());
                     generalPane.setLeft(Model.getInstance().getViewFactory().getSideBarView());
-
                     Model.getInstance().getViewFactory().getStage().sizeToScene();
                     break;
                 default:
