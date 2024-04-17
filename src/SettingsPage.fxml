@@ -14,12 +14,15 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <FlowPane prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #0F5132;">
+      <FlowPane prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #0F5132; -fx-border-color: #000000;">
          <children>
-            <Button fx:id="sideBarButton" mnemonicParsing="false" onAction="#sideBarButtonClicked" text="Side bar">
+            <Button fx:id="sideBarButton" mnemonicParsing="false" onAction="#sideBarButtonClicked" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Side bar">
                <FlowPane.margin>
                   <Insets left="10.0" top="10.0" />
                </FlowPane.margin>
+               <effect>
+                  <DropShadow />
+               </effect>
             </Button>
          </children>
          <effect>
@@ -35,7 +38,7 @@
                         <Insets top="30.0" />
                      </VBox.margin>
                   </ImageView>
-                  <Button fx:id="changePP" mnemonicParsing="false" onAction="#changePPClicked" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #90EE90;" text="Change Profile Picture">
+                  <Button fx:id="changePP" mnemonicParsing="false" onAction="#changePPClicked" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Change Profile Picture">
                      <VBox.margin>
                         <Insets top="20.0" />
                      </VBox.margin>
@@ -83,7 +86,10 @@
                               <TextField fx:id="usernameTextField" prefHeight="30.0" prefWidth="190.0">
                                  <HBox.margin>
                                     <Insets left="10.0" />
-                                 </HBox.margin></TextField>
+                                 </HBox.margin>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect></TextField>
                            </children>
                            <padding>
                               <Insets left="5.0" />
@@ -102,7 +108,10 @@
                               <TextField fx:id="ageTextField" prefWidth="190.0">
                                  <HBox.margin>
                                     <Insets left="10.0" />
-                                 </HBox.margin></TextField>
+                                 </HBox.margin>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect></TextField>
                            </children>
                            <padding>
                               <Insets left="5.0" />
@@ -121,7 +130,10 @@
                               <TextField fx:id="emailTextField" prefWidth="190.0">
                                  <HBox.margin>
                                     <Insets left="10.0" />
-                                 </HBox.margin></TextField>
+                                 </HBox.margin>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect></TextField>
                            </children>
                            <padding>
                               <Insets left="5.0" />
@@ -140,7 +152,10 @@
                               <TextField fx:id="interestsTextField" prefWidth="190.0">
                                  <HBox.margin>
                                     <Insets left="10.0" />
-                                 </HBox.margin></TextField>
+                                 </HBox.margin>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect></TextField>
                            </children>
                            <padding>
                               <Insets left="5.0" />
@@ -149,7 +164,7 @@
                               <Insets left="20.0" />
                            </FlowPane.margin>
                         </HBox>
-                        <Button fx:id="informationSaveButton" mnemonicParsing="false" onAction="#saveButtonClicked" style="-fx-background-color: #90EE90;" text="Save">
+                        <Button fx:id="informationSaveButton" mnemonicParsing="false" onAction="#saveButtonClicked" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Save">
                            <FlowPane.margin>
                               <Insets left="37.0" />
                            </FlowPane.margin>
@@ -179,7 +194,7 @@
                                     <DropShadow />
                                  </effect>
                               </TextArea>
-                              <Button fx:id="aboutMeSaveButton" mnemonicParsing="false" onAction="#aboutMeSaveButtonClicked" style="-fx-background-color: #90EE90;" text="Save">
+                              <Button fx:id="aboutMeSaveButton" mnemonicParsing="false" onAction="#aboutMeSaveButtonClicked" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Save">
                                  <effect>
                                     <DropShadow />
                                  </effect>
@@ -212,7 +227,7 @@
                                     <DropShadow />
                                  </effect>
                               </TextField>
-                              <Button fx:id="changePasswordButton" mnemonicParsing="false" onAction="#changePasswordButtonClicked" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #90EE90;" text="Change Password">
+                              <Button fx:id="changePasswordButton" mnemonicParsing="false" onAction="#changePasswordButtonClicked" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Change Password">
                                  <effect>
                                     <DropShadow />
                                  </effect>
