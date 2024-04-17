@@ -75,7 +75,10 @@ public class ViewFactory {
         {
             try
             {
-                profileView = new FXMLLoader(getClass().getResource("ProfilePage.fxml")).load();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("ProfilePage.fxml"));
+                ProfilePageController controller = new ProfilePageController();
+                loader.setController(controller);
+                profileView = loader.load();
             }
             catch(Exception e)
             {
