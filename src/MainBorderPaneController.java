@@ -62,14 +62,45 @@ public class MainBorderPaneController implements Initializable{
                     generalPane.setCenter(Model.getInstance().getViewFactory().getVoleyballForumView());
                     Model.getInstance().getViewFactory().getStage().sizeToScene();
                     break;
-                case "VoleyballForumPage+":
+                case "FootballEvents":
                     clearLeft();
                     clearCenter();
-                    generalPane.setCenter(Model.getInstance().getViewFactory().getVoleyballForumView());
+                    generalPane.setCenter(Model.getInstance().getViewFactory().getFootballEventsView());
+                    Model.getInstance().getViewFactory().getStage().sizeToScene();
+                    break;
+                case "FootballEvents+":
+                    clearLeft();
+                    clearCenter();
+                    generalPane.setCenter(Model.getInstance().getViewFactory().getFootballEventsView());
                     generalPane.setLeft(Model.getInstance().getViewFactory().getSideBarView());
                     Model.getInstance().getViewFactory().getStage().sizeToScene();
                     break;
-
+                case "VoleyballEvents":
+                    clearLeft();
+                    clearCenter();
+                    generalPane.setCenter(Model.getInstance().getViewFactory().getVoleyballEventsView());
+                    Model.getInstance().getViewFactory().getStage().sizeToScene();
+                    break;
+                case "VoleyballEvents+":
+                    clearLeft();
+                    clearCenter();
+                    generalPane.setCenter(Model.getInstance().getViewFactory().getVoleyballEventsView());
+                    generalPane.setLeft(Model.getInstance().getViewFactory().getSideBarView());
+                    Model.getInstance().getViewFactory().getStage().sizeToScene();
+                    break;
+                case "TennisEvents":
+                    clearLeft();
+                    clearCenter();
+                    generalPane.setCenter(Model.getInstance().getViewFactory().getTennisEventsView());
+                    Model.getInstance().getViewFactory().getStage().sizeToScene();
+                    break;
+                case "TennisEvents+":
+                    clearLeft();
+                    clearCenter();
+                    generalPane.setCenter(Model.getInstance().getViewFactory().getTennisEventsView());
+                    generalPane.setLeft(Model.getInstance().getViewFactory().getSideBarView());
+                    Model.getInstance().getViewFactory().getStage().sizeToScene();
+                    break;
 
                 case "Logout":
                     Model.getInstance().getViewFactory().showSignInPage();

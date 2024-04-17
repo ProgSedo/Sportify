@@ -6,11 +6,17 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}",
+            "vmArgs": "--module-path javafx-sdk-22/lib --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
             "name": "App",
             "request": "launch",
             "mainClass": "App",
-            "projectName": "Sportify_b1eae2d2",
-            //"vmArgs": "--module-path javafx-sdk-17.0.10/lib --add-modules javafx.controls,javafx.fxml",
+            "projectName": "CS 102 labs_eb059a13",
             "vmArgs": "--module-path javafx-sdk-22/lib --add-modules javafx.controls,javafx.fxml"
         }
     ]
