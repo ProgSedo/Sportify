@@ -20,7 +20,7 @@ public class MainBorderPaneController implements Initializable{
             {
                 case "HomePage":
                     clearLeft();
-                    clearCenter();
+                    //clearCenter();
                     generalPane.setCenter(Model.getInstance().getViewFactory().getHomePageView());
                     generalPane.setLeft(Model.getInstance().getViewFactory().getEmptyPane());
                     Model.getInstance().getViewFactory().getStage().sizeToScene();
