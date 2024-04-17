@@ -37,11 +37,13 @@ public class ViewFactory {
     private AnchorPane voleyballEventsView;
     private VBox friendsPageView;
     private FlowPane joinEventView;
+    private FlowPane emptyPane;
 
     public ViewFactory()
     {
         this.decider = new SimpleStringProperty("");
         stage = new Stage();
+        emptyPane = null;
     }
 
     public StringProperty getDecider()
@@ -340,5 +342,10 @@ public class ViewFactory {
             }
         }
         return joinEventView;
+    }
+
+    public FlowPane getEmptyPane()
+    {
+        return this.emptyPane;
     }
 }
