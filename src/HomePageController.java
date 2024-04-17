@@ -70,17 +70,17 @@ public class HomePageController {
 
     @FXML
     void eventsFootballButtonClicked(ActionEvent event) {
-
+        Model.getInstance().getViewFactory().getDecider().set("FootballEvents");
     }
 
     @FXML
     void eventsTennisButtonClicked(ActionEvent event) {
-
+        Model.getInstance().getViewFactory().getDecider().set("TennisEvents");
     }
 
     @FXML
     void eventsVolleyballlButtonClicked(ActionEvent event) {
-
+        Model.getInstance().getViewFactory().getDecider().set("VoleyballEvents");
     }
 
     @FXML
