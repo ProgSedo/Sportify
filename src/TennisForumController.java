@@ -20,7 +20,7 @@ public class TennisForumController {
 
     @FXML
     void menuBarButtonClicked(ActionEvent event) {
-
+        Model.getInstance().getViewFactory().getDecider().set("TennisForumPage");
     }
 
 }
