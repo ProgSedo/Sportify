@@ -20,7 +20,7 @@ public class SideBarController {
 
     @FXML
     void homePageButtonClicked(ActionEvent event) {
-
+        Model.getInstance().getViewFactory().getDecider().set("Homepage");
     }
 
     @FXML
@@ -31,11 +31,13 @@ public class SideBarController {
 
     @FXML
     void profileButtonClicked(ActionEvent event) {
+        Model.getInstance().getViewFactory().getDecider().set("Profile");
 
     }
 
     @FXML
     void settingsButtonClicked(ActionEvent event) {
+        Model.getInstance().getViewFactory().getDecider().set("Settings");
 
     }
 
