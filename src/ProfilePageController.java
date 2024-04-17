@@ -35,7 +35,7 @@ public class ProfilePageController {
 
     @FXML
     void sideBarButtonClicked(ActionEvent event) {
-
+        Model.getInstance().getViewFactory().getDecider().set("Profile+");
     }
 
 }
