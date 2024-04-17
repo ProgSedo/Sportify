@@ -32,10 +32,18 @@ public class ProfilePageController {
 
     @FXML
     private TextField usernameTextField;
+    private boolean isSideOpen;
 
     @FXML
     void sideBarButtonClicked(ActionEvent event) {
-
+        if(isSideOpen == false) {
+        Model.getInstance().getViewFactory().getDecider().set("Profile+");
+        isSideOpen = true;
+        }
+        else {
+        Model.getInstance().getViewFactory().getDecider().set("Profile");
+        isSideOpen = false;
+        }
     }
 
 }
