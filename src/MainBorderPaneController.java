@@ -28,6 +28,9 @@ public class MainBorderPaneController implements Initializable{
                     generalPane.setLeft(Model.getInstance().getViewFactory().getSideBarView());
                     Model.getInstance().getViewFactory().getStage().sizeToScene();
                     break;
+                case "HomePage-":
+                    generalPane.setLeft(Model.getInstance().getViewFactory().getEmptyPane());
+                    Model.getInstance().getViewFactory().getStage().sizeToScene();
                 case "Logout":
                     Model.getInstance().getViewFactory().showSignInPage();
                     Model.getInstance().getViewFactory().getStage().sizeToScene();

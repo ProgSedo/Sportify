@@ -108,7 +108,7 @@ public class HomePageController {
     {
         if(sideBarOpen)
         {
-            Model.getInstance().getViewFactory().getDecider().set("HomePage");
+            Model.getInstance().getViewFactory().getDecider().set("HomePage-");
             sideBarOpen = false;
         }
         else
