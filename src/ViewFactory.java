@@ -2,12 +2,10 @@ import java.io.IOException;
 
 import FXMLandControllers.CreateEventPage.CreateEventPageController;
 import FXMLandControllers.FootballForumPage.FootballForumController;
-import FXMLandControllers.FootballUpcomingEventsPage.FootballEventsController;
+
 import FXMLandControllers.FriendsPage.FriendsPageController;
 import FXMLandControllers.JoinEventPage.JoinEventPageController;
-import FXMLandControllers.TennisUpcomingEventsPage.TennisEventsController;
-import FXMLandControllers.VolleyballForumPage.VoleyballForumController;
-import FXMLandControllers.VolleyballUpcomingEventsPage.VolleyballEventsController;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
@@ -222,7 +220,7 @@ public class ViewFactory {
             {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("FootballForumPage.fxml"));
                 FootballForumController controller = new FootballForumController();
-                loader.setController(controller);
+                loader.setController(controller); 
                 footballForumView = loader.load();
             }
             catch(Exception e)
