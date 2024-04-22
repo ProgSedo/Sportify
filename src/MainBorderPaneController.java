@@ -43,7 +43,7 @@ public class MainBorderPaneController implements Initializable{
                     generalPane.setCenter(Model.getInstance().getViewFactory().getFootballForumView());
                     generalPane.setLeft(Model.getInstance().getViewFactory().getSideBarView());
                     break;
-                case "VoleyballForumPage":
+                case "VolleyballForumPage":
                     generalPane.setCenter(Model.getInstance().getViewFactory().getVoleyballForumView());
                     break;
                 case "FootballEvents":
@@ -53,10 +53,10 @@ public class MainBorderPaneController implements Initializable{
                     generalPane.setCenter(Model.getInstance().getViewFactory().getFootballEventsView());
                     generalPane.setLeft(Model.getInstance().getViewFactory().getSideBarView());
                     break;
-                case "VoleyballEvents":
+                case "VolleyballEvents":
                     generalPane.setCenter(Model.getInstance().getViewFactory().getVoleyballEventsView());
                     break;
-                case "VoleyballEvents+":
+                case "VolleyballEvents+":
                     generalPane.setCenter(Model.getInstance().getViewFactory().getVoleyballEventsView());
                     generalPane.setLeft(Model.getInstance().getViewFactory().getSideBarView());
                     break;

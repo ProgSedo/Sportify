@@ -73,7 +73,7 @@ public class HomePageController {
 
     @FXML
     void eventsVolleyballlButtonClicked(ActionEvent event) {
-        Model.getInstance().getViewFactory().getDecider().set("VoleyballEvents");
+        Model.getInstance().getViewFactory().getDecider().set("VolleyballEvents");
     }
 
     @FXML
@@ -88,7 +88,7 @@ public class HomePageController {
 
     @FXML
     void forumsVolleyballButtonClicked(ActionEvent event) {
-        Model.getInstance().getViewFactory().getDecider().set("VoleyballForumPage");
+        Model.getInstance().getViewFactory().getDecider().set("VolleyballForumPage");
     }
 
     @FXML

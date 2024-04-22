@@ -4,14 +4,6 @@ import javafx.fxml.FXML;
 public class VolleyballEventsController {
 
     @FXML
-    private boolean isSideOpen;
-
-    public VolleyballEventsController()
-    {
-        isSideOpen = false;
-    }
-
-    @FXML
     void VolleyballEventsSideBar(ActionEvent event) 
     {
         Model.getInstance().getViewFactory().closeAndOpenSideBar();
