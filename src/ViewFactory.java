@@ -36,11 +36,24 @@ public class ViewFactory {
     private FlowPane joinEventView;
     private FlowPane emptyPane;
 
+    private boolean isSideBarOpen;
+
     public ViewFactory()
     {
         this.decider = new SimpleStringProperty("");
         stage = new Stage();
         emptyPane = null;
+        isSideBarOpen = false;
+    }
+
+    public boolean getIsSideBarOpen()
+    {
+        return isSideBarOpen;
+    }
+
+    public void closeAndOpenSideBar()
+    {
+        isSideBarOpen = !isSideBarOpen;
     }
 
     public StringProperty getDecider()
@@ -237,7 +250,7 @@ public class ViewFactory {
             try
             {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("VoleyballForumPage.fxml"));
-                VoleyballForumController controller = new VoleyballForumController();
+                VolleyballForumController controller = new VolleyballForumController();
                 loader.setController(controller);
                 voleyballForumView = loader.load();
             }
@@ -312,7 +325,7 @@ public class ViewFactory {
         {
             try
             {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("VoleyballEvents.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("VolleyballEvents.fxml"));
                 VolleyballEventsController controller = new VolleyballEventsController();
                 loader.setController(controller);
                 voleyballEventsView = loader.load();

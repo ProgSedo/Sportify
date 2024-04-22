@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
-public class VoleyballForumController {
+public class VolleyballForumController {
 
     @FXML
     private Button backButton;
@@ -22,7 +22,7 @@ public class VoleyballForumController {
 
     @FXML
     void menuBarButtonClicked(ActionEvent event) {
-
+        
     }
 
 }

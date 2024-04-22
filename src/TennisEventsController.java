@@ -7,17 +7,16 @@ public class TennisEventsController {
     private boolean isSideOpen;
 
     @FXML
-    void TennisEventsSideBar(ActionEvent event) {
-
-        if(isSideOpen == false) 
+    void TennisEventsSideBar(ActionEvent event) 
+    {
+        Model.getInstance().getViewFactory().closeAndOpenSideBar();
+        if(Model.getInstance().getViewFactory().getIsSideBarOpen()) 
         {
             Model.getInstance().getViewFactory().getDecider().set("TennisEvents+");
-            isSideOpen = true;
         }
         else 
         {
             Model.getInstance().getViewFactory().getDecider().set("TennisEvents");
-            isSideOpen = false; 
         }
     }
 }

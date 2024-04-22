@@ -6,18 +6,23 @@ public class VolleyballEventsController {
     @FXML
     private boolean isSideOpen;
 
+    public VolleyballEventsController()
+    {
+        isSideOpen = false;
+    }
+
     @FXML
-    void VolleyballEventsSideBar(ActionEvent event) {
+    void VolleyballEventsSideBar(ActionEvent event) 
+    {
+        Model.getInstance().getViewFactory().closeAndOpenSideBar();
         
-        if(isSideOpen == false) 
+        if(Model.getInstance().getViewFactory().getIsSideBarOpen()) 
         {
             Model.getInstance().getViewFactory().getDecider().set("VolleyballEvents+");
-            isSideOpen = true;
         }
         else 
         {
             Model.getInstance().getViewFactory().getDecider().set("VolleyballEvents");
-            isSideOpen = false; 
         }
     }
 }

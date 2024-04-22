@@ -78,15 +78,14 @@ public class SettingsPageController {
     @FXML
     void sideBarButtonClicked(ActionEvent event) 
     {
-        if(sideBarOpen)
+        Model.getInstance().getViewFactory().closeAndOpenSideBar();
+        if(Model.getInstance().getViewFactory().getIsSideBarOpen())
         {
-            Model.getInstance().getViewFactory().getDecider().set("Settings");
-            sideBarOpen = false;
+            Model.getInstance().getViewFactory().getDecider().set("Settings+");
         }
         else
         {
-            Model.getInstance().getViewFactory().getDecider().set("Settings+");
-            sideBarOpen = true;
+            Model.getInstance().getViewFactory().getDecider().set("Settings");
         }
     }
 

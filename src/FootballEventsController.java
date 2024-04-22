@@ -4,25 +4,17 @@ import javafx.fxml.FXML;
 public class FootballEventsController {
 
     @FXML
-    private boolean isSideOpen;
-
-    public FootballEventsController()
+    void FootballEventsSideBar(ActionEvent event) 
     {
-        isSideOpen = false;
-    }
-
-    @FXML
-    void FootballEventsSideBar(ActionEvent event) {
-
-        if(isSideOpen == false) 
+        Model.getInstance().getViewFactory().closeAndOpenSideBar();
+        
+        if(Model.getInstance().getViewFactory().getIsSideBarOpen()) 
         {
             Model.getInstance().getViewFactory().getDecider().set("FootballEvents+");
-            isSideOpen = true;
         }
         else 
         {
             Model.getInstance().getViewFactory().getDecider().set("FootballEvents");
-            isSideOpen = false; 
         }
     }
 }
