@@ -22,7 +22,7 @@ public class FootballForumController {
 
     @FXML
     void menuBarButtonClicked(ActionEvent event) 
-    {
+    {   System.out.println("a");
         Model.getInstance().getViewFactory().closeAndOpenSideBar();
         if(Model.getInstance().getViewFactory().getIsSideBarOpen())
         {
