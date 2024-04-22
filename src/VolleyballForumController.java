@@ -27,11 +27,11 @@ public class VolleyballForumController {
         
         if(Model.getInstance().getViewFactory().getIsSideBarOpen()) 
         {
-            Model.getInstance().getViewFactory().getDecider().set("VolleyballForum+");
+            Model.getInstance().getViewFactory().getDecider().set("VolleyballForumPage+");
         }
         else 
         {
-            Model.getInstance().getViewFactory().getDecider().set("VolleyballForum");
+            Model.getInstance().getViewFactory().getDecider().set("VolleyballForumPage");
         }    
     }
 

@@ -24,11 +24,11 @@ public class TennisForumController {
         Model.getInstance().getViewFactory().closeAndOpenSideBar();
         if(Model.getInstance().getViewFactory().getIsSideBarOpen()) 
         {
-            Model.getInstance().getViewFactory().getDecider().set("TennisForum+");
+            Model.getInstance().getViewFactory().getDecider().set("TennisForumPage+");
         }
         else 
         {
-            Model.getInstance().getViewFactory().getDecider().set("TennisForum");
+            Model.getInstance().getViewFactory().getDecider().set("TennisForumPage");
         }
     }
 
