@@ -36,10 +36,10 @@ public class MainBorderPaneController implements Initializable{
                     generalPane.setCenter(Model.getInstance().getViewFactory().getTennisForumView());
                     generalPane.setLeft(Model.getInstance().getViewFactory().getSideBarView());
                     break;
-                case "FootballForum":
+                case "FootballForumPage":
                     generalPane.setCenter(Model.getInstance().getViewFactory().getFootballForumView());
                     break;
-                case "FootballForum+":
+                case "FootballForumPage+":
                     generalPane.setCenter(Model.getInstance().getViewFactory().getFootballForumView());
                     generalPane.setLeft(Model.getInstance().getViewFactory().getSideBarView());
                     break;
