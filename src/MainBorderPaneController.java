@@ -1,6 +1,8 @@
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javax.xml.transform.Source;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
@@ -16,17 +18,15 @@ public class MainBorderPaneController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) 
     {
         Model.getInstance().getViewFactory().getDecider().addListener((observableValue, oldVal, newVal) -> {
+            clearLeft();
+            clearCenter();
             switch(newVal)
             {
                 case "HomePage":
-                    clearLeft();
-                    clearCenter();
                     generalPane.setCenter(Model.getInstance().getViewFactory().getHomePageView());
                     Model.getInstance().getViewFactory().getStage().sizeToScene();
                     break;
                 case "HomePage+":
-                    clearLeft();
-                    clearCenter();
                     generalPane.setCenter(Model.getInstance().getViewFactory().getHomePageView());
                     generalPane.setLeft(Model.getInstance().getViewFactory().getSideBarView());
                     Model.getInstance().getViewFactory().getStage().sizeToScene();
@@ -109,11 +109,20 @@ public class MainBorderPaneController implements Initializable{
                     break;
                 case "Settings":
                     clearLeft();
+                    clearCenter();
                     generalPane.setCenter(Model.getInstance().getViewFactory().getSettingsView());
+                    Model.getInstance().getViewFactory().getStage().sizeToScene();
+                    break;
+                case "Settings+":
+                    clearLeft();
+                    clearCenter();
+                    generalPane.setCenter(Model.getInstance().getViewFactory().getSettingsView());
+                    generalPane.setLeft(Model.getInstance().getViewFactory().getSideBarView());
                     Model.getInstance().getViewFactory().getStage().sizeToScene();
                     break;
                 case "Profile":
                     clearLeft();
+                    clearCenter();
                     generalPane.setCenter(Model.getInstance().getViewFactory().getProfileView());
                     Model.getInstance().getViewFactory().getStage().sizeToScene();
                     break;

@@ -6,6 +6,11 @@ public class FootballEventsController {
     @FXML
     private boolean isSideOpen;
 
+    public FootballEventsController()
+    {
+        isSideOpen = false;
+    }
+
     @FXML
     void FootballEventsSideBar(ActionEvent event) {
 

@@ -48,6 +48,13 @@ public class SettingsPageController {
     @FXML
     private TextField usernameTextField;
 
+    private boolean sideBarOpen;
+
+    public SettingsPageController()
+    {
+        sideBarOpen = false;
+    }
+
     @FXML
     void aboutMeSaveButtonClicked(ActionEvent event) {
 
@@ -69,8 +76,18 @@ public class SettingsPageController {
     }
 
     @FXML
-    void sideBarButtonClicked(ActionEvent event) {
-
+    void sideBarButtonClicked(ActionEvent event) 
+    {
+        if(sideBarOpen)
+        {
+            Model.getInstance().getViewFactory().getDecider().set("Settings");
+            sideBarOpen = false;
+        }
+        else
+        {
+            Model.getInstance().getViewFactory().getDecider().set("Settings+");
+            sideBarOpen = true;
+        }
     }
 
 }

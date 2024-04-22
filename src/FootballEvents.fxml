@@ -7,15 +7,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #066839;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FootballEventsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #066839;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ScrollPane layoutX="187.0" layoutY="165.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1B7D4F; -fx-border-color: #212224;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="35.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-        </content>
-      </ScrollPane>
-      <Button layoutX="717.0" layoutY="4.0" mnemonicParsing="false" onAction="#FootballEventsBackButtonClicked" prefHeight="30.0" prefWidth="69.0" text="Back" AnchorPane.bottomAnchor="569.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="4.0" />
-      <Label alignment="CENTER" layoutX="302.0" layoutY="6.0" prefHeight="23.0" prefWidth="243.0" style="-fx-background-color: #90EE90;" text="Upcoming Football Matches" textAlignment="CENTER" AnchorPane.bottomAnchor="569.0" AnchorPane.topAnchor="6.0">
+      <ScrollPane layoutX="187.0" layoutY="165.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1B7D4F; -fx-border-color: #212224;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0" />
+      <Label alignment="CENTER" layoutX="302.0" layoutY="6.0" prefHeight="41.0" prefWidth="244.0" style="-fx-background-color: #90EE90; -fx-background-radius: 5;" text="Upcoming Football Matches" textAlignment="CENTER" AnchorPane.bottomAnchor="553.0" AnchorPane.topAnchor="6.0">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>
@@ -23,6 +18,9 @@
             <DropShadow />
          </effect>
       </Label>
-      <Button layoutX="10.0" layoutY="3.0" mnemonicParsing="false" onAction="#FootballEventsSideBar" prefHeight="30.0" prefWidth="69.0" text="Side Bar" AnchorPane.bottomAnchor="569.0" AnchorPane.topAnchor="4.0" />
+      <Button layoutX="10.0" layoutY="3.0" mnemonicParsing="false" onAction="#FootballEventsSideBar" prefHeight="41.0" prefWidth="69.0" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Side Bar" AnchorPane.bottomAnchor="555.0" AnchorPane.topAnchor="4.0">
+         <effect>
+            <DropShadow />
+         </effect></Button>
    </children>
 </AnchorPane>
