@@ -10,7 +10,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class App extends Application{
-    private static User user;
+    //private static User user;
 
     @Override
     public void start(Stage stage)
