@@ -1,4 +1,4 @@
-package FXMLandControllers.CreateEventPage;
+
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -59,7 +59,15 @@ public class CreateEventPageController {
 
     @FXML
     void sideBarButtonClicked(ActionEvent event) {
-
+        Model.getInstance().getViewFactory().closeAndOpenSideBar();
+        if(Model.getInstance().getViewFactory().getIsSideBarOpen())
+        {
+            Model.getInstance().getViewFactory().getDecider().set("CreateEvents+");
+        }
+        else
+        {
+            Model.getInstance().getViewFactory().getDecider().set("CreateEvents");
+        }
     }
 
 }

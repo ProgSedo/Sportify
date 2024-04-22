@@ -19,8 +19,17 @@ public class TennisForumController {
     private Label tennisTitleLabel;
 
     @FXML
-    void menuBarButtonClicked(ActionEvent event) {
-        Model.getInstance().getViewFactory().getDecider().set("TennisForumPage");
+    void menuBarButtonClicked(ActionEvent event) 
+    {
+        Model.getInstance().getViewFactory().closeAndOpenSideBar();
+        if(Model.getInstance().getViewFactory().getIsSideBarOpen()) 
+        {
+            Model.getInstance().getViewFactory().getDecider().set("TennisForum+");
+        }
+        else 
+        {
+            Model.getInstance().getViewFactory().getDecider().set("TennisForum");
+        }
     }
 
 }

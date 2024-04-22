@@ -1,4 +1,4 @@
-package FXMLandControllers.FriendsPage;
+
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -71,8 +71,17 @@ public class FriendsPageController {
     }
 
     @FXML
-    void sideBarButtonClicked(ActionEvent event) {
-
+    void sideBarButtonClicked(ActionEvent event) 
+    {
+        Model.getInstance().getViewFactory().closeAndOpenSideBar();
+        if(Model.getInstance().getViewFactory().getIsSideBarOpen())
+        {
+            Model.getInstance().getViewFactory().getDecider().set("FriendsPage+");
+        }
+        else
+        {
+            Model.getInstance().getViewFactory().getDecider().set("FriendsPage");
+        }
     }
 
 }

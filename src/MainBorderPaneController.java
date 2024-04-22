@@ -84,6 +84,20 @@ public class MainBorderPaneController implements Initializable{
                     generalPane.setCenter(Model.getInstance().getViewFactory().getProfileView());
                     generalPane.setLeft(Model.getInstance().getViewFactory().getSideBarView());
                     break;
+                case "FriendsPage":
+                    generalPane.setCenter(Model.getInstance().getViewFactory().getFriendsPageView());
+                    break;
+                case "FriendsPage+":
+                    generalPane.setCenter(Model.getInstance().getViewFactory().getFriendsPageView());
+                    generalPane.setLeft(Model.getInstance().getViewFactory().getSideBarView());
+                    break;
+                case "CreateEvents":
+                    generalPane.setCenter(Model.getInstance().getViewFactory().getCreateEventView());
+                    break;
+                case "CreateEvents+":
+                    generalPane.setCenter(Model.getInstance().getViewFactory().getCreateEventView());
+                    generalPane.setLeft(Model.getInstance().getViewFactory().getSideBarView());
+                    break;
             }
             Model.getInstance().getViewFactory().getStage().sizeToScene();
         });

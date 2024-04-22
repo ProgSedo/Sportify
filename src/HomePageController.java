@@ -58,7 +58,7 @@ public class HomePageController {
 
     @FXML
     void createEventButtonClicked(ActionEvent event) {
-
+        Model.getInstance().getViewFactory().getDecider().set("CreateEvents");
     }
 
     @FXML
@@ -93,7 +93,7 @@ public class HomePageController {
 
     @FXML
     void friendsPageButtonClicked(ActionEvent event) {
-
+        Model.getInstance().getViewFactory().getDecider().set("FriendsPage");
     }
 
     @FXML

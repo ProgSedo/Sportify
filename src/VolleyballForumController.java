@@ -21,8 +21,18 @@ public class VolleyballForumController {
     private Label voleyballTitleLabel;
 
     @FXML
-    void menuBarButtonClicked(ActionEvent event) {
+    void menuBarButtonClicked(ActionEvent event) 
+    {
+        Model.getInstance().getViewFactory().closeAndOpenSideBar();
         
+        if(Model.getInstance().getViewFactory().getIsSideBarOpen()) 
+        {
+            Model.getInstance().getViewFactory().getDecider().set("VolleyballForum+");
+        }
+        else 
+        {
+            Model.getInstance().getViewFactory().getDecider().set("VolleyballForum");
+        }    
     }
 
 }

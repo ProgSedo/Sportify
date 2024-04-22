@@ -20,10 +20,13 @@
             <DropShadow />
          </effect>
          <children>
-            <Button fx:id="sideBarButton" mnemonicParsing="false" onAction="#sideBarButtonClicked" text="Side Bar">
+            <Button fx:id="sideBarButton" mnemonicParsing="false" onAction="#sideBarButtonClicked" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Side Bar">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
+               <effect>
+                  <DropShadow />
+               </effect>
             </Button>
          </children>
       </HBox>

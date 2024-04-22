@@ -1,9 +1,6 @@
 import java.io.IOException;
 
-import FXMLandControllers.CreateEventPage.CreateEventPageController;
 import FXMLandControllers.FootballForumPage.FootballForumController;
-
-import FXMLandControllers.FriendsPage.FriendsPageController;
 import FXMLandControllers.JoinEventPage.JoinEventPageController;
 
 import javafx.beans.property.SimpleStringProperty;
@@ -27,7 +24,7 @@ public class ViewFactory {
     private FlowPane createEventView;
     private AnchorPane footballForumView;
     private AnchorPane tennisForumView;
-    private AnchorPane voleyballForumView;
+    private AnchorPane volleyballForumView;
 
     private AnchorPane footballEventsView;
     private AnchorPane tennisEventsView;
@@ -245,21 +242,21 @@ public class ViewFactory {
     }
     public AnchorPane getVoleyballForumView()
     {
-        if(voleyballForumView == null)
+        if(volleyballForumView == null)
         {
             try
             {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("VoleyballForumPage.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("VolleyballForumPage.fxml"));
                 VolleyballForumController controller = new VolleyballForumController();
                 loader.setController(controller);
-                voleyballForumView = loader.load();
+                volleyballForumView = loader.load();
             }
             catch(Exception e)
             {
                 e.printStackTrace();
             }
         }
-        return voleyballForumView;
+        return volleyballForumView;
     }
     
     public AnchorPane getTennisForumView()

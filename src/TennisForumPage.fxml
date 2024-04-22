@@ -9,35 +9,29 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #90EE90;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <FlowPane prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #0F5132;">
+      <FlowPane prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #0F5132; -fx-border-color: #000000;">
          <children>
-            <Button fx:id="menuBarButton" mnemonicParsing="false" onAction="#menuBarButtonClicked" prefHeight="30.0" prefWidth="69.0" style="-fx-background-color: #ffffff;" text="Side Bar">
+            <Button fx:id="menuBarButton" mnemonicParsing="false" onAction="#menuBarButtonClicked" prefHeight="32.0" prefWidth="69.0" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Side Bar">
                <FlowPane.margin>
                   <Insets bottom="10.0" left="10.0" top="10.0" />
                </FlowPane.margin>
+               <effect>
+                  <DropShadow />
+               </effect>
             </Button>
-            <FlowPane alignment="CENTER_RIGHT" prefHeight="51.0" prefWidth="718.0">
-               <children>
-                  <Button fx:id="backButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="68.0" style="-fx-background-color: #ffffff;" text="Back">
-                     <FlowPane.margin>
-                        <Insets right="10.0" />
-                     </FlowPane.margin>
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-               </children>
-            </FlowPane>
+            <FlowPane alignment="CENTER_RIGHT" prefHeight="51.0" prefWidth="718.0" />
          </children>
          <effect>
             <DropShadow />
          </effect>
       </FlowPane>
-      <TextArea fx:id="tennisForumTextArea" layoutX="20.0" layoutY="127.0" prefHeight="450.0" prefWidth="759.0" style="-fx-background-color: #999999; -fx-background-radius: 5;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
-      <Label fx:id="tennisTitleLabel" alignment="CENTER" layoutY="51.0" prefHeight="78.0" prefWidth="739.0" style="-fx-background-color: #9999999;" text="TENNIS🎾" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <TextArea fx:id="tennisForumTextArea" layoutX="20.0" layoutY="127.0" prefHeight="450.0" prefWidth="759.0" style="-fx-background-radius: 5;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+         <effect>
+            <DropShadow />
+         </effect></TextArea>
+      <Label fx:id="tennisTitleLabel" alignment="CENTER" layoutY="51.0" prefHeight="78.0" prefWidth="739.0" text="TENNIS🎾" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <font>
             <Font size="40.0" />
          </font>

@@ -21,8 +21,17 @@ public class FootballForumController {
     private Button menuBarButton;
 
     @FXML
-    void menuBarButtonClicked(ActionEvent event) {
-
+    void menuBarButtonClicked(ActionEvent event) 
+    {
+        Model.getInstance().getViewFactory().closeAndOpenSideBar();
+        if(Model.getInstance().getViewFactory().getIsSideBarOpen())
+        {
+            Model.getInstance().getViewFactory().getDecider().set("FootballForumPage+");
+        }
+        else
+        {
+            Model.getInstance().getViewFactory().getDecider().set("FootballForumPage");
+        }
     }
 
 }

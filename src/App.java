@@ -1,6 +1,5 @@
 import java.io.IOException;
 
-import FXMLandControllers.FriendsPage.FriendsPageController;
 import Models.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

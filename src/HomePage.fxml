@@ -13,7 +13,7 @@
    <children>
       <FlowPane prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #0F5132; -fx-border-color: #000000;">
          <children>
-            <Button fx:id="menuBarButton" mnemonicParsing="false" onAction="#menuBarButtonClicked" prefHeight="30.0" prefWidth="69.0" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Side Bar">
+            <Button fx:id="menuBarButton" mnemonicParsing="false" onAction="#menuBarButtonClicked" prefHeight="32.0" prefWidth="69.0" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Side Bar">
                <FlowPane.margin>
                   <Insets bottom="10.0" left="10.0" top="10.0" />
                </FlowPane.margin>
