@@ -42,6 +42,16 @@ public class ProfilePageController {
     @FXML
     private Button volleyballEventsButton;
 
+    public ProfilePageController()
+    {
+        aboutMeTextArea.setEditable(false);
+        ageTextField.setEditable(false);
+        commentsTextArea.setEditable(false);
+        emailTextField.setEditable(false);
+        interestsTextField.setEditable(false);
+        usernameTextField.setEditable(false);
+    }
+
     @FXML
     void sideBarButtonClicked(ActionEvent event) {
         Model.getInstance().getViewFactory().closeAndOpenSideBar();
