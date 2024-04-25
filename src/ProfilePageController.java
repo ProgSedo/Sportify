@@ -34,6 +34,15 @@ public class ProfilePageController {
     private TextField usernameTextField;
 
     @FXML
+    private Button footballEventsButton;
+
+    @FXML
+    private Button tennisEventsButton;
+
+    @FXML
+    private Button volleyballEventsButton;
+
+    @FXML
     void sideBarButtonClicked(ActionEvent event) {
         Model.getInstance().getViewFactory().closeAndOpenSideBar();
         if(Model.getInstance().getViewFactory().getIsSideBarOpen()) 
@@ -44,6 +53,21 @@ public class ProfilePageController {
         {
             Model.getInstance().getViewFactory().getDecider().set("Profile");
         }
+    }
+
+    @FXML
+    void footballEventsButtonClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void tennisEventsButtonClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void volleyballEventsButtonClicked(ActionEvent event) {
+
     }
 
 }
