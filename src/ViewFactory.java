@@ -26,9 +26,9 @@ public class ViewFactory {
     private AnchorPane tennisForumView;
     private AnchorPane volleyballForumView;
 
-    private AnchorPane footballEventsView;
-    private AnchorPane tennisEventsView;
-    private AnchorPane voleyballEventsView;
+    private FlowPane footballEventsView;
+    private FlowPane tennisEventsView;
+    private FlowPane voleyballEventsView;
     private VBox friendsPageView;
     private FlowPane joinEventView;
     private FlowPane emptyPane;
@@ -278,13 +278,13 @@ public class ViewFactory {
         return tennisForumView;
     }
 
-    public AnchorPane getFootballEventsView()
+    public FlowPane getFootballEventsView()
     {
         if(footballEventsView== null)
         {
             try
             {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("FootballEvents.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("FootballEventsPage.fxml"));
                 FootballEventsController controller = new FootballEventsController();
                 loader.setController(controller);
                 footballEventsView = loader.load();
@@ -297,13 +297,13 @@ public class ViewFactory {
         return footballEventsView;
     }
 
-    public AnchorPane getTennisEventsView()
+    public FlowPane getTennisEventsView()
     {
         if(tennisEventsView == null)
         {
             try
             {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("TennisEvents.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("TennisEventsPage.fxml"));
                 TennisEventsController controller = new TennisEventsController();
                 loader.setController(controller);
                 tennisEventsView = loader.load();
@@ -316,13 +316,13 @@ public class ViewFactory {
         return tennisEventsView;
     }
 
-    public AnchorPane getVoleyballEventsView()
+    public FlowPane getVoleyballEventsView()
     {
         if(voleyballEventsView == null)
         {
             try
             {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("VolleyballEvents.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("VolleyballEventsPage.fxml"));
                 VolleyballEventsController controller = new VolleyballEventsController();
                 loader.setController(controller);
                 voleyballEventsView = loader.load();

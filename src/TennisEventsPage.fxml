@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #0F5132; -fx-border-color: #000000;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Button fx:id="sideBarButton" mnemonicParsing="false" onAction="#sideBarButtonClicked" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Side Bar">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <FlowPane alignment="CENTER" prefHeight="510.0" prefWidth="760.0" style="-fx-border-color: #000000; -fx-background-color: #90EE90;">
+         <FlowPane.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </FlowPane.margin>
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <VBox alignment="CENTER" prefHeight="480.0" prefWidth="360.0" spacing="20.0" style="-fx-border-color: #000000; -fx-background-color: #0F5132;">
+               <children>
+                  <Label alignment="CENTER" text="Tennis Matches" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="tennisMatchesInfoArea" prefHeight="120.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets left="15.0" right="15.0" />
+                     </VBox.margin>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </TextArea>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+                     <VBox.margin>
+                        <Insets left="15.0" right="15.0" />
+                     </VBox.margin>
+                     <children>
+                        <Button fx:id="previousMatchButton" mnemonicParsing="false" onAction="#previousMatchButtonClicked" prefWidth="80.0" text="Previous">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Button>
+                        <Button fx:id="nextMatchButton" mnemonicParsing="false" onAction="#nextMatchButtonClicked" prefWidth="80.0" text="Next">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Button fx:id="joinMatchButton" mnemonicParsing="false" onAction="#joinMatchButtonClicked" prefWidth="120.0" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Join Individually">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+               </children>
+               <FlowPane.margin>
+                  <Insets bottom="10.0" right="5.0" top="10.0" />
+               </FlowPane.margin>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="480.0" prefWidth="360.0" spacing="20.0" style="-fx-border-color: #000000; -fx-background-color: #0F5132;">
+               <children>
+                  <Label alignment="CENTER" text="Tennis Tournaments" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="tennisTournamentsInfoArea" prefHeight="120.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets left="15.0" right="15.0" />
+                     </VBox.margin>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </TextArea>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+                     <children>
+                        <Button fx:id="previousTournamentButton" mnemonicParsing="false" onAction="#previousTournamentButtonClicked" prefWidth="80.0" text="Previous">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Button>
+                        <Button fx:id="nextTournamentButton" mnemonicParsing="false" onAction="#nextTournamentButtonClicked" prefWidth="80.0" text="Next">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Button fx:id="joinTournamentButton" mnemonicParsing="false" onAction="#joinTournamentButtonClicked" prefWidth="120.0" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Join as a Team">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+               </children>
+               <FlowPane.margin>
+                  <Insets bottom="10.0" left="5.0" top="10.0" />
+               </FlowPane.margin>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </VBox>
+         </children>
+      </FlowPane>
+   </children>
+</FlowPane>

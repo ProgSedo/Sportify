@@ -9,9 +9,6 @@ import javafx.scene.control.TextArea;
 public class FootballForumController {
 
     @FXML
-    private Button backButton;
-
-    @FXML
     private TextArea footBallForumTextArea;
 
     @FXML
@@ -22,7 +19,7 @@ public class FootballForumController {
 
     @FXML
     void menuBarButtonClicked(ActionEvent event) 
-    {   System.out.println("a");
+    {   
         Model.getInstance().getViewFactory().closeAndOpenSideBar();
         if(Model.getInstance().getViewFactory().getIsSideBarOpen())
         {
