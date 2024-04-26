@@ -44,12 +44,14 @@ public class ProfilePageController {
 
     public ProfilePageController()
     {
+        /* 
         aboutMeTextArea.setEditable(false);
         ageTextField.setEditable(false);
         commentsTextArea.setEditable(false);
         emailTextField.setEditable(false);
         interestsTextField.setEditable(false);
         usernameTextField.setEditable(false);
+        */
     }
 
     @FXML
@@ -66,18 +68,24 @@ public class ProfilePageController {
     }
 
     @FXML
-    void footballEventsButtonClicked(ActionEvent event) {
-
+    void footballEventsButtonClicked(ActionEvent event) 
+    {
+        Model.getInstance().getViewFactory().closeSideBar();
+        Model.getInstance().getViewFactory().getDecider().set("MyFootballEvents");
     }
 
     @FXML
-    void tennisEventsButtonClicked(ActionEvent event) {
-
+    void tennisEventsButtonClicked(ActionEvent event) 
+    {
+        Model.getInstance().getViewFactory().closeSideBar();
+        Model.getInstance().getViewFactory().getDecider().set("MyTennisEvents");
     }
 
     @FXML
-    void volleyballEventsButtonClicked(ActionEvent event) {
-
+    void volleyballEventsButtonClicked(ActionEvent event) 
+    {
+        Model.getInstance().getViewFactory().closeSideBar();
+        Model.getInstance().getViewFactory().getDecider().set("MyVolleyballEvents");
     }
 
 }

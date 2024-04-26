@@ -33,7 +33,12 @@ public class ViewFactory {
     private FlowPane joinEventView;
     private FlowPane emptyPane;
 
+    private FlowPane myTennisEvents;
+    private FlowPane myFootballEvents;
+    private FlowPane myVolleyballEvents;
+
     private boolean isSideBarOpen;
+
 
     public ViewFactory()
     {
@@ -51,6 +56,11 @@ public class ViewFactory {
     public void closeAndOpenSideBar()
     {
         isSideBarOpen = !isSideBarOpen;
+    }
+
+    public void closeSideBar()
+    {
+        isSideBarOpen = false;
     }
 
     public StringProperty getDecider()
@@ -352,6 +362,63 @@ public class ViewFactory {
             }
         }
         return friendsPageView;
+    }
+
+    public FlowPane getMyTennisEvents()
+    {
+        if(myTennisEvents == null)
+        {
+            try
+            {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("MyTennisEvents.fxml"));
+                MyTennisEventsController controller = new MyTennisEventsController();
+                loader.setController(controller);
+                myTennisEvents = loader.load();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return myTennisEvents;
+    }
+
+    public FlowPane getMyFootballEvents()
+    {
+        if(myTennisEvents == null)
+        {
+            try
+            {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("MyFootballEvents.fxml"));
+                MyFootballEventsController controller = new MyFootballEventsController();
+                loader.setController(controller);
+                myFootballEvents = loader.load();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return myFootballEvents;
+    }
+
+    public FlowPane getMyVolleyballEvents()
+    {
+        if(myVolleyballEvents == null)
+        {
+            try
+            {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("MyVolleyballEvents.fxml"));
+                MyVolleyballEventsController controller = new MyVolleyballEventsController();
+                loader.setController(controller);
+                myVolleyballEvents = loader.load();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return myVolleyballEvents;
     }
 
     public FlowPane getJoinEventView()

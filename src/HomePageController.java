@@ -57,42 +57,58 @@ public class HomePageController {
     private Button menuBarButton;
 
     @FXML
-    void createEventButtonClicked(ActionEvent event) {
+    void createEventButtonClicked(ActionEvent event) 
+    {
+        Model.getInstance().getViewFactory().closeSideBar();
         Model.getInstance().getViewFactory().getDecider().set("CreateEvents");
     }
 
     @FXML
-    void eventsFootballButtonClicked(ActionEvent event) {
+    void eventsFootballButtonClicked(ActionEvent event) 
+    {
+        Model.getInstance().getViewFactory().closeSideBar();
         Model.getInstance().getViewFactory().getDecider().set("FootballEvents");
     }
 
     @FXML
-    void eventsTennisButtonClicked(ActionEvent event) {
+    void eventsTennisButtonClicked(ActionEvent event) 
+    {
+        Model.getInstance().getViewFactory().closeSideBar();
         Model.getInstance().getViewFactory().getDecider().set("TennisEvents");
     }
 
     @FXML
-    void eventsVolleyballlButtonClicked(ActionEvent event) {
+    void eventsVolleyballlButtonClicked(ActionEvent event) 
+    {
+        Model.getInstance().getViewFactory().closeSideBar();
         Model.getInstance().getViewFactory().getDecider().set("VolleyballEvents");
     }
 
     @FXML
-    void forumsFootballButtonClicked(ActionEvent event) {
+    void forumsFootballButtonClicked(ActionEvent event) 
+    {
+        Model.getInstance().getViewFactory().closeSideBar();
         Model.getInstance().getViewFactory().getDecider().set("FootballForumPage");
     }
 
     @FXML
-    void forumsTennisButtonClicked(ActionEvent event) {
+    void forumsTennisButtonClicked(ActionEvent event) 
+    {
+        Model.getInstance().getViewFactory().closeSideBar();
         Model.getInstance().getViewFactory().getDecider().set("TennisForumPage");
     }
 
     @FXML
-    void forumsVolleyballButtonClicked(ActionEvent event) {
+    void forumsVolleyballButtonClicked(ActionEvent event) 
+    {
+        Model.getInstance().getViewFactory().closeSideBar();
         Model.getInstance().getViewFactory().getDecider().set("VolleyballForumPage");
     }
 
     @FXML
-    void friendsPageButtonClicked(ActionEvent event) {
+    void friendsPageButtonClicked(ActionEvent event) 
+    {
+        Model.getInstance().getViewFactory().closeSideBar();
         Model.getInstance().getViewFactory().getDecider().set("FriendsPage");
     }
 

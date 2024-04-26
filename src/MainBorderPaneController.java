@@ -98,6 +98,27 @@ public class MainBorderPaneController implements Initializable{
                     generalPane.setCenter(Model.getInstance().getViewFactory().getCreateEventView());
                     generalPane.setLeft(Model.getInstance().getViewFactory().getSideBarView());
                     break;
+                case "MyFootballEvents+":
+                    generalPane.setCenter(Model.getInstance().getViewFactory().getMyFootballEvents());
+                    generalPane.setLeft(Model.getInstance().getViewFactory().getSideBarView());
+                    break;
+                case "MyFootballEvents":
+                    generalPane.setCenter(Model.getInstance().getViewFactory().getMyFootballEvents());
+                    break;
+                case "MyTennisEvents+":
+                    generalPane.setCenter(Model.getInstance().getViewFactory().getMyTennisEvents());
+                    generalPane.setLeft(Model.getInstance().getViewFactory().getSideBarView());
+                    break;
+                case "MyTennisEvents":
+                    generalPane.setCenter(Model.getInstance().getViewFactory().getMyTennisEvents());
+                    break;
+                case "MyVolleyballEvents+":
+                    generalPane.setCenter(Model.getInstance().getViewFactory().getMyVolleyballEvents());
+                    generalPane.setLeft(Model.getInstance().getViewFactory().getSideBarView());
+                    break;
+                case "MyVolleyballEvents":
+                    generalPane.setCenter(Model.getInstance().getViewFactory().getMyVolleyballEvents());
+                    break;
             }
             Model.getInstance().getViewFactory().getStage().sizeToScene();
         });
