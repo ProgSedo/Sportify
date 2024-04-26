@@ -1,5 +1,6 @@
 package Models;
 
+
 import java.util.*;
 
 import javafx.scene.image.Image;
@@ -38,6 +39,8 @@ public class User
     private int tennisGamesWon;
     private int tennisGamesLost;
 
+    //Teams
+    private Team team;
 
 
     public User(String userEmail, String userPassword, int birthYear,
