@@ -1,5 +1,3 @@
-
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -18,16 +16,16 @@ public class FootballForumController {
     private Button menuBarButton;
 
     @FXML
-    void menuBarButtonClicked(ActionEvent event) 
-    {   
+    void menuBarButtonClicked(ActionEvent event) {
+        System.out.println("b");
         Model.getInstance().getViewFactory().closeAndOpenSideBar();
-        if(Model.getInstance().getViewFactory().getIsSideBarOpen())
+        if(Model.getInstance().getViewFactory().getIsSideBarOpen()) 
         {
-            Model.getInstance().getViewFactory().getDecider().set("FootballForumPage+");
+            Model.getInstance().getViewFactory().getDecider().set("TennisForumPage+");
         }
-        else
+        else 
         {
-            Model.getInstance().getViewFactory().getDecider().set("FootballForumPage");
+            Model.getInstance().getViewFactory().getDecider().set("TennisForumPage");
         }
     }
 

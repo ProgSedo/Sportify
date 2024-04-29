@@ -21,6 +21,7 @@ public class TennisForumController {
     @FXML
     void menuBarButtonClicked(ActionEvent event) 
     {
+        System.out.println("b");
         Model.getInstance().getViewFactory().closeAndOpenSideBar();
         if(Model.getInstance().getViewFactory().getIsSideBarOpen()) 
         {
