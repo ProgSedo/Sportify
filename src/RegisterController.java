@@ -1,12 +1,15 @@
 
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import Models.Database;
 import Models.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -17,7 +20,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class RegisterController {
+public class RegisterController implements Initializable{
     Stage stage;
     Scene scene;
     
@@ -69,6 +72,21 @@ public class RegisterController {
     @FXML
     private ComboBox<Integer> yearComboBox;
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        // Get the current year
+        int currentYear = java.time.Year.now().getValue();
+
+        // Add years to the ComboBox (e.g., from 1900 to the current year)
+        for (int year = 1900; year <= currentYear; year++) {
+            yearComboBox.getItems().add(year);
+        }
+
+        // Optionally, set a default value for the ComboBox
+        yearComboBox.getSelectionModel().selectFirst(); // Select the first year by default
+    }
+
+    
     @FXML
     void registerButtonClicked(ActionEvent event) throws IOException{
         String email = emailTextField.getText();
