@@ -105,11 +105,10 @@ public class RegisterController implements Initializable{
             if (password.equals(confirmPasswordTextField.getText())) {
                 System.out.println("b");
                 User user = new User(email, password, yearComboBox.getValue(), isFootballSelected(), isVolleyballelected(), isTennisSelected());
+                System.out.println("c");
                 //LATER GOING TO BE USED ON APP
-                Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
+                Model.getInstance().getViewFactory().showSignInPage();
+    
             }
         }
     }

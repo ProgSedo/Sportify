@@ -81,7 +81,7 @@ public class Database {
         try {
             Statement st = connection.createStatement();
             String sql = "INSERT INTO Users (email, password, name, surname, aboutMe, birthYear)"
-            + "SELECT " + user.getEmail() + ", '" + user.getPassword() + "', '" + user.getName() + "', '" + user.getSurname() + "', '" + user.getAboutMe() + "', '" + user.getBirthYear();
+            + "VALUES ('" + user.getEmail() + "', '" + user.getPassword() + "', '" + user.getName() + "', '" + user.getSurname() + "', '" + user.getAboutMe() + "', '" + user.getBirthYear() + "')";
             st.execute(sql);
             
         } catch (Exception e) {

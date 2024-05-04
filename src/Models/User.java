@@ -62,6 +62,7 @@ public class User
         tennisGamesPlayed = 0;
         tennisGamesWon = 0;
         tennisGamesLost = 0;
+        System.out.println("eeee");
         Database.insertNewUser(this);
     }
 
