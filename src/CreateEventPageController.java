@@ -1,14 +1,18 @@
 
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class CreateEventPageController {
+public class CreateEventPageController implements Initializable{
 
     @FXML
     private Button sideBarButton;
@@ -26,31 +30,37 @@ public class CreateEventPageController {
     private RadioButton footballRadioButton;
 
     @FXML
-    private ComboBox<?> footballSizeComboBox;
+    private ComboBox<Integer> footballSizeComboBox;
 
     @FXML
     private RadioButton volleyballRadioButton;
 
     @FXML
-    private ComboBox<?> volleyballSizeComboBox;
+    private ComboBox<Integer> volleyballSizeComboBox;
 
     @FXML
     private RadioButton tennisRadioButton;
 
     @FXML
-    private ComboBox<?> tennisSizeComboBox;
+    private ComboBox<Integer> tennisSizeComboBox;
 
     @FXML
     private RadioButton tournamentRadioButton;
 
     @FXML
-    private ComboBox<?> roundNumberComboBox;
+    private ComboBox<Integer> roundNumberComboBox;
 
     @FXML
     private RadioButton matchRadioButton;
 
     @FXML
     private Button createEventButton;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        
+    }
 
     @FXML
     void createEventButtonClicked(ActionEvent event) {
