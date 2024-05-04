@@ -1,5 +1,6 @@
 
 
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -7,11 +8,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
 public class SettingsPageController implements Initializable{
+
+    @FXML
+    private Label passwordWarningLabel;
 
     @FXML
     private Button aboutMeSaveButton;
@@ -52,17 +57,10 @@ public class SettingsPageController implements Initializable{
     @FXML
     private TextField usernameTextField;
 
-    private boolean sideBarOpen;
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         emailTextField.setText("email cannot be changed");
         emailTextField.setEditable(false);
-    }
-
-    public SettingsPageController()
-    {
-        sideBarOpen = false;
     }
 
     @FXML
@@ -84,9 +82,13 @@ public class SettingsPageController implements Initializable{
         {
             Database.updatePassword(newPasswordTextField.getText());
         }
+        else if(newPasswordTextField.getText().length() < 5 || newPasswordTextField.getText().length() > 13)
+        {
+            passwordWarningLabel.setText("Password should contain 5-13 characters!");
+        }
         else
         {
-            
+            passwordWarningLabel.setText("Passwords does not match!");
         }
     }
 
