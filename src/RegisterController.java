@@ -101,7 +101,9 @@ public class RegisterController implements Initializable{
         String email = emailTextField.getText();
         String password = passwordField.getText();
         if (!Database.checkEmail(email)) {
+            System.out.println("a");
             if (password.equals(confirmPasswordTextField.getText())) {
+                System.out.println("b");
                 User user = new User(email, password, yearComboBox.getValue(), isFootballSelected(), isVolleyballelected(), isTennisSelected());
                 //LATER GOING TO BE USED ON APP
                 Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));

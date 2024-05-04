@@ -19,7 +19,7 @@ public class Database {
         boolean eMailExists = false;
         try {
             Statement st = connection.createStatement();
-            String sql = "SELECT email FROM User";
+            String sql = "SELECT email FROM Users";
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
                 emailList.add(rs.getString(1));
