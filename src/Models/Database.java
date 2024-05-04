@@ -40,7 +40,7 @@ public class Database {
         String userPassword = "";
         try {
             Statement st = connection.createStatement();
-            String sql = "SELECT password FROM User WHERE email = '" + email + "'";
+            String sql = "SELECT password FROM Users WHERE email = '" + email + "'";
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
                 userPassword = rs.getString(1);
@@ -48,7 +48,9 @@ public class Database {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return password.equals(userPassword);
+        //lengths are different so put .trim
+        System.out.println(password.trim().equals(userPassword.trim()));
+        return password.trim().equals(userPassword.trim());
     }
 
     public static User getUser(String email) {
@@ -59,7 +61,7 @@ public class Database {
 
         try {
             Statement statement = connection.createStatement();
-            String sql = "SELECT * FROM User WHERE email = '" + email + "'";
+            String sql = "SELECT * FROM Users WHERE email = '" + email + "'";
             ResultSet rs = statement.executeQuery(sql);
             while(rs.next()) {
                 email = rs.getString(2);
@@ -113,5 +115,7 @@ public class Database {
         }
     }
 
-    public static void updateAboutMe() 
+    public static void updateAboutMe() {
+
+    } 
 }

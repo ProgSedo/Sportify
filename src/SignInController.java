@@ -53,21 +53,20 @@ public class SignInController{
 
     @FXML
     void signInButtonClicked(ActionEvent event){
-        /* 
+        System.out.println(Database.checkEmail(emailTextField.getText()));
         if (Database.checkEmail(emailTextField.getText())) {
+            System.out.println("111");
             if (Database.checkPassword(emailTextField.getText(), passwordField.getText())) {
-                User user = Database.getUser(emailTextField.getText());
+                System.out.println("4563");
+                //User user = Database.getUser(emailTextField.getText());
                 //LATER GOING TO BE USED ON APP
-                Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
-                 stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-                 scene = new Scene(root);
-                 stage.setScene(scene);
-                 stage.centerOnScreen();
-                 stage.show();
+                //Model.getInstance().getViewFactory().getHomePageView();
+                onSignIn();
+                System.out.println("222");
             }
         }
-        */
-        onSignIn();
+
+        
     }
 
     private void onRegister()
