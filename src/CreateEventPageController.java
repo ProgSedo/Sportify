@@ -58,7 +58,24 @@ public class CreateEventPageController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        for (int size = 1; size <= 5; size++) {
+            footballSizeComboBox.getItems().add(size);
+        }
+        footballSizeComboBox.getSelectionModel().selectFirst();
 
+        for (int size = 1; size <= 4; size++) {
+            volleyballSizeComboBox.getItems().add(size);
+        }
+        volleyballSizeComboBox.getSelectionModel().selectFirst();
+        for (int size = 1; size <= 2; size++) {
+            tennisSizeComboBox.getItems().add(size);
+        }
+        tennisSizeComboBox.getSelectionModel().selectFirst();
+
+        for (int round = 1; round <= 3; round++) {
+            roundNumberComboBox.getItems().add(round);
+        }
+        roundNumberComboBox.getSelectionModel().selectFirst();
         
     }
 
