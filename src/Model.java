@@ -28,7 +28,7 @@ public class Model {
         return user;
     }
 
-    public void setEmail(User aUser)
+    public void setUser(User aUser)
     {
         user = aUser;
     }
