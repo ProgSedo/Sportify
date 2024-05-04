@@ -1,6 +1,9 @@
 
 
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -48,6 +51,8 @@ public class ProfilePageController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        
         emailTextField.setEditable(false);
         interestsTextField.setEditable(false);
         usernameTextField.setEditable(false);

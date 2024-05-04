@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Database {
-    private static Connection connection = JavaConnect2SQL.connect2Database();
+    public static Connection connection = JavaConnect2SQL.connect2Database();
 
     public static boolean checkEmail(String email) {
 
@@ -137,5 +137,25 @@ public class Database {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static int getAge(String email) {
+        //not tested
+        int age = 0;
+        try {
+            email = Model.getInstance().getEmail();
+            Statement st = connection.createStatement();
+            String sql = "SELECT birthYear FROM Users WHERE email = '" + email + "'";
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                
+                int birthYear = rs.getInt(1);
+                age = java.time.Year.now().getValue() - birthYear;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return age;
     }
 }
