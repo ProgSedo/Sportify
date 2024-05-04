@@ -51,7 +51,7 @@ public class ProfilePageController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        emailTextField.setText(Model.getInstance().getEmail());
         
         emailTextField.setEditable(false);
         interestsTextField.setEditable(false);
