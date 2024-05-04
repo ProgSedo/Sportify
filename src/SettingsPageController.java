@@ -56,22 +56,26 @@ public class SettingsPageController {
     }
 
     @FXML
-    void aboutMeSaveButtonClicked(ActionEvent event) {
+    void aboutMeSaveButtonClicked(ActionEvent event) 
+    {
+        
+    }
+
+    @FXML
+    void changePPClicked(ActionEvent event) 
+    {
 
     }
 
     @FXML
-    void changePPClicked(ActionEvent event) {
+    void changePasswordButtonClicked(ActionEvent event) 
+    {
 
     }
 
     @FXML
-    void changePasswordButtonClicked(ActionEvent event) {
-
-    }
-
-    @FXML
-    void saveButtonClicked(ActionEvent event) {
+    void saveButtonClicked(ActionEvent event) 
+    {
 
     }
 

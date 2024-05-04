@@ -4,6 +4,7 @@ public class Model {
     
     private static Model model;
     private final ViewFactory viewFactory;
+    private static String currUserEmail;
 
     private Model()
     {
