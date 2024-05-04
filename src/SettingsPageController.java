@@ -58,7 +58,7 @@ public class SettingsPageController {
     @FXML
     void aboutMeSaveButtonClicked(ActionEvent event) 
     {
-        
+        Database.updateAboutMe(aboutMeTextArea.getText());
     }
 
     @FXML

@@ -119,7 +119,7 @@ public class Database {
     {
         try {
             Statement st = connection.createStatement();
-            String sql = "UPDATE Users SET AboutMe = '" + text + "' WHERE email = '"+ Model.getUser().getEmail() 
+            String sql = "UPDATE Users SET aboutMe = '" + text + "' WHERE email = '" + Model.getInstance().getUser().getEmail() + "'";
             st.execute( sql );
         
         } catch (Exception e) {
