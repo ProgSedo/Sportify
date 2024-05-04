@@ -125,5 +125,17 @@ public class Database {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    } 
+    }
+
+    public static void updatePassword(String password)
+    {
+        try {
+            Statement st = connection.createStatement();
+            String sql = "UPDATE Users SET password = '" + password + "' WHERE email = '" + Model.getInstance().getEmail() + "'";
+            st.execute( sql );
+        
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -70,7 +70,14 @@ public class SettingsPageController {
     @FXML
     void changePasswordButtonClicked(ActionEvent event) 
     {
-
+        if(newPasswordTextField.getText().equals(confirmNewPasswordTextField.getText()))
+        {
+            Database.updatePassword(newPasswordTextField.getText());
+        }
+        else
+        {
+            
+        }
     }
 
     @FXML
