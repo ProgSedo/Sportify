@@ -74,24 +74,26 @@ public class RegisterController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // Get the current year
+
         int currentYear = java.time.Year.now().getValue();
 
-        // Add years to the ComboBox (e.g., from 1900 to the current year)
         for (int year = 1900; year <= currentYear; year++) {
             yearComboBox.getItems().add(year);
         }
 
-        // Optionally, set a default value for the ComboBox
-        yearComboBox.getSelectionModel().selectFirst(); // Select the first year by default
+        yearComboBox.getSelectionModel().selectFirst();
 
-        // Add days to the ComboBox (from 1 to 31)
         for (int day = 1; day <= 31; day++) {
             dayComboBox.getItems().add(day);
         }
 
-        // Optionally, set a default value for the ComboBox
-        dayComboBox.getSelectionModel().selectFirst(); // Select the first day by default
+        dayComboBox.getSelectionModel().selectFirst();
+
+        for (int month = 1; month <= 12; month++) {
+            monthComboBox.getItems().add(month);
+        }
+
+        monthComboBox.getSelectionModel().selectFirst();
     }
     
     @FXML
