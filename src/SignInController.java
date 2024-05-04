@@ -58,9 +58,6 @@ public class SignInController{
             System.out.println("111");
             if (Database.checkPassword(emailTextField.getText(), passwordField.getText())) {
                 System.out.println("4563");
-                //User user = Database.getUser(emailTextField.getText());
-                //LATER GOING TO BE USED ON APP
-                //Model.getInstance().getViewFactory().getHomePageView();
                 onSignIn();
                 System.out.println("222");
             }
