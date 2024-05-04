@@ -16,7 +16,6 @@ import javafx.stage.Stage;
 public class ViewFactory {
 
     private Stage stage;
-    private final StringProperty decider;
     private AnchorPane sideBarView;
     private VBox profileView;
     private VBox homePageView;
@@ -38,6 +37,7 @@ public class ViewFactory {
     private FlowPane myVolleyballEvents;
 
     private boolean isSideBarOpen;
+    private final StringProperty decider;
 
 
     public ViewFactory()
@@ -443,5 +443,28 @@ public class ViewFactory {
     public FlowPane getEmptyPane()
     {
         return this.emptyPane;
+    }
+
+    public void viewNuller()
+    {
+        sideBarView = null;
+        profileView = null;
+        homePageView = null;
+        settingsView = null;
+        createEventView = null;
+        footballForumView = null;
+        tennisForumView = null;
+        volleyballForumView = null;
+
+        footballEventsView = null;
+        tennisEventsView = null;
+        voleyballEventsView = null;
+        friendsPageView = null;
+        joinEventView = null;
+        emptyPane = null;
+
+        myTennisEvents = null;
+        myFootballEvents = null;
+        myVolleyballEvents = null;
     }
 }
