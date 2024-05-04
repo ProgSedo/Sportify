@@ -51,12 +51,10 @@ public class SignInController{
 
     @FXML
     void signInButtonClicked(ActionEvent event){
-        System.out.println(Database.checkEmail(emailTextField.getText()));
         if (Database.checkEmail(emailTextField.getText())) {
-            System.out.println("111");
             if (Database.checkPassword(emailTextField.getText(), passwordField.getText())) 
             {
-                
+                Model.getInstance().setEmail(emailTextField.getText());
                 onSignIn();
             }
         }

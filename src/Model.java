@@ -2,7 +2,7 @@ public class Model {
     
     private static Model model;
     private final ViewFactory viewFactory;
-    private static User user;
+    private static String email;
 
     private Model()
     {
@@ -23,13 +23,13 @@ public class Model {
         return viewFactory;
     }
 
-    public User getUser()
+    public String getEmail()
     {
-        return user;
+        return email;
     }
 
-    public void setUser(User aUser)
+    public void setEmail(String anEmail)
     {
-        user = aUser;
+        email = anEmail;
     }
 }
