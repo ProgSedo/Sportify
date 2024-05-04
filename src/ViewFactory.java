@@ -102,7 +102,6 @@ public class ViewFactory {
             {
                 e.printStackTrace();
             }
-        }
         return profileView;
     }
 
@@ -196,19 +195,17 @@ public class ViewFactory {
     }
     public VBox getSettingsView()
     {
-        if(settingsView == null)
+        settingsView = null;
+        try
         {
-            try
-            {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("SettingsPage.fxml"));
-                SettingsPageController controller = new SettingsPageController();
-                loader.setController(controller);
-                settingsView = loader.load();
-            }
-            catch(Exception e)
-            {
-                e.printStackTrace();
-            }
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("SettingsPage.fxml"));
+            SettingsPageController controller = new SettingsPageController();
+            loader.setController(controller);
+            settingsView = loader.load();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
         }
         return settingsView;
     }
