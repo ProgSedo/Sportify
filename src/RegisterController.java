@@ -31,7 +31,7 @@ public class RegisterController implements Initializable{
     private Text dateOfBirthText;
 
     @FXML
-    private ComboBox<?> dayComboBox;
+    private ComboBox<Integer> dayComboBox;
 
     @FXML
     private TextField emailTextField;
@@ -43,7 +43,7 @@ public class RegisterController implements Initializable{
     private Text interestsText;
 
     @FXML
-    private ComboBox<?> monthComboBox;
+    private ComboBox<Integer> monthComboBox;
 
     @FXML
     private PasswordField passwordField;
@@ -84,8 +84,15 @@ public class RegisterController implements Initializable{
 
         // Optionally, set a default value for the ComboBox
         yearComboBox.getSelectionModel().selectFirst(); // Select the first year by default
-    }
 
+        // Add days to the ComboBox (from 1 to 31)
+        for (int day = 1; day <= 31; day++) {
+            dayComboBox.getItems().add(day);
+        }
+
+        // Optionally, set a default value for the ComboBox
+        dayComboBox.getSelectionModel().selectFirst(); // Select the first day by default
+    }
     
     @FXML
     void registerButtonClicked(ActionEvent event) throws IOException{
