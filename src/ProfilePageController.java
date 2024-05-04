@@ -1,13 +1,17 @@
 
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
-public class ProfilePageController {
+public class ProfilePageController implements Initializable{
 
     @FXML
     private TextArea aboutMeTextArea;
@@ -41,6 +45,17 @@ public class ProfilePageController {
 
     @FXML
     private Button volleyballEventsButton;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        emailTextField.setEditable(false);
+        interestsTextField.setEditable(false);
+        usernameTextField.setEditable(false);
+        ageTextField.setEditable(false);
+        aboutMeTextArea.setEditable(false);
+        commentsTextArea.setEditable(false);
+
+    }
 
     public ProfilePageController()
     {
