@@ -1,10 +1,8 @@
-
-
 public class Model {
     
     private static Model model;
     private final ViewFactory viewFactory;
-    private static String currUserEmail;
+    private static User user;
 
     private Model()
     {
@@ -25,13 +23,13 @@ public class Model {
         return viewFactory;
     }
 
-    public String getEmail()
+    public User getUser()
     {
-        return currUserEmail;
+        return user;
     }
 
-    public void setEmail(String email)
+    public void setEmail(User aUser)
     {
-        currUserEmail = email;
+        user = aUser;
     }
 }

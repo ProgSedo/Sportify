@@ -1,4 +1,4 @@
-package Models;
+
 
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -115,7 +115,15 @@ public class Database {
         }
     }
 
-    public static void updateAboutMe() {
-
+    public static void updateAboutMe(String text) 
+    {
+        try {
+            Statement st = connection.createStatement();
+            String sql = "UPDATE Users SET AboutMe = '" + text + "' WHERE email = '"+ Model.getUser().getEmail() 
+            st.execute( sql );
+        
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     } 
 }
