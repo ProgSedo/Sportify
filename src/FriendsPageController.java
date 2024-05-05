@@ -76,13 +76,14 @@ public class FriendsPageController {
     void searchFriendButtonClicked(ActionEvent event) 
     {
         String username = usernameTextField.getText();
-        if (Database.checkUsername(username)) {
+        String email = Database.emailByUsername(username);
+        if (Database.checkUsername(username) && !Model.getInstance().getEmail().equals(email)) {
             friendDisplayLabel.setText(username);
             warningLabel.setText("");
 
         }
         else {
-            warningLabel.setText("No such user");
+            warningLabel.setText("Invalid username");
         }
     }
 
