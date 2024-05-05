@@ -103,7 +103,7 @@ public class SettingsPageController implements Initializable{
     @FXML
     void saveButtonClicked(ActionEvent event) 
     {
-        if(!usernameTextField.getText().isEmpty())
+        if(!usernameTextField.getText().isEmpty() && !Database.checkUsername(usernameTextField.getText()))
         {
             Database.updateUsernameInfo(usernameTextField.getText());
         }
