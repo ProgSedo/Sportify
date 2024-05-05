@@ -89,20 +89,19 @@ public class ViewFactory {
 
     public VBox getProfileView()
     {
-        if(profileView == null)
+        profileView = null;
+        try
         {
-            try
-            {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("ProfilePage.fxml"));
-                ProfilePageController controller = new ProfilePageController();
-                loader.setController(controller);
-                profileView = loader.load();
-            }
-            catch(Exception e)
-            {
-                e.printStackTrace();
-            }
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ProfilePage.fxml"));
+            ProfilePageController controller = new ProfilePageController();
+            loader.setController(controller);
+            profileView = loader.load();
         }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        
         return profileView;
     }
 
