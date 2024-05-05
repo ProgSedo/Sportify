@@ -67,7 +67,7 @@ public class SettingsPageController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) 
     {
-        emailTextField.setText("email cannot be changed");
+        emailTextField.setText("email cannot be changed!");
         emailTextField.setEditable(false);
     }
 
