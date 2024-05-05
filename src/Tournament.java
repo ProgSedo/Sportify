@@ -10,9 +10,11 @@ public class Tournament extends Events{
 
     private ArrayList<User> participantList;
     private ArrayList<User> activePlayers;
+    private int roundNumber;
 
-    public Tournament(Date eventTime, String eventName, SportType sportType) {
-        super(eventTime, eventName, sportType);
+    public Tournament(String place, Date eventTime, SportType sportType, int roundNumber) {
+        super(place, eventTime, sportType);
+        this.roundNumber = roundNumber;
         participantList = new ArrayList<>();
         activePlayers = new ArrayList<>();
     }

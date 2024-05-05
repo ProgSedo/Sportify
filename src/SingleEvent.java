@@ -8,17 +8,13 @@ import java.util.Date;
  */
 public class SingleEvent extends Events{
 
-    
-
-    private int team1Size;
-    private int team2Size;
+    private int teamSize;
     private ArrayList<User> team1Participants;
     private ArrayList<User> team2Participants;
 
-    public SingleEvent(Date eventTime, String eventName, SportType sportType, int team1Size, int team2Size) {
-        super(eventTime, eventName, sportType);
-        this.team1Size = team1Size;
-        this.team2Size = team2Size;
+    public SingleEvent(String place, Date eventTime, SportType sportType, int teamSize) {
+        super(place, eventTime, sportType);
+        this.teamSize = teamSize;
         team1Participants = new ArrayList<>();
         team2Participants = new ArrayList<>();
 

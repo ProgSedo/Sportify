@@ -1,7 +1,6 @@
 
 
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -92,23 +91,34 @@ public class CreateEventPageController implements Initializable{
     @FXML
     void createEventButtonClicked(ActionEvent event) {
 
-        Calendar myCalendar = new GregorianCalendar(, 2, 11);
+        Calendar myCalendar = new GregorianCalendar(dateYearComboBox.getValue(), dateMonthComboBox.getValue(), dateDayComboBox.getValue());
         Date myDate = myCalendar.getTime();
         
         SportType selectedType = null;
+        int teamSize = 0;
         if(footballRadioButton.isSelected()){
             selectedType = SportType.football;
+            teamSize = footballSizeComboBox.getValue();
         }
         else if(volleyballRadioButton.isSelected()){
             selectedType = SportType.volleyball;
+            teamSize = volleyballSizeComboBox.getValue();
         }
         else if(tennisRadioButton.isSelected()){
             selectedType = SportType.tennis;
+            teamSize = tennisSizeComboBox.getValue();
         }
-        Events events = new Events(placeTextField.getText(), dateTextField.getText(), selectedType) {
+
+        if(tournamentRadioButton.isSelected()){
+            Tournament myTournament = new Tournament(placeTextField.getText(), myDate, selectedType, roundNumberComboBox.getValue()) {
             
-        };
-        
+            };
+            Database.insertNewEvent(myTournament);
+        }
+        else{
+            SingleEvent mySingleEvent = new SingleEvent(placeTextField.getText(), myDate, selectedType, teamSize)
+            Database.insertNewEvent(mySingleEvent);
+        }    
     }
 
     @FXML
