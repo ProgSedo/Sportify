@@ -319,17 +319,30 @@ public class Database {
         return str;
     }
 
-    public static void createFriendsTable(String name) {
+    public static void createFriendsTable(String emailTable) {
         try {
             Statement st = connection.createStatement();
-            String sql = "CREATE TABLE " + name + "( email VARCHAR(50) UNIQUE NOT NULL)";
+            String sql = "CREATE TABLE " + emailTable + "( email VARCHAR(50) UNIQUE NOT NULL)";
             st.executeUpdate(sql);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
 
+    public static void addFriends(String emailToBeAdded) {
+        String email = Model.getInstance().getEmail();
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "INSERT INTO " + email + "_friends (email)" 
+            + "VALUES ('" + emailToBeAdded  +  "')";
 
-
+            st.execute( sql );
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
     }
 
 
