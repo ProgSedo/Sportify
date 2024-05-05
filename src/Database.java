@@ -59,7 +59,8 @@ public class Database {
         String surname = "";
         int birthYearr = 0;
 
-        try {
+        try 
+        {
             Statement statement = connection.createStatement();
             String sql = "SELECT * FROM Users WHERE email = '" + email + "'";
             ResultSet rs = statement.executeQuery(sql);
@@ -72,7 +73,8 @@ public class Database {
 
             }
         }
-        catch (SQLException e) {
+        catch (SQLException e) 
+        {
             e.printStackTrace();
         }
 
@@ -80,61 +82,72 @@ public class Database {
     }
 
     public static void insertNewUser(User user) {
-        try {
+        try 
+        {
             Statement st = connection.createStatement();
             String sql = "INSERT INTO Users (email, password, name, surname, aboutMe, birthYear)"
             + "VALUES ('" + user.getEmail() + "', '" + user.getPassword() + "', '" + user.getName() + "', '" + user.getSurname() + "', '" + user.getAboutMe() + "', '" + user.getBirthYear() + "')";
             st.execute(sql);
             
-        } catch (Exception e) {
+        } 
+        catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public static void insertNewComment(Comment comment) {
 
-        try {
+        try 
+        {
             Statement st = connection.createStatement();
             String sql = "INSERT INTO Comments ( user, commentor, comment ) VALUES (" + comment.getUser() + ", " + comment.getCommentor() + ", " + comment.getComment() + ")";
             st.execute( sql );
         
-        } catch (Exception e) {
+        } 
+        catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public static void insertNewEvent( Events event ) {
 
-        try {
+        try 
+        {
             Statement st = connection.createStatement();
             String sql = "INSERT INTO Events ( eventName, eventTime, sportType ) VALUES (" + event.getEventName() + ", " + event.getEventTime() + ", " + event.getSportType() + ")";
             st.execute( sql );
         
-        } catch (Exception e) {
+        } 
+        catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public static void updateAboutMe(String text) 
     {
-        try {
+        try 
+        {
             Statement st = connection.createStatement();
             String sql = "UPDATE Users SET aboutMe = '" + text + "' WHERE email = '" + Model.getInstance().getEmail() + "'";
             st.execute( sql );
         
-        } catch (Exception e) {
+        } 
+        catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public static void updatePassword(String password)
     {
-        try {
+        try 
+        {
             Statement st = connection.createStatement();
             String sql = "UPDATE Users SET password = '" + password + "' WHERE email = '" + Model.getInstance().getEmail() + "'";
             st.execute( sql );
         
-        } catch (Exception e) {
+        } 
+        catch (Exception e) 
+        {
             e.printStackTrace();
         }
     }
@@ -142,7 +155,8 @@ public class Database {
     public static int getAge(String email) {
         //not tested
         int age = 0;
-        try {
+        try 
+        {
             email = Model.getInstance().getEmail();
             Statement st = connection.createStatement();
             String sql = "SELECT birthYear FROM Users WHERE email = '" + email + "'";
@@ -152,7 +166,9 @@ public class Database {
                 int birthYear = rs.getInt(1);
                 age = java.time.Year.now().getValue() - birthYear;
             }
-        } catch (SQLException e) {
+        } 
+        catch (SQLException e) 
+        {
             e.printStackTrace();
         }
 
