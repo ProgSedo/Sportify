@@ -18,13 +18,13 @@ public class CreateEventPageController implements Initializable{
     private Button sideBarButton;
 
     @FXML
-    private ComboBox<?> dateDayComboBox;
+    private ComboBox<Integer> dateDayComboBox;
     
     @FXML
-    private ComboBox<?> dateMonthComboBox;
+    private ComboBox<Integer> dateMonthComboBox;
 
     @FXML
-    private ComboBox<?> dateYearComboBox;
+    private ComboBox<Integer> dateYearComboBox;
 
     @FXML
     private TextField placeTextField;

@@ -107,6 +107,7 @@ public class SettingsPageController implements Initializable{
         {
             Database.updateUsernameInfo(usernameTextField.getText());
         }
+        if()
         try
         {
             
