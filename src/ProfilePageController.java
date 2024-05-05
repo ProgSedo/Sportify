@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.PieChart.Data;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -51,7 +52,11 @@ public class ProfilePageController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        emailTextField.setText(Model.getInstance().getEmail());
+        String email = Model.getInstance().getEmail();
+        emailTextField.setText(email);
+        ageTextField.setText("" + Database.getAge(email));
+        usernameTextField.setText(Database.getUsername(email));
+        interestsTextField.setText(Database.getInterests(email));
         
         emailTextField.setEditable(false);
         interestsTextField.setEditable(false);

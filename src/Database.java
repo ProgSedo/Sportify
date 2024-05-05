@@ -237,6 +237,68 @@ public class Database {
         }
     }
 
+    public static String getUsername(String email) {
+        //not tested
+        String username = "aaaaa";
+        try {
+            email = Model.getInstance().getEmail();
+            Statement st = connection.createStatement();
+            String sql = "SELECT username FROM Users WHERE email = '" + email + "'";
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                
+                username = rs.getString(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return username;
+    }
+
+
+    public static String getInterests(String email) {
+        //not tested
+        String interests = "";
+        try {
+            email = Model.getInstance().getEmail();
+            Statement st = connection.createStatement();
+            String sql = "SELECT doesFootball FROM Users WHERE email = '" + email + "'";
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                
+                  
+                 if (Integer.parseInt(rs.getString(1)) == 1) {
+                    interests += "Football ";
+                 }
+            }
+
+             sql = "SELECT doesVolleyball FROM Users WHERE email = '" + email + "'";
+             rs = st.executeQuery(sql);
+            while (rs.next()) {
+                if (Integer.parseInt(rs.getString(1)) == 1) {
+                    interests += "Volleyball ";
+                 }
+            }
+            
+            sql = "SELECT doesTennis FROM Users WHERE email = '" + email + "'";
+            rs = st.executeQuery(sql);
+           while (rs.next()) {
+               
+            if (Integer.parseInt(rs.getString(1)) == 1) {
+                interests += "Tennis ";
+             }
+           }
+
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return interests;
+    }
+
     public static void insertMessageToForum(String forumName, Comment comment) {
     try {
         Connection connection = getConnection(); // Assuming getConnection() returns a valid database connection
