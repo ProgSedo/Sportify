@@ -187,7 +187,7 @@ public class Database {
             sql += "UPDATE Users SET age = " + age + " WHERE email = '" + email + "'\n";
             sql += "UPDATE Users SET doesFootball = " + doesFootball + " WHERE email = '" + email + "'\n";
             sql += "UPDATE Users SET doesVolleyball = " + doesVolleyball + " WHERE email = '" + email + "'\n";
-            sql += "UPDATE Users SET doesTennis = " + doesTennis + " WHERE email = '" + email + "'\n";
+            sql += "UPDATE Users SET doesTennis = " + doesTennis + " WHERE email = '" + email + "'";
             st.execute( sql );
         } 
         catch (Exception e) 
