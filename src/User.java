@@ -50,7 +50,7 @@ public class User
     private Team team;
 
 
-    public User(String userEmail, String userPassword, int birthYear,
+    public User(String userEmail, String userPassword, String username, int birthYear,
                 boolean isFootball, boolean isVolleyball, boolean isTennis)
     {
         email = userEmail;
@@ -59,6 +59,7 @@ public class User
         football = isFootball;
         volleyball = isVolleyball;
         tennis = isTennis;
+        this.username = username;
 
         footballGamesPlayed = 0;
         footballGamesWon = 0;

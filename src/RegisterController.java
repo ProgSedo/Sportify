@@ -102,7 +102,7 @@ public class RegisterController implements Initializable{
             System.out.println("a");
             if (password.equals(confirmPasswordTextField.getText())) {
                 System.out.println("b");
-                User user = new User(email, password, yearComboBox.getValue(), isFootballSelected(), isVolleyballelected(), isTennisSelected());
+                User user = new User(email, password, usernameTextField.getText(), yearComboBox.getValue(), isFootballSelected(), isVolleyballelected(), isTennisSelected());
                 Database.createFriendsTable(email + "_friends");
                 System.out.println("c");
                 //LATER GOING TO BE USED ON APP

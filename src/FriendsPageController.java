@@ -2,6 +2,7 @@
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.chart.PieChart.Data;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -60,7 +61,9 @@ public class FriendsPageController {
     @FXML
     void sendRequestButtonClicked(ActionEvent event) 
     {
-
+        String username = friendDisplayLabel.getText();
+        String email = Database.emailByUsername(username);
+        Database.sendFriendRequest(email);
     }
 
     @FXML
@@ -72,7 +75,15 @@ public class FriendsPageController {
     @FXML
     void searchFriendButtonClicked(ActionEvent event) 
     {
+        String username = usernameTextField.getText();
+        if (Database.checkUsername(username)) {
+            friendDisplayLabel.setText(username);
+            warningLabel.setText("");
 
+        }
+        else {
+            warningLabel.setText("No such user");
+        }
     }
 
     @FXML

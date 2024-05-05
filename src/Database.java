@@ -37,6 +37,45 @@ public class Database {
         return eMailExists;
     }
 
+
+    public static boolean checkUsername(String username) {
+
+        ArrayList<String> usernameList = new ArrayList<String>();
+        boolean usernameExists = false;
+        try {
+            Statement st = connection.createStatement();
+            String sql = "SELECT username FROM Users";
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                usernameList.add(rs.getString(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        for (String str : usernameList) {
+            if (str.equals(username)) {
+                usernameExists = true;
+                break;
+            }
+        }
+        return usernameExists;
+    }
+
+    public static String emailByUsername(String username) {
+        String email = "";
+        try {
+            Statement st = connection.createStatement();
+            String sql = "SELECT email FROM Users WHERE username = '" + username + "'";
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                email = rs.getString(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return email;
+    }
+
     public static boolean checkPassword(String email, String password) {
         String userPassword = "";
         try {
@@ -77,7 +116,7 @@ public class Database {
             e.printStackTrace();
         }
 
-        return new User(email, password, birthYearr, false, false, false);
+        return new User(email, password, "asda", birthYearr, false, false, false);
     }
 
     public static void insertNewUser(User user) {
@@ -322,7 +361,7 @@ public class Database {
     public static void createFriendsTable(String emailTable) {
         try {
             Statement st = connection.createStatement();
-            String sql = "CREATE TABLE " + emailTable + "( email VARCHAR(50) UNIQUE NOT NULL)";
+            String sql = "CREATE TABLE " + emailTable + "( email VARCHAR(50) UNIQUE NOT NULL, friend_status BIT)";
             st.executeUpdate(sql);
         } catch (Exception e) {
             e.printStackTrace();
