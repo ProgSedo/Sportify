@@ -37,6 +37,23 @@ public class Database {
         return eMailExists;
     }
 
+    public static ArrayList<String> returnList(String email, int number) {
+
+        ArrayList<String> List = new ArrayList<String>();
+        try {
+            Statement st = connection.createStatement();
+            String sql = "SELECT email FROM " + email + "_friends WHERE friend_status = " + number;
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                List.add(rs.getString(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return List;
+    }
+
 
     public static boolean checkUsername(String username) {
 
@@ -411,7 +428,7 @@ public class Database {
         String email = Model.getInstance().getEmail();
         try {
             Statement st = connection.createStatement();
-            String sql = "UPDATE TABLE " + email + "_friends SET friend_status = 1 WHERE email = " + emailToBeAdded + "";
+            String sql = "UPDATE " + email + "_friends SET friend_status = 1 WHERE email = '" + emailToBeAdded + "'";
             st.execute(sql);
         } catch (Exception e) {
             e.printStackTrace();

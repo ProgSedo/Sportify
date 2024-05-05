@@ -1,14 +1,23 @@
 
 
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart.Data;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class FriendsPageController {
+public class FriendsPageController implements Initializable{
+
+    private ArrayList<String> friends;
+    private ArrayList<String> friendRequests;
+
 
     @FXML
     private Button acceptButton;
@@ -51,11 +60,30 @@ public class FriendsPageController {
 
     @FXML
     private Label warningLabel;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        friends = Database.returnList(Model.getInstance().getEmail(), 1);
+        friendRequests = Database.returnList(Model.getInstance().getEmail(), 0);
+        displayRequests();
+
+    }
+
+    public void displayRequests() {
+        if (friendRequests.size() > 0) {
+            friendRequestTextField.setText(friendRequests.get(0));
+        }
+    }
     
     @FXML
     void acceptButtonClicked(ActionEvent event) 
     {
-
+        if (friendRequests.size() > 0) {
+            Database.acceptFriendRequest(friendRequests.get(0));
+            friendRequests.remove(0);
+        }
+        friendRequestTextField.setText("");
+        displayRequests();
     }
 
     @FXML
@@ -69,7 +97,12 @@ public class FriendsPageController {
     @FXML
     void declineButtonClicked(ActionEvent event) 
     {
-
+        if (friendRequests.size() > 0) {
+            Database.declineFriend(friendRequests.get(0));
+            friendRequests.remove(0);
+        }
+        friendRequestTextField.setText("");
+        displayRequests();
     }
 
     @FXML
