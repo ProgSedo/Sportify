@@ -328,19 +328,24 @@ public class Database {
             e.printStackTrace();
         }
     }
-
-    public static void addFriends(String emailToBeAdded) {
+    public static void sendFriendRequest(String emailToBeAdded) {
         String email = Model.getInstance().getEmail();
-        try 
-        {
+        try {
             Statement st = connection.createStatement();
-            String sql = "INSERT INTO " + email + "_friends (email)" 
-            + "VALUES ('" + emailToBeAdded  +  "')";
+            String sql = "INSERT INTO " + emailToBeAdded + "_friends (email, friend_status) VALUES ('" + email + "', 0)";
+            st.execute(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-            st.execute( sql );
-        } 
-        catch (Exception e) 
-        {
+    public static void declineFriend(String emailToBeDeclined) {
+        String email = Model.getInstance().getEmail();
+        try {
+            Statement st = connection.createStatement();
+            String sql = "DELETE FROM " + email + "_friends WHERE email='" + emailToBeDeclined + "'";
+            st.execute(sql);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -350,6 +355,32 @@ public class Database {
         try {
             Statement st = connection.createStatement();
             String sql = "DELETE FROM " + email + "_friends WHERE email='" + emailToBeRemoved + "'";
+            st.execute(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            Statement st = connection.createStatement();
+            String sql = "DELETE FROM " + emailToBeRemoved + "_friends WHERE email='" + email + "'";
+            st.execute(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void acceptFriendRequest(String emailToBeAdded) {
+        String email = Model.getInstance().getEmail();
+        try {
+            Statement st = connection.createStatement();
+            String sql = "UPDATE TABLE " + email + "_friends SET friend_status = 1 WHERE email = " + emailToBeAdded + "";
+            st.execute(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Statement st = connection.createStatement();
+            String sql = "INSERT INTO " + emailToBeAdded + "_friends (email, friend_status) VALUES ('" + email + "', 1)";
             st.execute(sql);
         } catch (Exception e) {
             e.printStackTrace();
