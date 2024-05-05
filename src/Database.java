@@ -299,11 +299,31 @@ public class Database {
         return interests;
     }
 
+    public static String getAboutMe(String email) {
+        //not tested
+        String str = "";
+        try {
+            email = Model.getInstance().getEmail();
+            Statement st = connection.createStatement();
+            String sql = "SELECT aboutMe FROM Users WHERE email = '" + email + "'";
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                
+                str = rs.getString(1);
+                
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return str;
+    }
+
     public static void insertMessageToForum(String forumName, Comment comment) {
     try {
         Connection connection = getConnection(); // Assuming getConnection() returns a valid database connection
-        PreparedStatement pst = connection.prepareStatement("INSERT INTO " + forumName + " (forum, user, message) VALUES (?, ?, ?)");
-        pst.setString(1, forumName);
+        PreparedStatement pst = connection.prepareStatement("INSERT INTO " + forumName + " (forum, user, message) VALUES (;
+        pst.setString(1, forumName);?, ?, ?)")
         pst.setString(2, comment.getUser());
         pst.setString(3, comment.getComment());
         pst.executeUpdate();

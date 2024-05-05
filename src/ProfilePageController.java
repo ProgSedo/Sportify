@@ -57,6 +57,10 @@ public class ProfilePageController implements Initializable{
         ageTextField.setText("" + Database.getAge(email));
         usernameTextField.setText(Database.getUsername(email));
         interestsTextField.setText(Database.getInterests(email));
+
+
+        aboutMeTextArea.setText(Database.getAboutMe(email));
+        aboutMeTextArea.setWrapText(true);
         
         emailTextField.setEditable(false);
         interestsTextField.setEditable(false);
