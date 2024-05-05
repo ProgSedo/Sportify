@@ -152,7 +152,8 @@ public class Database {
         }
     }
 
-    public static int getAge(String email) {
+    public static int getAge(String email) 
+    {
         //not tested
         int age = 0;
         try 
@@ -173,5 +174,25 @@ public class Database {
         }
 
         return age;
+    }
+
+    public static void updateInfo(String username, int age, boolean doesFootball, boolean doesTennis,
+    boolean doesVolleyball)
+    {
+        String email = Model.getInstance().getEmail();
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "UPDATE Users SET username = '" + username + "' WHERE email = '" + email + "'\n";
+            sql += "UPDATE Users SET age = " + age + " WHERE email = '" + email + "'\n";
+            sql += "UPDATE Users SET doesFootball = " + doesFootball + " WHERE email = '" + email + "'\n";
+            sql += "UPDATE Users SET doesVolleyball = " + doesVolleyball + " WHERE email = '" + email + "'\n";
+            sql += "UPDATE Users SET doesTennis = " + doesTennis + " WHERE email = '" + email + "'\n";
+            st.execute( sql );
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
     }
 }

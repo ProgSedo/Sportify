@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -43,7 +44,13 @@ public class SettingsPageController implements Initializable{
     private Button informationSaveButton;
 
     @FXML
-    private TextField interestsTextField;
+    private CheckBox tennisCheckBox;
+
+    @FXML
+    private CheckBox volleyballCheckBox;
+
+    @FXML
+    private CheckBox footballCheckBox;
 
     @FXML
     private TextField newPasswordTextField;
@@ -58,7 +65,8 @@ public class SettingsPageController implements Initializable{
     private TextField usernameTextField;
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources) 
+    {
         emailTextField.setText("email cannot be changed");
         emailTextField.setEditable(false);
     }
@@ -95,7 +103,14 @@ public class SettingsPageController implements Initializable{
     @FXML
     void saveButtonClicked(ActionEvent event) 
     {
-
+        try
+        {
+            Database.updateInfo(usernameTextField.getText(), Integer.parseInt(ageTextField.getText()), footballCheckBox.isSelected(), tennisCheckBox.isSelected(), volleyballCheckBox.isSelected());
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Invalid entry!");
+        }
     }
 
     @FXML
