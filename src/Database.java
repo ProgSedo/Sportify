@@ -345,7 +345,16 @@ public class Database {
         }
     }
 
-
+    public static void removeFriend(String emailToBeRemoved) {
+        String email = Model.getInstance().getEmail();
+        try {
+            Statement st = connection.createStatement();
+            String sql = "DELETE FROM " + email + "_friends WHERE email='" + emailToBeRemoved + "'";
+            st.execute(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 
 
