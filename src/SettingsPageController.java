@@ -107,15 +107,14 @@ public class SettingsPageController implements Initializable{
         {
             Database.updateUsernameInfo(usernameTextField.getText());
         }
-        if()
-        try
+        else
         {
-            
+            infoWarningLabel.setText("Invalid Entry");
         }
-        catch(NumberFormatException e)
-        {
-            System.out.println("Invalid entry!");
-        }
+        
+        Database.updateTennisInfo(tennisCheckBox.isSelected());
+        Database.updateFootballInfo(footballCheckBox.isSelected());
+        Database.updateVolleyballInfo(volleyballCheckBox.isSelected());
     }
 
     @FXML

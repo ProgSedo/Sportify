@@ -1,6 +1,10 @@
 
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -88,6 +92,23 @@ public class CreateEventPageController implements Initializable{
     @FXML
     void createEventButtonClicked(ActionEvent event) {
 
+        Calendar myCalendar = new GregorianCalendar(, 2, 11);
+        Date myDate = myCalendar.getTime();
+        
+        SportType selectedType = null;
+        if(footballRadioButton.isSelected()){
+            selectedType = SportType.football;
+        }
+        else if(volleyballRadioButton.isSelected()){
+            selectedType = SportType.volleyball;
+        }
+        else if(tennisRadioButton.isSelected()){
+            selectedType = SportType.tennis;
+        }
+        Events events = new Events(placeTextField.getText(), dateTextField.getText(), selectedType) {
+            
+        };
+        
     }
 
     @FXML

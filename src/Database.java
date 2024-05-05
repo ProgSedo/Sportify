@@ -192,21 +192,6 @@ public class Database {
         }
     }
 
-    public static void updateAgeInfo(int age)
-    {
-        String email = Model.getInstance().getEmail();
-        try 
-        {
-            Statement st = connection.createStatement();
-            String sql = "UPDATE Users SET age = " + age + " WHERE email = '" + email + "'";
-            st.execute( sql );
-        } 
-        catch (Exception e) 
-        {
-            e.printStackTrace();
-        }
-    }
-
     public static void updateFootballInfo(boolean doesFootball)
     {
         String email = Model.getInstance().getEmail();
