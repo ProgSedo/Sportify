@@ -13,7 +13,7 @@ public class FriendsPageController {
     private Button acceptButton;
 
     @FXML
-    private Button addFriendButton;
+    private Button sendRequestButton;
 
     @FXML
     private Button declineButton;
@@ -49,13 +49,16 @@ public class FriendsPageController {
     private Button visitFriendButton;
 
     @FXML
+    private Label warningLabel;
+    
+    @FXML
     void acceptButtonClicked(ActionEvent event) 
     {
 
     }
 
     @FXML
-    void addFriendButtonClicked(ActionEvent event) 
+    void sendRequestButtonClicked(ActionEvent event) 
     {
 
     }
