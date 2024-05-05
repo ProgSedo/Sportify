@@ -6,16 +6,17 @@ import java.util.*;
 
  public abstract class Events {
     
-
+    private String place;
     private Date eventTime;
-    private String eventName;
+    private int eventID = 0;
     private SportType sportType;
 
-    public Events (Date eventTime, String eventName, SportType sportType) {
+    public Events (String place, Date eventTime, SportType sportType) {
         
+        this.place = place;
         this.eventTime = eventTime;
-        this.eventName = eventName;
         this.sportType = sportType;
+        eventID++;
         
         Database.insertNewEvent( this );
     }
@@ -28,12 +29,12 @@ import java.util.*;
         this.eventTime = eventTime;
     }
 
-    public String getEventName() {
-        return eventName;
+    public int getEventID() {
+        return eventID;
     }
 
-    public void setEventName(String eventName) {
-        this.eventName = eventName;
+    public void setEventName(int eventID) {
+        this.eventID = eventID;
     }
     
     public SportType getSportType() {
@@ -43,8 +44,10 @@ import java.util.*;
     public void setSportType(SportType sportType) {
         this.sportType = sportType;
     }
-
-    public String toString() {
-        return eventName + eventTime;
+    public String getPlace(){
+        return place;
+    }
+    public void setPlace(String newPlace){
+        place = newPlace;
     }
 }
