@@ -10,8 +10,15 @@ public class User
     //personal info
     private String email;
     private String password;
-    private String name;
-    private String surname;
+    private String username;
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     private int birthday;
     private String aboutMe;
     private Image profilePhoto;
@@ -77,15 +84,7 @@ public class User
         return password;
     }
 
-    public String getName()
-    {
-        return name;
-    }
-
-    public String getSurname()
-    {
-        return surname;
-    }
+    
 
     public int getBirthYear()
     {
@@ -133,15 +132,7 @@ public class User
         this.password = password;
     }
 
-    public void setName(String name)
-    {
-        this.name = name;
-    }
-
-    public void setSurname(String surname)
-    {
-        this.surname = surname;
-    }
+    
 
     public void setBirthday(int birthday)
     {
@@ -241,4 +232,21 @@ public class User
         this.getFriendRequests().remove(u);
     }
 
+    public String getIsFootball() {
+        return "";
+
+    }
+
+    public String getIsTennis() {
+        return "";
+
+    }
+    public String getIsVolleyball() {
+        return "";
+
+    }
+
+    public String getEventID() {
+        return "";
+    }
 }

@@ -83,8 +83,8 @@ public class Database {
     public static void insertNewUser(User user) {
         try {
             Statement st = connection.createStatement();
-            String sql = "INSERT INTO Users (email, password, name, surname, aboutMe, birthYear)"
-            + "VALUES ('" + user.getEmail() + "', '" + user.getPassword() + "', '" + user.getName() + "', '" + user.getSurname() + "', '" + user.getAboutMe() + "', '" + user.getBirthYear() + "')";
+            String sql = "INSERT INTO Users (email, password, username, aboutMe, birthYear, eventID, doesTennis, doesFootball, doesVolleyball)"
+            + "VALUES ('" + user.getEmail() + "', '" + user.getPassword() + "', '" + user.getUsername() + "', '" + user.getAboutMe() + "', '" + user.getBirthYear() + "', '" + user.getEventID() + "', '" + user.getIsTennis() + "', '" + user.getIsFootball() + "', '" + user.getIsVolleyball() +  "')";
             st.execute(sql);
             
         } catch (Exception e) {
