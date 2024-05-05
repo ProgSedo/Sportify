@@ -18,10 +18,10 @@ public class FriendsPageController {
     private Button addFriendButton;
 
     @FXML
-    private Text addFriendsText;
+    private Button declineButton;
 
     @FXML
-    private Button declineButton;
+    private TextArea displayFriendsTextArea;
 
     @FXML
     private Label friendDisplayLabel;
@@ -30,16 +30,13 @@ public class FriendsPageController {
     private TextField friendRequestTextField;
 
     @FXML
-    private ScrollPane friendsScrollPane;
+    private Button nextFriendButton;
 
     @FXML
-    private Label friendsText;
+    private Button previousFriendButton;
 
     @FXML
-    private Label friendsText1;
-
-    @FXML
-    private TextArea friendsTextArea;
+    private Button removeFriendButton;
 
     @FXML
     private Button searchFriendButton;
@@ -51,22 +48,53 @@ public class FriendsPageController {
     private TextField usernameTextField;
 
     @FXML
-    void acceptButtonClicked(ActionEvent event) {
+    private Button visitFriendButton;
+
+    @FXML
+    void acceptButtonClicked(ActionEvent event) 
+    {
 
     }
 
     @FXML
-    void addFriendButtonClicked(ActionEvent event) {
+    void addFriendButtonClicked(ActionEvent event) 
+    {
 
     }
 
     @FXML
-    void declineButtonClicked(ActionEvent event) {
+    void declineButtonClicked(ActionEvent event) 
+    {
 
     }
 
     @FXML
-    void searchFriendButtonClicked(ActionEvent event) {
+    void searchFriendButtonClicked(ActionEvent event) 
+    {
+
+    }
+
+    @FXML
+    void nextButtonClicked(ActionEvent event) 
+    {
+
+    }
+
+    @FXML
+    void previousButtonClicked(ActionEvent event) 
+    {
+
+    }
+
+    @FXML
+    void removeFriendButtonClicked(ActionEvent event) 
+    {
+
+    }
+
+    @FXML
+    void visitFriendButtonClicked(ActionEvent event) 
+    {
 
     }
 
