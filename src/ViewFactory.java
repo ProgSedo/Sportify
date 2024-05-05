@@ -102,8 +102,8 @@ public class ViewFactory {
             {
                 e.printStackTrace();
             }
-        return profileView;
         }
+        return profileView;
     }
 
     public VBox getHomePageView()
