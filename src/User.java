@@ -232,17 +232,17 @@ public class User
         this.getFriendRequests().remove(u);
     }
 
-    public String getIsFootball() {
-        return "";
+    public boolean getIsFootball() {
+        return football;
 
     }
 
-    public String getIsTennis() {
-        return "";
+    public boolean getIsTennis() {
+        return tennis;
 
     }
-    public String getIsVolleyball() {
-        return "";
+    public boolean getIsVolleyball() {
+        return volleyball;
 
     }
 

@@ -191,7 +191,7 @@ public class Database {
         try 
         {
             Statement st = connection.createStatement();
-            String sql = "UPDATE Users SET doesFootball = " + doesFootball + " WHERE email = '" + email + "'\n";
+            String sql = "UPDATE Users SET doesFootball = " + convertBoolean(doesFootball) + " WHERE email = '" + email + "'\n";
             st.execute( sql );
         } 
         catch (Exception e) 
@@ -206,7 +206,7 @@ public class Database {
         try 
         {
             Statement st = connection.createStatement();
-            String sql = "UPDATE Users SET doesVolleyball = " + doesVolleyball + " WHERE email = '" + email + "'";
+            String sql = "UPDATE Users SET doesVolleyball = " + convertBoolean(doesVolleyball) + " WHERE email = '" + email + "'";
             st.execute( sql );
         } 
         catch (Exception e) 
@@ -215,13 +215,20 @@ public class Database {
         }
     }
 
+    public static int convertBoolean(boolean does) {
+        if (does) {
+            return 1;
+        }
+        else return 0;
+    }
+
     public static void updateTennisInfo(boolean doesTennis)
     {
         String email = Model.getInstance().getEmail();
         try 
         {
             Statement st = connection.createStatement();
-            String sql = "UPDATE Users SET doesTennis = " + doesTennis + " WHERE email = '" + email + "'";
+            String sql = "UPDATE Users SET doesTennis = " + convertBoolean(doesTennis) + " WHERE email = '" + email + "'";
             st.execute( sql );
         } 
         catch (Exception e) 
