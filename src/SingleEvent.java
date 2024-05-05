@@ -21,21 +21,22 @@ public class SingleEvent extends Events{
     }
 
     public int getTeam1Size() {
-        return team1Size;
+        return team1Participants.size();
     }
 
     public int getTeam2Size() {
-        return team2Size;
+        return team2Participants.size();
     }
 
     public boolean isTeam1Full() {
-        if (team1Participants.size() < team1Size)
+        
+        if (team1Participants.size() < teamSize)
             return false;
         return true;
     }
 
     public boolean isTeam2Full() {
-        if (team2Participants.size() < team2Size)
+        if (team2Participants.size() < teamSize)
             return false;
         return true;
     }
