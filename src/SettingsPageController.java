@@ -26,9 +26,6 @@ public class SettingsPageController implements Initializable{
     private TextArea aboutMeTextArea;
 
     @FXML
-    private TextField ageTextField;
-
-    @FXML
     private Button changePP;
 
     @FXML
@@ -42,6 +39,9 @@ public class SettingsPageController implements Initializable{
 
     @FXML
     private Button informationSaveButton;
+
+    @FXML
+    private Label infoWarningLabel;
 
     @FXML
     private CheckBox tennisCheckBox;

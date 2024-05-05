@@ -101,28 +101,6 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="350.0" style="-fx-background-color: #1B7D4F; -fx-border-color: #000000;">
                            <children>
-                              <Label prefWidth="100.0" text="Age:" textFill="WHITE">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="ageTextField" prefWidth="190.0">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                                 <effect>
-                                    <DropShadow />
-                                 </effect></TextField>
-                           </children>
-                           <padding>
-                              <Insets left="5.0" />
-                           </padding>
-                           <FlowPane.margin>
-                              <Insets left="20.0" />
-                           </FlowPane.margin>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="350.0" style="-fx-background-color: #1B7D4F; -fx-border-color: #000000;">
-                           <children>
                               <Label prefWidth="100.0" text="Email:" textFill="WHITE">
                                  <font>
                                     <Font size="14.0" />
@@ -161,14 +139,22 @@
                               <Insets left="20.0" />
                            </FlowPane.margin>
                         </HBox>
-                        <Button fx:id="informationSaveButton" mnemonicParsing="false" onAction="#saveButtonClicked" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Save">
+                        <Button fx:id="informationSaveButton" mnemonicParsing="false" onAction="#saveButtonClicked" prefHeight="32.0" prefWidth="83.0" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Save">
                            <FlowPane.margin>
-                              <Insets left="37.0" />
+                              <Insets left="20.0" />
                            </FlowPane.margin>
                            <effect>
                               <DropShadow />
                            </effect>
                         </Button>
+                        <Label fx:id="infoWarningLabel" prefHeight="27.0" prefWidth="349.0">
+                           <FlowPane.margin>
+                              <Insets left="20.0" />
+                           </FlowPane.margin>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
                      </children>
                   </FlowPane>
                   <HBox prefHeight="290.0" prefWidth="200.0">
