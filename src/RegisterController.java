@@ -98,7 +98,7 @@ public class RegisterController implements Initializable{
     void registerButtonClicked(ActionEvent event) throws IOException{
         String email = emailTextField.getText();
         String password = passwordField.getText();
-        if (!Database.checkEmail(email)) {
+        if (!Database.checkEmail(email) && !Database.checkUsername(usernameTextField.getText())) {
             System.out.println("a");
             if (password.equals(confirmPasswordTextField.getText())) {
                 System.out.println("b");
