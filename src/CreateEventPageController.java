@@ -85,6 +85,21 @@ public class CreateEventPageController implements Initializable{
             roundNumberComboBox.getItems().add(round);
         }
         roundNumberComboBox.getSelectionModel().selectFirst();
+
+        for (int day = 1; day <= 30; day++) {
+            dateDayComboBox.getItems().add(day);
+        }
+        dateDayComboBox.getSelectionModel().selectFirst();
+
+        for (int month = 1; month <= 12; month++) {
+            dateMonthComboBox.getItems().add(month);
+        }
+        dateMonthComboBox.getSelectionModel().selectFirst();
+
+        for (int year = 2024; year <= 2025; year++) {
+            dateYearComboBox.getItems().add(year);
+        }
+        dateYearComboBox.getSelectionModel().selectFirst();
         
     }
 
@@ -116,7 +131,7 @@ public class CreateEventPageController implements Initializable{
             Database.insertNewEvent(myTournament);
         }
         else{
-            SingleEvent mySingleEvent = new SingleEvent(placeTextField.getText(), myDate, selectedType, teamSize)
+            SingleEvent mySingleEvent = new SingleEvent(placeTextField.getText(), myDate, selectedType, teamSize);
             Database.insertNewEvent(mySingleEvent);
         }    
     }
