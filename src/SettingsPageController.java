@@ -103,9 +103,13 @@ public class SettingsPageController implements Initializable{
     @FXML
     void saveButtonClicked(ActionEvent event) 
     {
+        if(!usernameTextField.getText().isEmpty())
+        {
+            Database.updateUsernameInfo(usernameTextField.getText());
+        }
         try
         {
-            Database.updateInfo(usernameTextField.getText(), Integer.parseInt(ageTextField.getText()), footballCheckBox.isSelected(), tennisCheckBox.isSelected(), volleyballCheckBox.isSelected());
+            
         }
         catch(NumberFormatException e)
         {

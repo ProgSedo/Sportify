@@ -176,18 +176,73 @@ public class Database {
         return age;
     }
 
-    public static void updateInfo(String username, int age, boolean doesFootball, boolean doesTennis,
-    boolean doesVolleyball)
+    public static void updateUsernameInfo(String username)
     {
         String email = Model.getInstance().getEmail();
         try 
         {
             Statement st = connection.createStatement();
-            String sql = "UPDATE Users SET username = '" + username + "' WHERE email = '" + email + "'\n";
-            sql += "UPDATE Users SET age = " + age + " WHERE email = '" + email + "'\n";
-            sql += "UPDATE Users SET doesFootball = " + doesFootball + " WHERE email = '" + email + "'\n";
-            sql += "UPDATE Users SET doesVolleyball = " + doesVolleyball + " WHERE email = '" + email + "'\n";
-            sql += "UPDATE Users SET doesTennis = " + doesTennis + " WHERE email = '" + email + "'";
+            String sql = "UPDATE Users SET username = '" + username + "' WHERE email = '" + email + "'";
+            st.execute( sql );
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateAgeInfo(int age)
+    {
+        String email = Model.getInstance().getEmail();
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "UPDATE Users SET age = " + age + " WHERE email = '" + email + "'";
+            st.execute( sql );
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateFootballInfo(boolean doesFootball)
+    {
+        String email = Model.getInstance().getEmail();
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "UPDATE Users SET doesFootball = " + doesFootball + " WHERE email = '" + email + "'\n";
+            st.execute( sql );
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateVolleyballInfo( boolean doesVolleyball)
+    {
+        String email = Model.getInstance().getEmail();
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "UPDATE Users SET doesVolleyball = " + doesVolleyball + " WHERE email = '" + email + "'";
+            st.execute( sql );
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateTennisInfo(boolean doesTennis)
+    {
+        String email = Model.getInstance().getEmail();
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "UPDATE Users SET doesTennis = " + doesTennis + " WHERE email = '" + email + "'";
             st.execute( sql );
         } 
         catch (Exception e) 
