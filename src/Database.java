@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import org.w3c.dom.events.Event;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.time.LocalDate;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -168,4 +169,79 @@ public class Database {
 
         return age;
     }
+
+    public static void updateUsernameInfo(String username)
+    {
+        String email = Model.getInstance().getEmail();
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "UPDATE Users SET username = '" + username + "' WHERE email = '" + email + "'";
+            st.execute( sql );
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateFootballInfo(boolean doesFootball)
+    {
+        String email = Model.getInstance().getEmail();
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "UPDATE Users SET doesFootball = " + doesFootball + " WHERE email = '" + email + "'\n";
+            st.execute( sql );
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateVolleyballInfo( boolean doesVolleyball)
+    {
+        String email = Model.getInstance().getEmail();
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "UPDATE Users SET doesVolleyball = " + doesVolleyball + " WHERE email = '" + email + "'";
+            st.execute( sql );
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateTennisInfo(boolean doesTennis)
+    {
+        String email = Model.getInstance().getEmail();
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "UPDATE Users SET doesTennis = " + doesTennis + " WHERE email = '" + email + "'";
+            st.execute( sql );
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public static void insertMessageToForum(String forumName, Comment comment) {
+    try {
+        Connection connection = getConnection(); // Assuming getConnection() returns a valid database connection
+        PreparedStatement pst = connection.prepareStatement("INSERT INTO " + forumName + " (forum, user, message) VALUES (?, ?, ?)");
+        pst.setString(1, forumName);
+        pst.setString(2, comment.getUser());
+        pst.setString(3, comment.getComment());
+        pst.executeUpdate();
+        connection.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+
 }
