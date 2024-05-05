@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import javafx.beans.property.IntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,7 +18,7 @@ public class FriendsPageController implements Initializable{
 
     private ArrayList<String> friends;
     private ArrayList<String> friendRequests;
-
+    private int friendIndex;
 
     @FXML
     private Button acceptButton;
@@ -62,28 +63,45 @@ public class FriendsPageController implements Initializable{
     private Label warningLabel;
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources) 
+    {
+        displayFriendsTextArea.setWrapText(true);
         friends = Database.returnList(Model.getInstance().getEmail(), 1);
         friendRequests = Database.returnList(Model.getInstance().getEmail(), 0);
         displayRequests();
-
+        displayFriends(0);
     }
 
-    public void displayRequests() {
-        if (friendRequests.size() > 0) {
-            friendRequestTextField.setText(friendRequests.get(0));
+    public void displayRequests() 
+    {
+        if (friendRequests.size() > 0) 
+        {
+            friendRequestTextField.setText(Database.usernameByEmail(friendRequests.get(0)));
+        }
+    }
+
+    public void displayFriends(int index)
+    {
+        if(friends.size() > 0)
+        {
+            String username = Database.usernameByEmail(friends.get(index));
+            displayFriendsTextArea.setText(username + "\nInterests: " + Database.getInterests(friends.get(index)));
         }
     }
     
     @FXML
     void acceptButtonClicked(ActionEvent event) 
     {
-        if (friendRequests.size() > 0) {
+        if (friendRequests.size() > 0) 
+        {
             Database.acceptFriendRequest(friendRequests.get(0));
+            friends.add(friendRequests.get(0));
             friendRequests.remove(0);
+            
         }
         friendRequestTextField.setText("");
         displayRequests();
+        displayFriends(friendIndex);
     }
 
     @FXML
@@ -97,7 +115,8 @@ public class FriendsPageController implements Initializable{
     @FXML
     void declineButtonClicked(ActionEvent event) 
     {
-        if (friendRequests.size() > 0) {
+        if (friendRequests.size() > 0) 
+        {
             Database.declineFriend(friendRequests.get(0));
             friendRequests.remove(0);
         }
@@ -123,13 +142,22 @@ public class FriendsPageController implements Initializable{
     @FXML
     void nextButtonClicked(ActionEvent event) 
     {
-
+        if(friendIndex < friends.size() - 1)
+        {
+            friendIndex++;
+            displayFriends(friendIndex);
+        }
     }
 
     @FXML
     void previousButtonClicked(ActionEvent event) 
     {
-
+        if(friendIndex > 0)
+        {
+            friendIndex--;
+            displayFriends(friendIndex);
+        }
+        
     }
 
     @FXML

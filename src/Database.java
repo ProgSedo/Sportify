@@ -93,6 +93,21 @@ public class Database {
         return email;
     }
 
+    public static String usernameByEmail(String email) {
+        String username = "";
+        try {
+            Statement st = connection.createStatement();
+            String sql = "SELECT username FROM Users WHERE email = '" + email + "'";
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                username = rs.getString(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return username;
+    }
+
     public static boolean checkPassword(String email, String password) {
         String userPassword = "";
         try {
