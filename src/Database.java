@@ -319,6 +319,30 @@ public class Database {
         return str;
     }
 
+    public static void createFriendsTable(String name) {
+        try {
+            Statement st = connection.createStatement();
+            String sql = "CREATE TABLE " + name + "( email VARCHAR(50) UNIQUE NOT NULL)";
+            st.executeUpdate(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    /* 
     public static void insertMessageToForum(String forumName, Comment comment) {
     try {
         Connection connection = getConnection(); // Assuming getConnection() returns a valid database connection
@@ -332,5 +356,5 @@ public class Database {
         e.printStackTrace();
     }
 }
-
+    */
 }
