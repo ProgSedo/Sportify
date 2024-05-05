@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import org.w3c.dom.events.Event;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.time.LocalDate;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -250,4 +251,19 @@ public class Database {
             e.printStackTrace();
         }
     }
+
+    public static void insertMessageToForum(String forumName, Comment comment) {
+    try {
+        Connection connection = getConnection(); // Assuming getConnection() returns a valid database connection
+        PreparedStatement pst = connection.prepareStatement("INSERT INTO " + forumName + " (forum, user, message) VALUES (?, ?, ?)");
+        pst.setString(1, forumName);
+        pst.setString(2, comment.getUser());
+        pst.setString(3, comment.getComment());
+        pst.executeUpdate();
+        connection.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+
 }
