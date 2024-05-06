@@ -37,6 +37,27 @@ public class Database {
         return eMailExists;
     }
 
+    public static boolean isTennisSelected(String email) {
+        int selection = 0;
+        try {
+            email = Model.getInstance().getEmail();
+            Statement st = connection.createStatement();
+            String sql = "SELECT doesTennis FROM Users WHERE email = '" + email + "'";
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                
+               selection = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if (selection == 1)
+            return true;
+            return false;
+    }
+
+    
+
     public static ArrayList<String> returnList(String email, int number) {
 
         ArrayList<String> List = new ArrayList<String>();

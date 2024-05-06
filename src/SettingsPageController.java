@@ -67,8 +67,12 @@ public class SettingsPageController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) 
     {
+        String email = Model.getInstance().getEmail();
         emailTextField.setText("email cannot be changed!");
         emailTextField.setEditable(false);
+
+        if (Database.isTennisSelected(email))
+            tennisCheckBox.setSelected(true);
     }
 
     @FXML
