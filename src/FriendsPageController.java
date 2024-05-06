@@ -78,6 +78,10 @@ public class FriendsPageController implements Initializable{
         {
             friendRequestTextField.setText(Database.usernameByEmail(friendRequests.get(0)));
         }
+        if(friendRequests.size() == 0)
+        {
+            friendRequestTextField.setText("");
+        }
     }
 
     public void displayFriends(int index)
@@ -86,6 +90,10 @@ public class FriendsPageController implements Initializable{
         {
             String username = Database.usernameByEmail(friends.get(index));
             displayFriendsTextArea.setText(username + "\nInterests: " + Database.getInterests(friends.get(index)));
+        }
+        if(friends.size() == 0)
+        {
+            displayFriendsTextArea.setText("");
         }
     }
     
