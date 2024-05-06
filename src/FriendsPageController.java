@@ -86,6 +86,7 @@ public class FriendsPageController implements Initializable{
 
     public void displayFriends(int index)
     {
+        friendIndexManager();
         if(friends.size() > 0)
         {
             String username = Database.usernameByEmail(friends.get(index));
@@ -105,7 +106,6 @@ public class FriendsPageController implements Initializable{
             Database.acceptFriendRequest(friendRequests.get(0));
             friends.add(friendRequests.get(0));
             friendRequests.remove(0);
-            
         }
         friendRequestTextField.setText("");
         displayRequests();
@@ -182,8 +182,15 @@ public class FriendsPageController implements Initializable{
     @FXML
     void visitFriendButtonClicked(ActionEvent event) 
     {
-        Model.getInstance().setFriendEmail(friends.get(friendIndex));
-        Model.getInstance().getViewFactory().getDecider().set("VisitFriend");
+        if(friends.size()>0)
+        {
+            Model.getInstance().setFriendEmail(friends.get(friendIndex));
+            Model.getInstance().getViewFactory().getDecider().set("VisitFriend");
+        }
+        else
+        {
+            System.out.println("Eziksin.");
+        }
     }
 
     @FXML
@@ -197,6 +204,14 @@ public class FriendsPageController implements Initializable{
         else
         {
             Model.getInstance().getViewFactory().getDecider().set("FriendsPage");
+        }
+    }
+
+    public void friendIndexManager()
+    {
+        if(friendIndex > friends.size())
+        {
+            friendIndex = Math.max(friends.size()-1,0);
         }
     }
 
