@@ -182,7 +182,8 @@ public class FriendsPageController implements Initializable{
     @FXML
     void visitFriendButtonClicked(ActionEvent event) 
     {
-        
+        Model.getInstance().setFriendEmail(friends.get(friendIndex));
+        Model.getInstance().getViewFactory().getDecider().set("VisitFriend");
     }
 
     @FXML

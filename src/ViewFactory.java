@@ -438,13 +438,13 @@ public class ViewFactory {
         return joinEventView;
     }
 
-    public VBox getVisitFriendView(String email)
+    public VBox getVisitFriendView()
     {
         VBox visitFriend = null;
         try
         {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("FriendsPage.fxml"));
-            FriendsPageController controller = new FriendsPageController();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("VisitorPage.fxml"));
+            VisitorPageController controller = new VisitorPageController();
             loader.setController(controller);
             visitFriend = loader.load();
         }

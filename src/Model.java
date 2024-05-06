@@ -3,6 +3,7 @@ public class Model {
     private static Model model;
     private final ViewFactory viewFactory;
     private static String email;
+    private static String friendEmail;
 
     private Model()
     {
@@ -31,5 +32,15 @@ public class Model {
     public void setEmail(String anEmail)
     {
         email = anEmail;
+    }
+
+    public String getFriendEmail()
+    {
+        return friendEmail;
+    }
+
+    public void setFriendEmail(String anEmail)
+    {
+        friendEmail = anEmail;
     }
 }
