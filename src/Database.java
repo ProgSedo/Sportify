@@ -386,7 +386,8 @@ public class Database {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        if (str.equals("null"))
+            return "";
         return str;
     }
 
