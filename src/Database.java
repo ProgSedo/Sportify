@@ -56,6 +56,44 @@ public class Database {
             return false;
     }
 
+    public static boolean isFootballSelected(String email) {
+        int selection = 0;
+        try {
+            email = Model.getInstance().getEmail();
+            Statement st = connection.createStatement();
+            String sql = "SELECT doesFootball FROM Users WHERE email = '" + email + "'";
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                
+               selection = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if (selection == 1)
+            return true;
+            return false;
+    }
+
+    public static boolean isVolleyballSelected(String email) {
+        int selection = 0;
+        try {
+            email = Model.getInstance().getEmail();
+            Statement st = connection.createStatement();
+            String sql = "SELECT doesVolleyball FROM Users WHERE email = '" + email + "'";
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                
+               selection = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if (selection == 1)
+            return true;
+            return false;
+    }
+
     
 
     public static ArrayList<String> returnList(String email, int number) {

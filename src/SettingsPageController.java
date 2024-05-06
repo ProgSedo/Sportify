@@ -73,6 +73,10 @@ public class SettingsPageController implements Initializable{
 
         if (Database.isTennisSelected(email))
             tennisCheckBox.setSelected(true);
+        if (Database.isFootballSelected(email))
+            footballCheckBox.setSelected(true);
+        if (Database.isVolleyballSelected(email))
+            volleyballCheckBox.setSelected(true);
     }
 
     @FXML
