@@ -163,7 +163,12 @@ public class FriendsPageController implements Initializable{
     @FXML
     void removeFriendButtonClicked(ActionEvent event) 
     {
-
+        if(friends.size()>0)
+        {
+            Database.removeFriend(friends.get(friendIndex));
+            friends.remove(friendIndex);
+            displayFriends(friendIndex);
+        }
     }
 
     @FXML
