@@ -512,6 +512,10 @@ public class Database {
         }
     }
 
+    public static void doesFriendExist() {
+        //TBI şuan kafam basmıyor
+    }
+
 
 
 
