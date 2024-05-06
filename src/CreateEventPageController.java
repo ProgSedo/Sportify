@@ -73,10 +73,12 @@ public class CreateEventPageController implements Initializable{
         footballRadioButton.setToggleGroup(sportType);
         volleyballRadioButton.setToggleGroup(sportType);
         tennisRadioButton.setToggleGroup(sportType);
+        tennisRadioButton.setSelected(true);
 
         ToggleGroup matchType = new ToggleGroup();
         tournamentRadioButton.setToggleGroup(matchType);
         matchRadioButton.setToggleGroup(matchType);
+        matchRadioButton.setSelected(true);
 
         for (int size = 1; size <= 5; size++) {
             footballSizeComboBox.getItems().add(size);
