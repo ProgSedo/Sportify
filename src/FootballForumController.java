@@ -7,17 +7,20 @@ import javafx.scene.control.TextArea;
 public class FootballForumController {
 
     @FXML
-    private TextArea footBallForumTextArea;
+    private TextArea displayMessagesTextField;
 
     @FXML
-    private Label footballTitleLabel;
+    private Button sendButton;
 
     @FXML
-    private Button menuBarButton;
+    private TextArea sendMessageTextField;
 
     @FXML
-    void menuBarButtonClicked(ActionEvent event) {
-        System.out.println("b");
+    private Button sideBarButton;
+
+    @FXML
+    void sideBarButtonClicked(ActionEvent event) 
+    {
         Model.getInstance().getViewFactory().closeAndOpenSideBar();
         if(Model.getInstance().getViewFactory().getIsSideBarOpen()) 
         {
@@ -27,6 +30,12 @@ public class FootballForumController {
         {
             Model.getInstance().getViewFactory().getDecider().set("FootballForumPage");
         }
+    }
+
+    @FXML
+    void sendButtonClicked(ActionEvent event) 
+    {
+
     }
 
 }

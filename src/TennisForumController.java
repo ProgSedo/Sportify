@@ -7,16 +7,16 @@ import javafx.scene.control.TextArea;
 public class TennisForumController {
 
     @FXML
-    private Button backButton;
+    private TextArea displayMessagesTextField;
+    
+    @FXML
+    private Button sendButton;
 
     @FXML
-    private Button menuBarButton;
+    private TextArea sendMessageTextField;
 
     @FXML
-    private TextArea tennisForumTextArea;
-
-    @FXML
-    private Label tennisTitleLabel;
+    private Button sideBarButton;
 
     @FXML
     void menuBarButtonClicked(ActionEvent event) 
@@ -31,6 +31,11 @@ public class TennisForumController {
         {
             Model.getInstance().getViewFactory().getDecider().set("TennisForumPage");
         }
+    }
+
+    @FXML
+    void sendButtonClicked(ActionEvent event) {
+
     }
 
 }

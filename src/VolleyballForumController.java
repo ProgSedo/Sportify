@@ -9,19 +9,19 @@ import javafx.scene.control.TextArea;
 public class VolleyballForumController {
 
     @FXML
-    private Button backButton;
+    private TextArea displayMessagesTextField;
 
     @FXML
-    private Button menuBarButton;
+    private Button sendButton;
 
     @FXML
-    private TextArea voleyballForumTextArea;
+    private TextArea sendMessageTextField;
 
     @FXML
-    private Label voleyballTitleLabel;
+    private Button sideBarButton;
 
     @FXML
-    void menuBarButtonClicked(ActionEvent event) 
+    void sideBarButtonClicked(ActionEvent event) 
     {
         Model.getInstance().getViewFactory().closeAndOpenSideBar();
         
@@ -33,6 +33,11 @@ public class VolleyballForumController {
         {
             Model.getInstance().getViewFactory().getDecider().set("VolleyballForumPage");
         }    
+    }
+
+    @FXML
+    void sendButtonClicked(ActionEvent event) {
+
     }
 
 }
