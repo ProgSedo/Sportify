@@ -174,7 +174,7 @@ public class FriendsPageController implements Initializable{
     @FXML
     void visitFriendButtonClicked(ActionEvent event) 
     {
-
+        
     }
 
     @FXML

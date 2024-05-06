@@ -8,6 +8,7 @@ import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -435,6 +436,23 @@ public class ViewFactory {
             }
         }
         return joinEventView;
+    }
+
+    public VBox getVisitFriendView(String email)
+    {
+        VBox visitFriend = null;
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FriendsPage.fxml"));
+            FriendsPageController controller = new FriendsPageController();
+            loader.setController(controller);
+            visitFriend = loader.load();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return visitFriend;
     }
 
     public FlowPane getEmptyPane()

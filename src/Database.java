@@ -425,14 +425,8 @@ public class Database {
         String email = Model.getInstance().getEmail();
         try {
             Statement st = connection.createStatement();
-            String sql = "DELETE FROM " + email + "_friends WHERE email='" + emailToBeRemoved + "'";
-            st.execute(sql);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        try {
-            Statement st = connection.createStatement();
-            String sql = "DELETE FROM " + emailToBeRemoved + "_friends WHERE email='" + email + "'";
+            String sql = "DELETE FROM " + email + "_friends WHERE email='" + emailToBeRemoved + "'\n";
+            sql += "DELETE FROM " + emailToBeRemoved + "_friends WHERE email='" + email + "'";
             st.execute(sql);
         } catch (Exception e) {
             e.printStackTrace();
