@@ -59,10 +59,12 @@ public class VolleyballForumController implements Initializable{
     {
         Database.addNewMessageToVolleyballForum(sendMessageTextField.getText(), Model.getInstance().getEmail());
         displayForumMessages();
+        sendMessageTextField.setText("");
     }
 
     void displayForumMessages()
     {
+        messages = Database.getMessagesOfVolleyballForum();
         String forum = "";
         for(String i : messages)
         {

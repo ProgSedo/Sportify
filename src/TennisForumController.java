@@ -56,6 +56,7 @@ public class TennisForumController implements Initializable{
     {
         Database.addNewMessageToTennisForum(sendMessageTextField.getText(), Model.getInstance().getEmail());
         displayForumMessages();
+        sendMessageTextField.setText("");
     }
 
     void displayForumMessages()
