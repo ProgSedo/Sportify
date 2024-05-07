@@ -34,19 +34,22 @@ public class FootballForumController implements Initializable{
         displayForumMessages();
     }
 
+    
     @FXML
     void sideBarButtonClicked(ActionEvent event) 
     {
         Model.getInstance().getViewFactory().closeAndOpenSideBar();
-        if(Model.getInstance().getViewFactory().getIsSideBarOpen()) 
+        if(Model.getInstance().getViewFactory().getIsSideBarOpen())
         {
-            Model.getInstance().getViewFactory().getDecider().set("FootballForumPage+");
+            Model.getInstance().getViewFactory().getDecider().set("TennisForumPage+");
         }
-        else 
+        else
         {
-            Model.getInstance().getViewFactory().getDecider().set("FootballForumPage");
+            Model.getInstance().getViewFactory().getDecider().set("TennisForumPage");
         }
     }
+    
+    
 
     @FXML
     void sendButtonClicked(ActionEvent event) 
@@ -66,5 +69,7 @@ public class FootballForumController implements Initializable{
         }
         displayMessagesTextField.setText(forum);
     }
+
+    
 
 }

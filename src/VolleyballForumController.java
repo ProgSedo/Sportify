@@ -51,6 +51,8 @@ public class VolleyballForumController implements Initializable{
         }    
     }
 
+    
+
     @FXML
     void sendButtonClicked(ActionEvent event) 
     {
