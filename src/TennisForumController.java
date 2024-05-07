@@ -32,6 +32,7 @@ public class TennisForumController implements Initializable{
         sendMessageTextField.setWrapText(true);
         messages = Database.getMessagesOfTennisForum();
         displayForumMessages();
+
     }
 
     @FXML
@@ -66,6 +67,20 @@ public class TennisForumController implements Initializable{
             forum += "-----------------------------------------------";
         }
         displayMessagesTextField.setText(forum);
+    }
+
+    @FXML
+    void sideBarButtonClicked(ActionEvent event) 
+    {
+        Model.getInstance().getViewFactory().closeAndOpenSideBar();
+        if(Model.getInstance().getViewFactory().getIsSideBarOpen())
+        {
+            Model.getInstance().getViewFactory().getDecider().set("TennisForumPage+");
+        }
+        else
+        {
+            Model.getInstance().getViewFactory().getDecider().set("TennisForumPage");
+        }
     }
 
     
