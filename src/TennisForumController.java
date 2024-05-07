@@ -28,6 +28,7 @@ public class TennisForumController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) 
     {
+        displayMessagesTextField.setEditable(false);
         displayMessagesTextField.setWrapText(true);
         sendMessageTextField.setWrapText(true);
         messages = Database.getMessagesOfTennisForum();
@@ -59,6 +60,7 @@ public class TennisForumController implements Initializable{
 
     void displayForumMessages()
     {
+        messages = Database.getMessagesOfTennisForum();
         String forum = "";
         for(String i : messages)
         {

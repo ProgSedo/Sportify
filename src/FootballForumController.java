@@ -41,11 +41,11 @@ public class FootballForumController implements Initializable{
         Model.getInstance().getViewFactory().closeAndOpenSideBar();
         if(Model.getInstance().getViewFactory().getIsSideBarOpen())
         {
-            Model.getInstance().getViewFactory().getDecider().set("TennisForumPage+");
+            Model.getInstance().getViewFactory().getDecider().set("FootballForumPage+");
         }
         else
         {
-            Model.getInstance().getViewFactory().getDecider().set("TennisForumPage");
+            Model.getInstance().getViewFactory().getDecider().set("FootballForumPage");
         }
     }
     
