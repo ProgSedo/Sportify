@@ -3,11 +3,8 @@
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import org.w3c.dom.events.Event;
-
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.time.LocalDate;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -18,18 +15,24 @@ public class Database {
 
         ArrayList<String> emailList = new ArrayList<String>();
         boolean eMailExists = false;
-        try {
+        try 
+        {
             Statement st = connection.createStatement();
             String sql = "SELECT email FROM Users";
             ResultSet rs = st.executeQuery(sql);
-            while (rs.next()) {
+            while (rs.next()) 
+            {
                 emailList.add(rs.getString(1));
             }
-        } catch (SQLException e) {
+        } 
+        catch (SQLException e) 
+        {
             e.printStackTrace();
         }
-        for (String str : emailList) {
-            if (str.equals(email)) {
+        for (String str : emailList) 
+        {
+            if (str.equals(email)) 
+            {
                 eMailExists = true;
                 break;
             }
@@ -39,8 +42,8 @@ public class Database {
 
     public static boolean isTennisSelected(String email) {
         int selection = 0;
-        try {
-            email = Model.getInstance().getEmail();
+        try 
+        {
             Statement st = connection.createStatement();
             String sql = "SELECT doesTennis FROM Users WHERE email = '" + email + "'";
             ResultSet rs = st.executeQuery(sql);
@@ -48,7 +51,9 @@ public class Database {
                 
                selection = rs.getInt(1);
             }
-        } catch (SQLException e) {
+        } 
+        catch (SQLException e) 
+        {
             e.printStackTrace();
         }
         if (selection == 1)
@@ -58,8 +63,8 @@ public class Database {
 
     public static boolean isFootballSelected(String email) {
         int selection = 0;
-        try {
-            email = Model.getInstance().getEmail();
+        try 
+        {
             Statement st = connection.createStatement();
             String sql = "SELECT doesFootball FROM Users WHERE email = '" + email + "'";
             ResultSet rs = st.executeQuery(sql);
@@ -67,7 +72,9 @@ public class Database {
                 
                selection = rs.getInt(1);
             }
-        } catch (SQLException e) {
+        } 
+        catch (SQLException e) 
+        {
             e.printStackTrace();
         }
         if (selection == 1)
@@ -77,8 +84,8 @@ public class Database {
 
     public static boolean isVolleyballSelected(String email) {
         int selection = 0;
-        try {
-            email = Model.getInstance().getEmail();
+        try 
+        {
             Statement st = connection.createStatement();
             String sql = "SELECT doesVolleyball FROM Users WHERE email = '" + email + "'";
             ResultSet rs = st.executeQuery(sql);
@@ -86,7 +93,9 @@ public class Database {
                 
                selection = rs.getInt(1);
             }
-        } catch (SQLException e) {
+        } 
+        catch (SQLException e) 
+        {
             e.printStackTrace();
         }
         if (selection == 1)
@@ -283,8 +292,8 @@ public class Database {
     public static int getAge(String email) {
         //not tested
         int age = 0;
-        try {
-            email = Model.getInstance().getEmail();
+        try 
+        {
             Statement st = connection.createStatement();
             String sql = "SELECT birthYear FROM Users WHERE email = '" + email + "'";
             ResultSet rs = st.executeQuery(sql);
@@ -293,7 +302,9 @@ public class Database {
                 int birthYear = rs.getInt(1);
                 age = java.time.Year.now().getValue() - birthYear;
             }
-        } catch (SQLException e) {
+        } 
+        catch (SQLException e) 
+        {
             e.printStackTrace();
         }
 
@@ -369,9 +380,9 @@ public class Database {
 
     public static String getUsername(String email) {
         //not tested
-        String username = "aaaaa";
-        try {
-            email = Model.getInstance().getEmail();
+        String username = "";
+        try 
+        {
             Statement st = connection.createStatement();
             String sql = "SELECT username FROM Users WHERE email = '" + email + "'";
             ResultSet rs = st.executeQuery(sql);
@@ -379,7 +390,9 @@ public class Database {
                 
                 username = rs.getString(1);
             }
-        } catch (SQLException e) {
+        } 
+        catch (SQLException e) 
+        {
             e.printStackTrace();
         }
 
@@ -432,17 +445,20 @@ public class Database {
     public static String getAboutMe(String email) {
         //not tested
         String str = "";
-        try {
-            email = Model.getInstance().getEmail();
+        try 
+        {
             Statement st = connection.createStatement();
             String sql = "SELECT aboutMe FROM Users WHERE email = '" + email + "'";
             ResultSet rs = st.executeQuery(sql);
-            while (rs.next()) {
+            while (rs.next()) 
+            {
                 
                 str = rs.getString(1);
                 
             }
-        } catch (SQLException e) {
+        } 
+        catch (SQLException e) 
+        {
             e.printStackTrace();
         }
         if (str.equals("null"))
@@ -451,14 +467,18 @@ public class Database {
     }
 
     public static void createFriendsTable(String emailTable) {
-        try {
+        try 
+        {
             Statement st = connection.createStatement();
             String sql = "CREATE TABLE " + emailTable + "( email VARCHAR(50) UNIQUE NOT NULL, friend_status BIT)";
             st.executeUpdate(sql);
-        } catch (Exception e) {
+        } 
+        catch (Exception e) 
+        {
             e.printStackTrace();
         }
     }
+
     public static void sendFriendRequest(String emailToBeAdded) {
         String email = Model.getInstance().getEmail();
         try {
