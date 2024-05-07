@@ -495,19 +495,25 @@ public class Database {
 
     public static void acceptFriendRequest(String emailToBeAdded) {
         String email = Model.getInstance().getEmail();
-        try {
+        try 
+        {
             Statement st = connection.createStatement();
             String sql = "UPDATE " + email + "_friends SET friend_status = 1 WHERE email = '" + emailToBeAdded + "'";
             st.execute(sql);
-        } catch (Exception e) {
+        } 
+        catch (Exception e) 
+        {
             e.printStackTrace();
         }
 
-        try {
+        try 
+        {
             Statement st = connection.createStatement();
             String sql = "INSERT INTO " + emailToBeAdded + "_friends (email, friend_status) VALUES ('" + email + "', 1)";
             st.execute(sql);
-        } catch (Exception e) {
+        } 
+        catch (Exception e) 
+        {
             e.printStackTrace();
         }
     }
@@ -516,6 +522,106 @@ public class Database {
         //TBI şuan kafam basmıyor
     }
 
+    public static ArrayList<String> getMessagesOfTennisForum()
+    {
+        ArrayList<String> messages = new ArrayList<String>();
+        try {
+            Statement st = connection.createStatement();
+            String sql = "SELECT message FROM tennis_forum";
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                messages.add(rs.getString(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return messages;
+    }
+
+    public static ArrayList<String> getMessagesOfVolleyballForum()
+    {
+        ArrayList<String> messages = new ArrayList<String>();
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "SELECT message FROM volleyball_forum";
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) 
+            {
+                messages.add(rs.getString(1));
+            }
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+        
+        return messages;
+    }
+
+    public static ArrayList<String> getMessagesOfFootballForum()
+    {
+        ArrayList<String> messages = new ArrayList<String>();
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "SELECT message FROM football_forum";
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) 
+            {
+                messages.add(rs.getString(1));
+            }
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+        
+        return messages;
+    }
+
+    public static void addNewMessageToTennisForum(String message, String email)
+    {
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "INSERT INTO tennis_forum (message, email) VALUES ('" + message + "', '" + email + "')";
+            st.execute(sql);
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public static void addNewMessageToFootballForum(String message, String email)
+    {
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "INSERT INTO football_forum (message, email) VALUES ('" + message + "', '" + email + "')";
+            st.execute(sql);
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public static void addNewMessageToVolleyballForum(String message, String email)
+    {
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "INSERT INTO volleyball_forum (message, email) VALUES ('" + message + "', '" + email + "')";
+            st.execute(sql);
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+    }
 
 
 
