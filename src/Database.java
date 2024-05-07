@@ -623,6 +623,26 @@ public class Database {
         }
     }
 
+    public static String getEmailFromForums(int sportType, String message) {
+        String email = "";
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "SELECT email FROM tennis_forum WHERE message = '" + message + "'";;
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) 
+            {
+                email = rs.getString(1);
+            }
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+        
+        return email;
+    }
+
 
 
 

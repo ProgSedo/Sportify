@@ -64,9 +64,12 @@ public class TennisForumController implements Initializable{
         String forum = "";
         for(String i : messages)
         {
+
+            String email = Database.getEmailFromForums(0, i);
+            forum += Database.usernameByEmail(email) + ": ";
             forum += i;
+
             forum += "\n";
-            forum += "-----------------------------------------------";
         }
         displayMessagesTextField.setText(forum);
     }
