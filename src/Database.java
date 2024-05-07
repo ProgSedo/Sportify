@@ -622,13 +622,32 @@ public class Database {
             e.printStackTrace();
         }
     }
-
+    //0 is tennis, 1 is volleyball, 2 or others is football.
     public static String getEmailFromForums(int sportType, String message) {
         String email = "";
-        try 
+        
+
+        if (sportType == 0) {
+            try 
+            {
+                Statement st = connection.createStatement();
+                String sql = "SELECT email FROM tennis_forum WHERE message = '" + message + "'";;
+                ResultSet rs = st.executeQuery(sql);
+                while (rs.next()) 
+                {
+                    email = rs.getString(1);
+                }
+            } 
+            catch (SQLException e) 
+            {
+                e.printStackTrace();
+            }
+        }
+        else if (sportType == 1) {
+            try 
         {
             Statement st = connection.createStatement();
-            String sql = "SELECT email FROM tennis_forum WHERE message = '" + message + "'";;
+            String sql = "SELECT email FROM volleyball_forum WHERE message = '" + message + "'";;
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) 
             {
@@ -638,6 +657,23 @@ public class Database {
         catch (SQLException e) 
         {
             e.printStackTrace();
+        }
+        }
+        else {
+            try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "SELECT email FROM football_forum WHERE message = '" + message + "'";;
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) 
+            {
+                email = rs.getString(1);
+            }
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
         }
         
         return email;
