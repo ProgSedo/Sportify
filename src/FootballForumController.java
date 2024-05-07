@@ -28,6 +28,7 @@ public class FootballForumController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) 
     {
+        displayMessagesTextField.setEditable(false);
         displayMessagesTextField.setWrapText(true);
         sendMessageTextField.setWrapText(true);
         messages = Database.getMessagesOfFootballForum();
@@ -56,16 +57,21 @@ public class FootballForumController implements Initializable{
     {
         Database.addNewMessageToFootballForum(sendMessageTextField.getText(), Model.getInstance().getEmail());
         displayForumMessages();
+        sendMessageTextField.setText("");
     }
 
     void displayForumMessages()
     {
+        messages = Database.getMessagesOfFootballForum();
         String forum = "";
         for(String i : messages)
         {
+
+            String email = Database.getEmailFromForums(2, i);
+            forum += Database.usernameByEmail(email) + ": ";
             forum += i;
+
             forum += "\n";
-            forum += "-----------------------------------------------";
         }
         displayMessagesTextField.setText(forum);
     }
