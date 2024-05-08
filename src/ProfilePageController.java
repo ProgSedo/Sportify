@@ -4,6 +4,7 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -62,6 +63,9 @@ public class ProfilePageController implements Initializable{
         aboutMeTextArea.setText(Database.getAboutMe(email));
         aboutMeTextArea.setWrapText(true);
         
+        displayComments();
+        commentsTextArea.setWrapText(true);
+        
         
         emailTextField.setEditable(false);
         interestsTextField.setEditable(false);
@@ -105,6 +109,22 @@ public class ProfilePageController implements Initializable{
     {
         Model.getInstance().getViewFactory().closeSideBar();
         Model.getInstance().getViewFactory().getDecider().set("MyVolleyballEvents");
+    }
+
+    void displayComments()
+    {
+        ArrayList<String> comments = Database.getComments(Model.getInstance().getEmail());
+        int length = comments.size();
+
+        String commentArea = "";
+        for(int i = length - 1; i > Math.max(length - 11, -1); i--)
+        {
+            commentArea += Database.getUsernameByComment(comments.get(i), Model.getInstance().getEmail());
+            commentArea += ": ";
+            commentArea += comments.get(i);
+            commentArea += "\n";
+        }
+        commentsTextArea.setText(commentArea);
     }
 
 }

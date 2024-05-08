@@ -643,11 +643,11 @@ public class Database {
         }
     }
     //0 is tennis, 1 is volleyball, 2 or others is football.
-    public static String getEmailFromForums(int sportType, String message) {
+    public static String getEmailFromForums(int sportType, String message) 
+    {
         String email = "";
-        
-
-        if (sportType == 0) {
+        if (sportType == 0) 
+        {
             try 
             {
                 Statement st = connection.createStatement();
@@ -663,62 +663,82 @@ public class Database {
                 e.printStackTrace();
             }
         }
-        else if (sportType == 1) {
+        else if (sportType == 1) 
+        {
             try 
-        {
-            Statement st = connection.createStatement();
-            String sql = "SELECT email FROM volleyball_forum WHERE message = '" + message + "'";;
-            ResultSet rs = st.executeQuery(sql);
-            while (rs.next()) 
             {
-                email = rs.getString(1);
+                Statement st = connection.createStatement();
+                String sql = "SELECT email FROM volleyball_forum WHERE message = '" + message + "'";;
+                ResultSet rs = st.executeQuery(sql);
+                while (rs.next()) 
+                {
+                    email = rs.getString(1);
+                }
+            } 
+            catch (SQLException e) 
+            {
+                e.printStackTrace();
             }
-        } 
-        catch (SQLException e) 
+        }
+        else 
         {
-            e.printStackTrace();
-        }
-        }
-        else {
             try 
-        {
-            Statement st = connection.createStatement();
-            String sql = "SELECT email FROM football_forum WHERE message = '" + message + "'";;
-            ResultSet rs = st.executeQuery(sql);
-            while (rs.next()) 
             {
-                email = rs.getString(1);
+                Statement st = connection.createStatement();
+                String sql = "SELECT email FROM football_forum WHERE message = '" + message + "'";;
+                ResultSet rs = st.executeQuery(sql);
+                while (rs.next()) 
+                {
+                    email = rs.getString(1);
+                }
+            } 
+            catch (SQLException e) 
+            {
+                e.printStackTrace();
             }
-        } 
-        catch (SQLException e) 
-        {
-            e.printStackTrace();
         }
-        }
-        
         return email;
     }
 
-
-
-
-
-
-
-
-    /* 
-    public static void insertMessageToForum(String forumName, Comment comment) {
-    try {
-        Connection connection = getConnection(); // Assuming getConnection() returns a valid database connection
-        PreparedStatement pst = connection.prepareStatement("INSERT INTO " + forumName + " (forum, user, message) VALUES (;
-        pst.setString(1, forumName);?, ?, ?)")
-        pst.setString(2, comment.getUser());
-        pst.setString(3, comment.getComment());
-        pst.executeUpdate();
-        connection.close();
-    } catch (SQLException e) {
-        e.printStackTrace();
+    // to take the comments made on the user with email "email"
+    public static ArrayList<String> getComments(String email)
+    {
+        ArrayList<String> comments = new ArrayList<String>();
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "SELECT comment FROM "+ email +"_comments";
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) 
+            {
+                comments.add(rs.getString(1));
+            }
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+        return comments;
     }
-}
-    */
+
+    // returns the username of the commenter
+    public static String getUsernameByComment(String comment, String email)
+    {
+        String senderEmail = "";
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "SELECT email FROM " + email + "_comments WHERE comment = " + comment ;
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) 
+            {
+                senderEmail = rs.getString(1);
+            }
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+        return getUsername(senderEmail);
+    }
 }
