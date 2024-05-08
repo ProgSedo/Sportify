@@ -78,14 +78,23 @@ public class FriendsPageController implements Initializable{
         {
             friendRequestTextField.setText(Database.usernameByEmail(friendRequests.get(0)));
         }
+        if(friendRequests.size() == 0)
+        {
+            friendRequestTextField.setText("");
+        }
     }
 
     public void displayFriends(int index)
     {
+        friendIndexManager();
         if(friends.size() > 0)
         {
             String username = Database.usernameByEmail(friends.get(index));
             displayFriendsTextArea.setText(username + "\nInterests: " + Database.getInterests(friends.get(index)));
+        }
+        if(friends.size() == 0)
+        {
+            displayFriendsTextArea.setText("");
         }
     }
     
@@ -97,7 +106,6 @@ public class FriendsPageController implements Initializable{
             Database.acceptFriendRequest(friendRequests.get(0));
             friends.add(friendRequests.get(0));
             friendRequests.remove(0);
-            
         }
         friendRequestTextField.setText("");
         displayRequests();
@@ -163,13 +171,26 @@ public class FriendsPageController implements Initializable{
     @FXML
     void removeFriendButtonClicked(ActionEvent event) 
     {
-
+        if(friends.size()>0)
+        {
+            Database.removeFriend(friends.get(friendIndex));
+            friends.remove(friendIndex);
+            displayFriends(friendIndex);
+        }
     }
 
     @FXML
     void visitFriendButtonClicked(ActionEvent event) 
     {
-
+        if(friends.size()>0)
+        {
+            Model.getInstance().setFriendEmail(friends.get(friendIndex));
+            Model.getInstance().getViewFactory().getDecider().set("VisitFriend");
+        }
+        else
+        {
+            System.out.println("Eziksin.");
+        }
     }
 
     @FXML
@@ -183,6 +204,14 @@ public class FriendsPageController implements Initializable{
         else
         {
             Model.getInstance().getViewFactory().getDecider().set("FriendsPage");
+        }
+    }
+
+    public void friendIndexManager()
+    {
+        if(friendIndex > friends.size())
+        {
+            friendIndex = Math.max(friends.size()-1,0);
         }
     }
 

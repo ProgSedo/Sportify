@@ -11,30 +11,44 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #90EE90;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <FlowPane prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #0F5132; -fx-border-color: #000000;">
-         <children>
-            <Button fx:id="menuBarButton" mnemonicParsing="false" onAction="#menuBarButtonClicked" prefHeight="32.0" prefWidth="69.0" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Side Bar">
-               <FlowPane.margin>
-                  <Insets bottom="10.0" left="10.0" top="10.0" />
-               </FlowPane.margin>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </Button>
-            <FlowPane alignment="CENTER_RIGHT" prefHeight="51.0" prefWidth="718.0" />
-         </children>
+      <FlowPane alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #0F5132; -fx-border-color: #000000;">
          <effect>
             <DropShadow />
          </effect>
+         <children>
+            <Button fx:id="sideBarButton" mnemonicParsing="false" onAction="#sideBarButtonClicked" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Side Bar">
+               <FlowPane.margin>
+                  <Insets left="10.0" />
+               </FlowPane.margin>
+            </Button>
+         </children>
       </FlowPane>
-      <TextArea fx:id="voleyballForumTextArea" layoutX="15.0" layoutY="135.0" prefHeight="450.0" prefWidth="759.0" style="-fx-background-radius: 5;" AnchorPane.bottomAnchor="14.600000000000023" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.400000000000091">
-         <effect>
-            <DropShadow />
-         </effect></TextArea>
-      <Label fx:id="voleyballTitleLabel" alignment="CENTER" layoutY="51.0" prefHeight="78.0" prefWidth="739.0" text="VOLLEYBALL🏐" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <Label alignment="CENTER" layoutX="-1.0" layoutY="51.0" prefHeight="78.0" prefWidth="801.0" text="VOLLEYBALL🏐" AnchorPane.bottomAnchor="470.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="70.0">
          <font>
             <Font size="40.0" />
          </font>
       </Label>
+      <AnchorPane layoutX="367.0" layoutY="264.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0F5132; -fx-border-color: #000000;" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="140.0">
+         <children>
+            <TextArea fx:id="displayMessagesTextField" layoutX="224.0" layoutY="52.0" prefHeight="200.0" prefWidth="200.0" promptText="Messages are displayed here." AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextArea>
+            <TextArea fx:id="sendMessageTextField" layoutX="202.0" layoutY="245.0" prefHeight="200.0" prefWidth="200.0" promptText="Message..." AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="320.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextArea>
+            <Button fx:id="sendButton" layoutX="537.0" layoutY="331.0" mnemonicParsing="false" onAction="#sendButtonClicked" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Send" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="530.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="320.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
    </children>
 </AnchorPane>

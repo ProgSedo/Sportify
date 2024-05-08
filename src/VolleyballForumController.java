@@ -1,27 +1,44 @@
 
 
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
-public class VolleyballForumController {
+public class VolleyballForumController implements Initializable{
+
+    ArrayList<String> messages;
 
     @FXML
-    private Button backButton;
+    private TextArea displayMessagesTextField;
 
     @FXML
-    private Button menuBarButton;
+    private Button sendButton;
 
     @FXML
-    private TextArea voleyballForumTextArea;
+    private TextArea sendMessageTextField;
 
     @FXML
-    private Label voleyballTitleLabel;
+    private Button sideBarButton;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) 
+    {
+        displayMessagesTextField.setEditable(false);
+        displayMessagesTextField.setWrapText(true);
+        sendMessageTextField.setWrapText(true);
+        messages = Database.getMessagesOfVolleyballForum();
+        displayForumMessages();
+    }
 
     @FXML
-    void menuBarButtonClicked(ActionEvent event) 
+    void sideBarButtonClicked(ActionEvent event) 
     {
         Model.getInstance().getViewFactory().closeAndOpenSideBar();
         
@@ -33,6 +50,31 @@ public class VolleyballForumController {
         {
             Model.getInstance().getViewFactory().getDecider().set("VolleyballForumPage");
         }    
+    }
+
+    
+
+    @FXML
+    void sendButtonClicked(ActionEvent event) 
+    {
+        Database.addNewMessageToVolleyballForum(sendMessageTextField.getText(), Model.getInstance().getEmail());
+        displayForumMessages();
+        sendMessageTextField.setText("");
+    }
+
+    void displayForumMessages()
+    {
+        messages = Database.getMessagesOfVolleyballForum();
+        String forum = "";
+        for(String i : messages)
+        {
+            String email = Database.getEmailFromForums(1, i);
+            forum += Database.usernameByEmail(email) + ": ";
+            forum += i;
+
+            forum += "\n";
+        }
+        displayMessagesTextField.setText(forum);
     }
 
 }

@@ -14,6 +14,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 
 public class CreateEventPageController implements Initializable{
 
@@ -67,6 +68,18 @@ public class CreateEventPageController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        ToggleGroup sportType = new ToggleGroup();
+        footballRadioButton.setToggleGroup(sportType);
+        volleyballRadioButton.setToggleGroup(sportType);
+        tennisRadioButton.setToggleGroup(sportType);
+        tennisRadioButton.setSelected(true);
+
+        ToggleGroup matchType = new ToggleGroup();
+        tournamentRadioButton.setToggleGroup(matchType);
+        matchRadioButton.setToggleGroup(matchType);
+        matchRadioButton.setSelected(true);
+
         for (int size = 1; size <= 5; size++) {
             footballSizeComboBox.getItems().add(size);
         }
@@ -100,6 +113,8 @@ public class CreateEventPageController implements Initializable{
             dateYearComboBox.getItems().add(year);
         }
         dateYearComboBox.getSelectionModel().selectFirst();
+
+
         
     }
 
