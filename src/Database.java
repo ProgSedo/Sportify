@@ -251,13 +251,15 @@ public class Database {
         String email = Model.getInstance().getEmail();
         try {
             Statement st = connection.createStatement();
-            String sql = "INSERT INTO " + emailToBeAdded + "_comments (email, comment) VALUES ('" + email + "'," + commentText +")";
+            String sql = "INSERT INTO " + emailToBeAdded + "_comments (email, comment) VALUES ('" + email + "','" + commentText +"')";
             st.execute(sql);
         } catch (Exception e) {
             e.printStackTrace();
         }
         System.out.println("comment added");
     }
+
+    
 
 
     public static void insertNewEvent( Events event ) {
