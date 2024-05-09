@@ -769,6 +769,6 @@ public class Database {
         {
             e.printStackTrace();
         }
-        return getUsername(senderEmail);
+        return usernameByEmail(senderEmail);
     }
 }
