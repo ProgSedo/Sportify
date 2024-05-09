@@ -119,6 +119,7 @@ public class FriendsPageController implements Initializable{
         String email = Database.emailByUsername(username);
         ArrayList<String> friends = Database.returnList(Model.getInstance().getEmail(), 1);
         ArrayList<String> othersRequests = Database.returnList(email, 0);
+        othersRequests.toString();
         if(! (friends.contains(email) || othersRequests.contains(email)))
         {
             Database.sendFriendRequest(email);
