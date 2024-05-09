@@ -118,8 +118,6 @@ public class FriendsPageController implements Initializable{
         friendRequests.toString();
         String username = friendDisplayLabel.getText();
         String email = Database.emailByUsername(username);
-        System.out.println(friends.contains(email));
-        System.out.println(friendRequests.contains(email));
         if(! (friends.contains(email) || friendRequests.contains(email)))
         {
             System.out.println("-------------------------------------");

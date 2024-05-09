@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart.Data;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
@@ -105,6 +106,7 @@ public class RegisterController implements Initializable{
                 User user = new User(email, password, usernameTextField.getText(), yearComboBox.getValue(), isFootballSelected(), isVolleyballelected(), isTennisSelected());
                 Database.createFriendsTable(email + "_friends");
                 Database.createCommentsTable(email+ "_comments");
+                Database.addComment("berke","a");
                 System.out.println("c");
                 //LATER GOING TO BE USED ON APP
                 Model.getInstance().getViewFactory().showSignInPage();
