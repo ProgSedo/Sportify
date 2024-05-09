@@ -16,8 +16,6 @@ import javafx.scene.control.TextField;
 
 public class FriendsPageController implements Initializable{
 
-    private ArrayList<String> friends;
-    private ArrayList<String> friendRequests;
     private int friendIndex;
 
     @FXML
@@ -66,14 +64,13 @@ public class FriendsPageController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) 
     {
         displayFriendsTextArea.setWrapText(true);
-        friends = Database.returnList(Model.getInstance().getEmail(), 1);
-        friendRequests = Database.returnList(Model.getInstance().getEmail(), 0);
         displayRequests();
         displayFriends(0);
     }
 
     public void displayRequests() 
     {
+        ArrayList<String> friendRequests = Database.returnList(Model.getInstance().getEmail(), 0);
         if (friendRequests.size() > 0) 
         {
             friendRequestTextField.setText(Database.usernameByEmail(friendRequests.get(0)));
@@ -86,6 +83,7 @@ public class FriendsPageController implements Initializable{
 
     public void displayFriends(int index)
     {
+        ArrayList<String> friends = Database.returnList(Model.getInstance().getEmail(), 1);
         friendIndexManager();
         if(friends.size() > 0)
         {
@@ -101,11 +99,10 @@ public class FriendsPageController implements Initializable{
     @FXML
     void acceptButtonClicked(ActionEvent event) 
     {
+        ArrayList<String> friendRequests = Database.returnList(Model.getInstance().getEmail(), 0);
         if (friendRequests.size() > 0) 
         {
             Database.acceptFriendRequest(friendRequests.get(0));
-            friends.add(friendRequests.get(0));
-            friendRequests.remove(0);
         }
         friendRequestTextField.setText("");
         displayRequests();
@@ -115,18 +112,23 @@ public class FriendsPageController implements Initializable{
     @FXML
     void sendRequestButtonClicked(ActionEvent event) 
     {
+        ArrayList<String> friends = Database.returnList(Model.getInstance().getEmail(), 1);
+        ArrayList<String> friendRequests = Database.returnList(Model.getInstance().getEmail(), 0);
         String username = friendDisplayLabel.getText();
         String email = Database.emailByUsername(username);
-        Database.sendFriendRequest(email);
+        if(! (friends.contains(email) || friendRequests.contains(email)))
+        {
+            Database.sendFriendRequest(email);
+        }
     }
 
     @FXML
     void declineButtonClicked(ActionEvent event) 
     {
+        ArrayList<String> friendRequests = Database.returnList(Model.getInstance().getEmail(), 0);
         if (friendRequests.size() > 0) 
         {
             Database.declineFriend(friendRequests.get(0));
-            friendRequests.remove(0);
         }
         friendRequestTextField.setText("");
         displayRequests();
@@ -135,21 +137,37 @@ public class FriendsPageController implements Initializable{
     @FXML
     void searchFriendButtonClicked(ActionEvent event) 
     {
+        ArrayList<String> friends = Database.returnList(Model.getInstance().getEmail(), 1);
+        ArrayList<String> friendRequests = Database.returnList(Model.getInstance().getEmail(), 0);
         String username = usernameTextField.getText();
         String email = Database.emailByUsername(username);
-        if (Database.checkUsername(username) && !Model.getInstance().getEmail().equals(email)) {
+        if(Model.getInstance().getEmail().equals(email))
+        {
+            warningLabel.setText("You cannot search yourself");
+        }
+        else if(friends.contains(email))
+        {
+            warningLabel.setText("You are already friend");
+        }
+        else if(friendRequests.contains(email))
+        {
+            warningLabel.setText("You have already sent friend request");
+        }
+        else if (!Database.checkUsername(username)) 
+        {
+            warningLabel.setText("No such user");
+        }
+        else 
+        {
             friendDisplayLabel.setText(username);
             warningLabel.setText("");
-
-        }
-        else {
-            warningLabel.setText("Invalid username");
         }
     }
 
     @FXML
     void nextButtonClicked(ActionEvent event) 
     {
+        ArrayList<String> friends = Database.returnList(Model.getInstance().getEmail(), 1);
         if(friendIndex < friends.size() - 1)
         {
             friendIndex++;
@@ -171,10 +189,11 @@ public class FriendsPageController implements Initializable{
     @FXML
     void removeFriendButtonClicked(ActionEvent event) 
     {
+        ArrayList<String> friends = Database.returnList(Model.getInstance().getEmail(), 1);
         if(friends.size()>0)
         {
             Database.removeFriend(friends.get(friendIndex));
-            friends.remove(friendIndex);
+            friendIndexManager();
             displayFriends(friendIndex);
         }
     }
@@ -182,6 +201,7 @@ public class FriendsPageController implements Initializable{
     @FXML
     void visitFriendButtonClicked(ActionEvent event) 
     {
+        ArrayList<String> friends = Database.returnList(Model.getInstance().getEmail(), 1);
         if(friends.size()>0)
         {
             Model.getInstance().setFriendEmail(friends.get(friendIndex));
@@ -209,6 +229,7 @@ public class FriendsPageController implements Initializable{
 
     public void friendIndexManager()
     {
+        ArrayList<String> friends = Database.returnList(Model.getInstance().getEmail(), 1);
         if(friendIndex > friends.size())
         {
             friendIndex = Math.max(friends.size()-1,0);
