@@ -117,18 +117,9 @@ public class FriendsPageController implements Initializable{
     {
         String username = friendDisplayLabel.getText();
         String email = Database.emailByUsername(username);
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-        System.out.println(friends.contains(email));
-        System.out.println(friendRequests.contains(email));
->>>>>>> Stashed changes
-        if(! (friends.contains(email) || friendRequests.contains(email)))
-=======
         ArrayList<String> friends = Database.returnList(Model.getInstance().getEmail(), 1);
         ArrayList<String> othersRequests = Database.returnList(email, 0);
         if(! (friends.contains(email) || othersRequests.contains(email)))
->>>>>>> Stashed changes
         {
             Database.sendFriendRequest(email);
         }
