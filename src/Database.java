@@ -404,7 +404,7 @@ public class Database {
         //not tested
         String interests = "";
         try {
-            email = Model.getInstance().getEmail();
+            
             Statement st = connection.createStatement();
             String sql = "SELECT doesFootball FROM Users WHERE email = '" + email + "'";
             ResultSet rs = st.executeQuery(sql);
