@@ -1,7 +1,11 @@
 
 
 import java.sql.Statement;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+
+import javax.lang.model.util.ElementScanner14;
 
 import java.sql.Connection;
 
@@ -734,5 +738,144 @@ public class Database {
             e.printStackTrace();
         }
         return usernameByEmail(senderEmail);
+    }
+
+    // football_matches: 0
+    // football_tournaments: 1
+    // volleyball_mathces: 2
+    // volleyball_tournaments: 3
+    // tennis_matches: 4
+    // tennis_tournaments: 5
+    public static ArrayList<Integer> getEvents(int parameter)
+    {
+        ArrayList<Integer> events = new ArrayList<Integer>();
+        
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "SELECT ID FROM "+ parameterToTableName(parameter);
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) 
+            {
+                events.add(Integer.parseInt(rs.getString(1)));
+            }
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+        
+        return events;
+    }
+
+    public static String getEventName(int eventID, int parameter)
+    {
+        String name = "";
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "SELECT name FROM " + parameterToTableName(parameter) + " WHERE ID = " + eventID ;
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next())
+            {
+                name = rs.getString(1);
+            }
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+        return name;
+    }
+
+    public static LocalDateTime getDateTime(int eventID, int parameter)
+    {
+        LocalDateTime datetime = null;
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "SELECT datetime FROM " + parameterToTableName(parameter) + " WHERE ID = " + eventID ;
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next())
+            {
+                Timestamp time = rs.getTimestamp(1);
+                datetime = time.toLocalDateTime();
+            }
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+        return datetime;
+    }
+
+    public static String getPlace(int eventID, int parameter)
+    {
+        String place = "";
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "SELECT place FROM " + parameterToTableName(parameter) + " WHERE eventID = " + eventID ;
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next())
+            {
+                place = rs.getString(1);
+            }
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+        return place;
+    }
+
+    public static String getDetails(int eventID, int parameter)
+    {
+        String details = "";
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "SELECT details FROM " + parameterToTableName(parameter) + " WHERE eventID = " + eventID ;
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next())
+            {
+                details = rs.getString(1);
+            }
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+        return details;
+    }
+
+    public static String parameterToTableName(int parameter)
+    {
+        String name = "";
+        if(parameter == 0)
+        {
+            name = "football_matches";
+        }
+        else if(parameter == 1)
+        {
+            name = "football_tournaments";
+        }
+        else if(parameter == 2)
+        {
+            name = "volleyball_matches";
+        }
+        else if(parameter == 3)
+        {
+            name = "volleyball_tournaments";
+        }
+        else if(parameter == 4)
+        {
+            name = "tennis_matches";
+        }
+        else
+        {
+            name = "tennis_tournaments";
+        }
+        return name;
     }
 }
