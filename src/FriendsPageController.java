@@ -2,6 +2,7 @@
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 import javafx.beans.property.IntegerProperty;
@@ -114,6 +115,7 @@ public class FriendsPageController implements Initializable{
     {
         ArrayList<String> friends = Database.returnList(Model.getInstance().getEmail(), 1);
         ArrayList<String> friendRequests = Database.returnList(Model.getInstance().getEmail(), 0);
+        friendRequests.toString();
         String username = friendDisplayLabel.getText();
         String email = Database.emailByUsername(username);
         if(! (friends.contains(email) || friendRequests.contains(email)))
