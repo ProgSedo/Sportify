@@ -262,28 +262,6 @@ public class Database {
     
 
 
-    public static void insertNewEvent( Events event ) {
-
-        String sportTypeStr = "";
-        if(event.getSportType() == SportType.tennis){
-            sportTypeStr = "tennis";
-        }
-        else if(event.getSportType() == SportType.volleyball){
-            sportTypeStr = "volleyball";
-        }
-        else if(event.getSportType() == SportType.football){
-            sportTypeStr = "football";
-        }
-        try {
-            Statement st = connection.createStatement();
-            String sql = "INSERT INTO Events ( eventID, eventTime, eventPlace, sportType ) VALUES (" + event.getEventID() + ", " + event.getEventTime() + ", '" + event.getPlace() + "', '" + sportTypeStr + "')";
-            st.execute( sql );
-        
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     public static void updateAboutMe(String text) 
     {
         try {
