@@ -247,6 +247,17 @@ public class Database {
         }
     }
 
+    public static void addComment(String emailToBeAdded, String commentText) {
+        String email = Model.getInstance().getEmail();
+        try {
+            Statement st = connection.createStatement();
+            String sql = "INSERT INTO " + emailToBeAdded + "_comments (email, comment) VALUES ('" + email + "'," + commentText +")";
+            st.execute(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public static void insertNewEvent( Events event ) {
 
