@@ -247,6 +247,7 @@ public class Database {
         }
     }
 
+
     public static void insertNewEvent( Events event ) {
 
         String sportTypeStr = "";
