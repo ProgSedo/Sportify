@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
+import javax.lang.model.util.ElementScanner14;
+
 import javafx.beans.property.IntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -113,16 +115,32 @@ public class FriendsPageController implements Initializable{
     @FXML
     void sendRequestButtonClicked(ActionEvent event) 
     {
-        ArrayList<String> friends = Database.returnList(Model.getInstance().getEmail(), 1);
-        ArrayList<String> friendRequests = Database.returnList(Model.getInstance().getEmail(), 0);
-        friendRequests.toString();
         String username = friendDisplayLabel.getText();
         String email = Database.emailByUsername(username);
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+        System.out.println(friends.contains(email));
+        System.out.println(friendRequests.contains(email));
+>>>>>>> Stashed changes
         if(! (friends.contains(email) || friendRequests.contains(email)))
+=======
+        ArrayList<String> friends = Database.returnList(Model.getInstance().getEmail(), 1);
+        ArrayList<String> othersRequests = Database.returnList(email, 0);
+        if(! (friends.contains(email) || othersRequests.contains(email)))
+>>>>>>> Stashed changes
         {
-            System.out.println("-------------------------------------");
             Database.sendFriendRequest(email);
         }
+        else if(friends.contains(email))
+        {
+            warningLabel.setText("You are already friends");
+        }
+        else
+        {
+            warningLabel.setText("You have already sent a friend request");
+        }
+
     }
 
     @FXML
@@ -140,21 +158,11 @@ public class FriendsPageController implements Initializable{
     @FXML
     void searchFriendButtonClicked(ActionEvent event) 
     {
-        ArrayList<String> friends = Database.returnList(Model.getInstance().getEmail(), 1);
-        ArrayList<String> friendRequests = Database.returnList(Model.getInstance().getEmail(), 0);
         String username = usernameTextField.getText();
         String email = Database.emailByUsername(username);
         if(Model.getInstance().getEmail().equals(email))
         {
             warningLabel.setText("You cannot search yourself");
-        }
-        else if(friends.contains(email))
-        {
-            warningLabel.setText("You are already friend");
-        }
-        else if(friendRequests.contains(email))
-        {
-            warningLabel.setText("You have already sent friend request");
         }
         else if (!Database.checkUsername(username)) 
         {
