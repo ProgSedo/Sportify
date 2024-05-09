@@ -231,14 +231,18 @@ public class Database {
         }
     }
 
-    public static void insertNewComment(Comment comment) {
+    public static void createCommentsTable(String emailTable) {
 
-        try {
-            Statement st = connection.createStatement();
-            String sql = "INSERT INTO Comments ( user, commentor, comment ) VALUES (" + comment.getUser() + ", " + comment.getCommentor() + ", " + comment.getComment() + ")";
-            st.execute( sql );
         
-        } catch (Exception e) {
+       
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "CREATE TABLE " + emailTable + "( email VARCHAR(50) UNIQUE NOT NULL, comment VARCHAR(MAX))";
+            st.executeUpdate(sql);
+        } 
+        catch (Exception e) 
+        {
             e.printStackTrace();
         }
     }
