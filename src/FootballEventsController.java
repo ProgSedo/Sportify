@@ -1,12 +1,20 @@
 
 
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
-public class FootballEventsController {
+public class FootballEventsController implements Initializable
+{
+    private int matchIndex;
+    private int tournamentIndex;
 
     @FXML
     private Label matchName;
@@ -40,6 +48,15 @@ public class FootballEventsController {
 
     @FXML
     private Button sideBarButton;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) 
+    {
+        footballMatchesInfoArea.setEditable(false);
+        footballTournamentsInfoArea.setEditable(false);
+        matchIndex = 0;
+        tournamentIndex = 0;
+    }
 
     @FXML
     void joinMatchButtonClicked(ActionEvent event) {
@@ -86,4 +103,13 @@ public class FootballEventsController {
         }
     }
 
+    void displayMatches()
+    {
+
+    }
+
+    void displayTournaments()
+    {
+
+    }
 }

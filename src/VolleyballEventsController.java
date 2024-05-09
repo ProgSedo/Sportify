@@ -1,17 +1,24 @@
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
-public class VolleyballEventsController {
+public class VolleyballEventsController implements Initializable{
+
+    private int matchIndex;
+    private int tournamentIndex;
 
     @FXML
     private Label matchName;
 
     @FXML
     private Label tournamentName;
-    
+
     @FXML
     private Button joinMatchButton;
 
@@ -38,6 +45,15 @@ public class VolleyballEventsController {
 
     @FXML
     private TextArea volleyballTournamentsInfoArea;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) 
+    {
+        volleyballMatchesInfoArea.setEditable(false);
+        volleyballTournamentsInfoArea.setEditable(false);
+        matchIndex = 0;
+        tournamentIndex = 0;
+    }
 
     @FXML
     void joinMatchButtonClicked(ActionEvent event) {
@@ -82,6 +98,16 @@ public class VolleyballEventsController {
         {
             Model.getInstance().getViewFactory().getDecider().set("VolleyballEvents");
         }
+    }
+
+    void displayMatches()
+    {
+
+    }
+
+    void displayTournaments()
+    {
+        
     }
 
 }
