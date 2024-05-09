@@ -14,6 +14,12 @@ public class TennisForumController implements Initializable{
     ArrayList<String> messages;
 
     @FXML
+    private Label matchName;
+
+    @FXML
+    private Label tournamentName;
+    
+    @FXML
     private TextArea displayMessagesTextField;
     
     @FXML
