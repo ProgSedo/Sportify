@@ -728,7 +728,7 @@ public class Database {
         try 
         {
             Statement st = connection.createStatement();
-            String sql = "SELECT email FROM " + email + "_comments WHERE comment = " + comment ;
+            String sql = "SELECT email FROM " + email + "_comments WHERE comment = '" + comment + "'";
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) 
             {
