@@ -466,28 +466,6 @@ public class Database {
         return str;
     }
 
-    public static String getFriends(String email) {
-
-        String str = "";
-        try
-        {
-            Statement st = connection.createStatement();
-            String sql = "SELECT email FROM " + email + "_friends";
-
-            ResultSet rs = st.executeQuery(sql); 
-            while (rs.next()) {
-
-                str += rs.getString("email");
-            }
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-        if (str.equals("null"))
-            return "";
-        return str;
-    }
 
     public static void createFriendsTable(String emailTable) {
         try 
@@ -559,17 +537,6 @@ public class Database {
         {
             e.printStackTrace();
         }
-    }
-
-    public static boolean doesFriendExist(String checkedEmail) {
-        
-        String email = Model.getInstance().getEmail();
-        String friends = getFriends( email );
-        
-        if ( friends.contains( checkedEmail ) ) {
-            return true;
-        }
-        return false;
     }
 
     public static ArrayList<String> getMessagesOfTennisForum()
