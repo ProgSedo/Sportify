@@ -746,13 +746,13 @@ public class Database {
         return usernameByEmail(senderEmail);
     }
 
-    public static void insertNewEvent(int parameter, String name, int ID, LocalDateTime datetime, int teamSize, String place, String details, boolean isOver)
+    public static void insertNewEvent(int parameter, String name, LocalDateTime datetime, int teamSize, String place, String details, boolean isOver)
     {
         try 
         {
             Statement st = connection.createStatement();
-            String sql = "INSERT INTO " + parameterToTableName(parameter) + " (name, ID, datetime, teamSize, place, details, isOver)"
-            + "VALUES ('" + name + "', " + ID + "," + Timestamp.valueOf(datetime) + "," + teamSize + ", '" + place + "', '" + details + "', '" + Boolean.valueOf(isOver) + "')";
+            String sql = "INSERT INTO " + parameterToTableName(parameter) + " (name, datetime, teamSize, place, details, isOver)"
+            + "VALUES ('" + name + "', " + Timestamp.valueOf(datetime) + "," + teamSize + ", '" + place + "', '" + details + "', '" + Boolean.valueOf(isOver) + "')";
             st.execute(sql);
         } 
         catch (Exception e) 
@@ -831,8 +831,6 @@ public class Database {
         }
     }
 
-
-
     // football_matches: 0
     // football_tournaments: 1
     // volleyball_mathces: 2
@@ -842,11 +840,10 @@ public class Database {
     public static ArrayList<Integer> getEvents(int parameter)
     {
         ArrayList<Integer> events = new ArrayList<Integer>();
-        
         try 
         {
             Statement st = connection.createStatement();
-            String sql = "SELECT ID FROM "+ parameterToTableName(parameter);
+            String sql = "SELECT ID FROM " + parameterToTableName(parameter);
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) 
             {
@@ -857,7 +854,6 @@ public class Database {
         {
             e.printStackTrace();
         }
-        
         return events;
     }
 
