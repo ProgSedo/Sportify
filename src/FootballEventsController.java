@@ -143,6 +143,8 @@ public class FootballEventsController implements Initializable
         String info = "";
         ArrayList<Integer> footballMatches = Database.getEvents(0);
         int id = footballMatches.get(index);
+        System.out.println("aaaaaaaaaaa");
+
 
         matchName.setText(Database.getEventName(id, 0));
         datetime = Database.getDateTime(id, 0).format(timeFormatter);
@@ -150,6 +152,8 @@ public class FootballEventsController implements Initializable
         time = datetime.substring(11, 16);
         place = Database.getPlace(id, 0);
         details = Database.getDetails(id, 0);
+        System.out.println("aaaaaaaaaaa");
+
 
         info += "Date: " + date + "\n" + seperator + "\n" + "Time: " + time + "\n" + seperator + "\n" + "Place: " + place + "\n"  + seperator + "\n" + "Details: " + details;
         footballMatchesInfoArea.setText(info);

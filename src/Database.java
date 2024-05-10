@@ -843,7 +843,7 @@ public class Database {
         try 
         {
             Statement st = connection.createStatement();
-            String sql = "SELECT ID FROM " + parameterToTableName(parameter);
+            String sql = "SELECT eventID FROM " + parameterToTableName(parameter);
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) 
             {
@@ -863,7 +863,7 @@ public class Database {
         try 
         {
             Statement st = connection.createStatement();
-            String sql = "SELECT name FROM " + parameterToTableName(parameter) + " WHERE ID = " + eventID ;
+            String sql = "SELECT name FROM " + parameterToTableName(parameter) + " WHERE eventID = " + eventID ;
             ResultSet rs = st.executeQuery(sql);
             while (rs.next())
             {
@@ -883,7 +883,7 @@ public class Database {
         try 
         {
             Statement st = connection.createStatement();
-            String sql = "SELECT datetime FROM " + parameterToTableName(parameter) + " WHERE ID = " + eventID ;
+            String sql = "SELECT datetime FROM " + parameterToTableName(parameter) + " WHERE eventID = " + eventID ;
             ResultSet rs = st.executeQuery(sql);
             while (rs.next())
             {
