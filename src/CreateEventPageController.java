@@ -2,7 +2,10 @@
 
 import java.net.URL;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -21,7 +24,7 @@ import javafx.scene.control.ToggleGroup;
 
 public class CreateEventPageController implements Initializable
 {
-    DateFormat dateFormat;
+    DateTimeFormatter dateFormat;
 
     @FXML
     private ComboBox<String> hourComboBox;
@@ -147,11 +150,11 @@ public class CreateEventPageController implements Initializable
         }
         minuteComboBox.getSelectionModel().selectFirst();
 
-        dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
     }
 
     @FXML
-    void createEventButtonClicked(ActionEvent event) 
+    void createEventButtonClicked(ActionEvent event) throws ParseException 
     {
         String name = "";
         String datetime = "";
@@ -170,23 +173,44 @@ public class CreateEventPageController implements Initializable
         }
 
         String day = dayComboBox.getSelectionModel().getSelectedItem();
-        String month;
-        String year;
-        String hour;
-        String minute;
-        if(dayComboBox.getSelectionModel().getSelectedItem().length() == 1)
-        {
+        String month = monthComboBox.getSelectionModel().getSelectedItem();
+        String year = yearComboBox.getSelectionModel().getSelectedItem();
+        String hour = hourComboBox.getSelectionModel().getSelectedItem();
+        String minute = minuteComboBox.getSelectionModel().getSelectedItem();
 
+        if(day.length() == 1)
+        {
+            day = "0" + day;
         }
-        datetime += dayComboBox.getSelectionModel().getSelectedItem();
+        if(month.length() == 1)
+        {
+            month = "0" + month;
+        }
+        if(hour.length() == 1)
+        {
+            hour = "0" + hour;
+        }
+        if(minute.length() == 1)
+        {
+            minute = "0" + minute;
+        }
+        datetime += day;
         datetime += "/";
-        datetime += monthComboBox.getSelectionModel().getSelectedItem();
+        datetime += month;
         datetime += "/";
-        datetime += yearComboBox.getSelectionModel().getSelectedItem();
+        datetime += year;
         datetime += " ";
-        datetime += hourComboBox.getSelectionModel().getSelectedItem();
+        datetime += hour;
         datetime += ":";
-        datetime += minuteComboBox.getSelectionModel().getSelectedItem();
+        datetime += minute;
+
+        LocalDateTime dateTime = LocalDateTime.parse(datetime, dateFormat);
+        LocalDateTime now = LocalDateTime.now();
+
+        if(dateTime.isAfter(now))
+        {
+            
+        }
     }
 
     @FXML
