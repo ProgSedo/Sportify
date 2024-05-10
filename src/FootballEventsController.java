@@ -1,6 +1,7 @@
 
 
 import java.net.URL;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -15,6 +16,7 @@ public class FootballEventsController implements Initializable
 {
     private int matchIndex;
     private int tournamentIndex;
+    private DateTimeFormatter timeFormatter;
 
     @FXML
     private Label matchName;
@@ -54,8 +56,11 @@ public class FootballEventsController implements Initializable
     {
         footballMatchesInfoArea.setEditable(false);
         footballTournamentsInfoArea.setEditable(false);
+        footballMatchesInfoArea.setWrapText(true);
+        footballTournamentsInfoArea.setWrapText(true);
         matchIndex = 0;
         tournamentIndex = 0;
+        timeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
     }
 
     @FXML
@@ -69,23 +74,43 @@ public class FootballEventsController implements Initializable
     }
 
     @FXML
-    void nextMatchButtonClicked(ActionEvent event) {
-
+    void previousMatchButtonClicked(ActionEvent event) 
+    {
+        if(matchIndex > 0)
+        {
+            matchIndex--;
+            displayMatches(matchIndex);
+        }
     }
 
     @FXML
-    void nextTournamentButtonClicked(ActionEvent event) {
-
+    void nextMatchButtonClicked(ActionEvent event) 
+    {
+        if(matchIndex < Database.getEvents(0).size()-1)
+        {
+            matchIndex++;
+            displayMatches(matchIndex);
+        }
     }
 
     @FXML
-    void previousMatchButtonClicked(ActionEvent event) {
-
+    void previousTournamentButtonClicked(ActionEvent event) 
+    {
+        if(tournamentIndex > 0)
+        {
+            tournamentIndex--;
+            displayTournaments(tournamentIndex);
+        }
     }
 
     @FXML
-    void previousTournamentButtonClicked(ActionEvent event) {
-
+    void nextTournamentButtonClicked(ActionEvent event) 
+    {
+        if(tournamentIndex < Database.getEvents(1).size()-1)
+        {
+            tournamentIndex++;
+            displayTournaments(tournamentIndex);
+        }
     }
 
     @FXML
@@ -103,12 +128,30 @@ public class FootballEventsController implements Initializable
         }
     }
 
-    void displayMatches()
+    void displayMatches(int index)
     {
+        String datetime = "";
+        String date = "";
+        String time = "";
+        String place = "";
+        String details = "";
+        String seperator = "------------------------------------------------";
+        String info = "";
+        ArrayList<Integer> footballMatches = Database.getEvents(0);
+        int id = footballMatches.get(index);
 
+        matchName.setText(Database.getEventName(id, 0));
+        datetime = Database.getDateTime(id, 0).format(timeFormatter);
+        date = datetime.substring(0,10);
+        time = datetime.substring(11, 16);
+        place = Database.getPlace(id, 0);
+        details = Database.getDetails(id, 0);
+
+        info += "Date: " + date + "\n" + seperator + "\n" + "Time: " + time + "\n" + seperator + "\n" + "Place: " + place + "\n"  + seperator + "\n" + "Details: " + details;
+        footballMatchesInfoArea.setText(info);
     }
 
-    void displayTournaments()
+    void displayTournaments(int index)
     {
 
     }

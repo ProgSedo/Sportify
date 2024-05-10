@@ -1,11 +1,14 @@
 
 
 import java.net.URL;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.PieChart.Data;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -14,6 +17,7 @@ public class TennisEventsController implements Initializable{
 
     private int matchIndex;
     private int tournamentIndex;
+    private DateTimeFormatter timeFormatter;
 
     @FXML
     private Label matchName;
@@ -53,38 +57,63 @@ public class TennisEventsController implements Initializable{
     {
         tennisMatchesInfoArea.setEditable(false);
         tennisTournamentsInfoArea.setEditable(false);
+        tennisMatchesInfoArea.setWrapText(true);
+        tennisTournamentsInfoArea.setWrapText(true);
         matchIndex = 0;
         tournamentIndex = 0;
+        timeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
     }
 
     @FXML
-    void joinMatchButtonClicked(ActionEvent event) {
-
-    }
-
-    @FXML
-    void joinTournamentButtonClicked(ActionEvent event) {
-
-    }
-
-    @FXML
-    void nextMatchButtonClicked(ActionEvent event) {
+    void joinMatchButtonClicked(ActionEvent event) 
+    {
 
     }
 
     @FXML
-    void nextTournamentButtonClicked(ActionEvent event) {
+    void joinTournamentButtonClicked(ActionEvent event) 
+    {
 
     }
 
     @FXML
-    void previousMatchButtonClicked(ActionEvent event) {
-
+    void previousMatchButtonClicked(ActionEvent event) 
+    {
+        if(matchIndex > 0)
+        {
+            matchIndex--;
+            displayMatches(matchIndex);
+        }
     }
 
     @FXML
-    void previousTournamentButtonClicked(ActionEvent event) {
+    void nextMatchButtonClicked(ActionEvent event) 
+    {
+        if(matchIndex < Database.getEvents(0).size()-1)
+        {
+            matchIndex++;
+            displayMatches(matchIndex);
+        }
+    }
 
+    @FXML
+    void previousTournamentButtonClicked(ActionEvent event) 
+    {
+        if(tournamentIndex > 0)
+        {
+            tournamentIndex--;
+            displayTournaments(tournamentIndex);
+        }
+    }
+
+    @FXML
+    void nextTournamentButtonClicked(ActionEvent event) 
+    {
+        if(tournamentIndex < Database.getEvents(1).size()-1)
+        {
+            tournamentIndex++;
+            displayTournaments(tournamentIndex);
+        }
     }
 
     @FXML
@@ -101,12 +130,30 @@ public class TennisEventsController implements Initializable{
         }
     }
 
-    void displayMatches()
+    void displayMatches(int index)
     {
+        String datetime = "";
+        String date = "";
+        String time = "";
+        String place = "";
+        String details = "";
+        String seperator = "------------------------------------------------";
+        String info = "";
+        ArrayList<Integer> tennisMatches = Database.getEvents(4);
+        int id = tennisMatches.get(index);
 
+        matchName.setText(Database.getEventName(id, 4));
+        datetime = Database.getDateTime(id, 4).format(timeFormatter);
+        date = datetime.substring(0,10);
+        time = datetime.substring(11, 16);
+        place = Database.getPlace(id, 4);
+        details = Database.getDetails(id, 4);
+
+        info += "Date: " + date + "\n" + seperator + "\n" + "Time: " + time + "\n" + seperator + "\n" + "Place: " + place + "\n"  + seperator + "\n" + "Details: " + details;
+        tennisMatchesInfoArea.setText(info);
     }
 
-    void displayTournaments()
+    void displayTournaments(int index)
     {
         
     }

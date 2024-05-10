@@ -1,9 +1,16 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
-public class MyVolleyballEventsController {
+public class MyVolleyballEventsController 
+{
+    @FXML
+    private Label matchName;
+    
+    @FXML
+    private Label tournamentName;
 
     @FXML
     private Button nextMatchButton;
@@ -33,22 +40,26 @@ public class MyVolleyballEventsController {
     private TextArea volleyballTournamentsInfoArea;
 
     @FXML
-    void nextMatchButtonClicked(ActionEvent event) {
+    void nextMatchButtonClicked(ActionEvent event) 
+    {
 
     }
 
     @FXML
-    void nextTournamentButtonClicked(ActionEvent event) {
+    void nextTournamentButtonClicked(ActionEvent event) 
+    {
 
     }
 
     @FXML
-    void previousMatchButtonClicked(ActionEvent event) {
+    void previousMatchButtonClicked(ActionEvent event) 
+    {
 
     }
 
     @FXML
-    void previousTournamentButtonClicked(ActionEvent event) {
+    void previousTournamentButtonClicked(ActionEvent event) 
+    {
 
     }
 
@@ -67,12 +78,14 @@ public class MyVolleyballEventsController {
     }
 
     @FXML
-    void unjoinMatchButtonClicked(ActionEvent event) {
+    void unjoinMatchButtonClicked(ActionEvent event) 
+    {
 
     }
 
     @FXML
-    void unjoinTournamentButtonClicked(ActionEvent event) {
+    void unjoinTournamentButtonClicked(ActionEvent event) 
+    {
 
     }
 
