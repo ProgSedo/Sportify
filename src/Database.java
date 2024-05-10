@@ -223,22 +223,24 @@ public class Database {
         return new User(email, password, "asda", birthYearr, false, false, false);
     }
 
-    public static void insertNewUser(User user) {
-        try {
+    public static void insertNewUser(User user) 
+    {
+        try 
+        {
             Statement st = connection.createStatement();
             String sql = "INSERT INTO Users (email, password, username, aboutMe, birthYear, eventID, doesTennis, doesFootball, doesVolleyball)"
             + "VALUES ('" + user.getEmail() + "', '" + user.getPassword() + "', '" + user.getUsername() + "', '" + user.getAboutMe() + "', '" + user.getBirthYear() + "', '" + user.getEventID() + "', '" + user.getIsTennis() + "', '" + user.getIsFootball() + "', '" + user.getIsVolleyball() +  "')";
             st.execute(sql);
             
-        } catch (Exception e) {
+        } 
+        catch (Exception e) 
+        {
             e.printStackTrace();
         }
     }
 
-    public static void createCommentsTable(String emailTable) {
-
-        
-       
+    public static void createCommentsTable(String emailTable)
+    {    
         try 
         {
             Statement st = connection.createStatement();
@@ -739,6 +741,56 @@ public class Database {
         }
         return usernameByEmail(senderEmail);
     }
+
+    public static void insertNewEvent(int parameter, String name, int ID, LocalDateTime datetime, int teamSize, String place, String details, boolean isOver)
+    {
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "INSERT INTO " + parameterToTableName(parameter) + " (name, ID, datetime, teamSize, place, details, isOver)"
+            + "VALUES ('" + name + "', " + ID + "," + Timestamp.valueOf(datetime) + "," + teamSize + ", '" + place + "', '" + details + "', '" + Boolean.valueOf(isOver) + "')";
+            st.execute(sql);
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public static void createEventParticipants(int eventID)
+    {
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "CREATE TABLE " + eventID + "_participants (email1 VARCHAR(50), email2 VARCHAR(50))";
+            st.executeUpdate(sql);
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public static void addParticipant(String email, int eventID)
+    {
+        
+    }
+
+    public static void createUserEvents(String email)
+    {
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "CREATE TABLE " + email + "_events (eventID int, isCommented BIT)";
+            st.executeUpdate(sql);
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+    }
+
+
 
     // football_matches: 0
     // football_tournaments: 1

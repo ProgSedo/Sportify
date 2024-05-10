@@ -64,12 +64,14 @@ public class FootballEventsController implements Initializable
     }
 
     @FXML
-    void joinMatchButtonClicked(ActionEvent event) {
-
+    void joinMatchButtonClicked(ActionEvent event) 
+    {
+        
     }
 
     @FXML
-    void joinTournamentButtonClicked(ActionEvent event) {
+    void joinTournamentButtonClicked(ActionEvent event) 
+    {
 
     }
 
