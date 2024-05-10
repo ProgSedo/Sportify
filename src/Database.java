@@ -253,29 +253,33 @@ public class Database {
         }
     }
 
-    public static void addComment(String emailToBeAdded, String commentText) {
+    public static void addComment(String emailToBeAdded, String commentText) 
+    {
         String email = Model.getInstance().getEmail();
-        try {
+        try 
+        {
             Statement st = connection.createStatement();
             String sql = "INSERT INTO " + emailToBeAdded + "_comments (email, comment) VALUES ('" + email + "','" + commentText +"')";
             st.execute(sql);
-        } catch (Exception e) {
+        } 
+        catch (Exception e) 
+        {
             e.printStackTrace();
         }
         System.out.println("comment added");
     }
 
-    
-
-
     public static void updateAboutMe(String text) 
     {
-        try {
+        try 
+        {
             Statement st = connection.createStatement();
             String sql = "UPDATE Users SET aboutMe = '" + text + "' WHERE email = '" + Model.getInstance().getEmail() + "'";
             st.execute( sql );
         
-        } catch (Exception e) {
+        } 
+        catch (Exception e) 
+        {
             e.printStackTrace();
         }
     }
@@ -773,7 +777,44 @@ public class Database {
 
     public static void addParticipant(String email, int eventID)
     {
-        
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "INSERT INTO " + eventID + "_participants (email) VALUES ('" + email + "')";
+            st.execute(sql);
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public static void joinEvent(String email, int eventID)
+    {
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "INSERT INTO " + email + "_events (eventID, isCommented) VALUES ('" + email + "'," + 0 + ")";
+            st.execute(sql);
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public static void doesComment(String email, int eventID)
+    {
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "UPDATE" + email + "_events SET isCommented = '" + 1 + "' WHERE eventID = '" + eventID + "'";
+            st.execute( sql );
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
     }
 
     public static void createUserEvents(String email)
