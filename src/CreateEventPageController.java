@@ -1,6 +1,8 @@
 
 
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -11,24 +13,39 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 
-public class CreateEventPageController implements Initializable{
+public class CreateEventPageController implements Initializable
+{
+    DateFormat dateFormat;
+
+    @FXML
+    private ComboBox<String> hourComboBox;
+
+    @FXML
+    private ComboBox<String> minuteComboBox;
+
+    @FXML
+    private ComboBox<String> dayComboBox;
+    
+    @FXML
+    private ComboBox<String> monthComboBox;
+
+    @FXML
+    private ComboBox<String> yearComboBox;
+
+    @FXML
+    private Label warningLabel;
+
+    @FXML
+    private TextField nameTextField;
 
     @FXML
     private Button sideBarButton;
-
-    @FXML
-    private ComboBox<Integer> dateDayComboBox;
-    
-    @FXML
-    private ComboBox<Integer> dateMonthComboBox;
-
-    @FXML
-    private ComboBox<Integer> dateYearComboBox;
 
     @FXML
     private TextField placeTextField;
@@ -80,75 +97,96 @@ public class CreateEventPageController implements Initializable{
         matchRadioButton.setToggleGroup(matchType);
         matchRadioButton.setSelected(true);
 
-        for (int size = 1; size <= 5; size++) {
+        for (int size = 5; size <= 11; size++) 
+        {
             footballSizeComboBox.getItems().add(size);
         }
         footballSizeComboBox.getSelectionModel().selectFirst();
 
-        for (int size = 1; size <= 4; size++) {
+        for (int size = 3; size <= 6; size++) 
+        {
             volleyballSizeComboBox.getItems().add(size);
         }
         volleyballSizeComboBox.getSelectionModel().selectFirst();
-        for (int size = 1; size <= 2; size++) {
+
+        for (int size = 1; size <= 2; size++) 
+        {
             tennisSizeComboBox.getItems().add(size);
         }
         tennisSizeComboBox.getSelectionModel().selectFirst();
 
-        for (int round = 1; round <= 3; round++) {
+        for (int round = 1; round <= 3; round++) 
+        {
             roundNumberComboBox.getItems().add(round);
         }
         roundNumberComboBox.getSelectionModel().selectFirst();
 
-        for (int day = 1; day <= 30; day++) {
-            dateDayComboBox.getItems().add(day);
+        for (int day = 1; day <= 30; day++) 
+        {
+            dayComboBox.getItems().add(Integer.toString(day));
         }
-        dateDayComboBox.getSelectionModel().selectFirst();
+        dayComboBox.getSelectionModel().selectFirst();
 
         for (int month = 1; month <= 12; month++) {
-            dateMonthComboBox.getItems().add(month);
+            monthComboBox.getItems().add(Integer.toString(month));
         }
-        dateMonthComboBox.getSelectionModel().selectFirst();
+        monthComboBox.getSelectionModel().selectFirst();
 
         for (int year = 2024; year <= 2025; year++) {
-            dateYearComboBox.getItems().add(year);
+            yearComboBox.getItems().add(Integer.toString(year));
         }
-        dateYearComboBox.getSelectionModel().selectFirst();
+        yearComboBox.getSelectionModel().selectFirst();
 
+        for (int hour = 0; hour <= 23; hour++) {
+            hourComboBox.getItems().add(Integer.toString(hour));
+        }
+        hourComboBox.getSelectionModel().selectFirst();
 
-        
+        for (int minute = 0; minute <= 59; minute++) {
+            minuteComboBox.getItems().add(Integer.toString(minute));
+        }
+        minuteComboBox.getSelectionModel().selectFirst();
+
+        dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
     }
 
     @FXML
-    void createEventButtonClicked(ActionEvent event) {
+    void createEventButtonClicked(ActionEvent event) 
+    {
+        String name = "";
+        String datetime = "";
+        String place = "";
+        String details = "";
+        int parameter = -1;
+        int roundNumber = -1;
 
-        Calendar myCalendar = new GregorianCalendar(dateYearComboBox.getValue(), dateMonthComboBox.getValue(), dateDayComboBox.getValue());
-        Date myDate = myCalendar.getTime();
-        
-        SportType selectedType = null;
-        int teamSize = 0;
-        if(footballRadioButton.isSelected()){
-            selectedType = SportType.football;
-            teamSize = footballSizeComboBox.getValue();
+        if(nameTextField.getText().length() < 10 || nameTextField.getText().length() > 25)
+        {
+            warningLabel.setText("Name should contain 10-25 characters");
         }
-        else if(volleyballRadioButton.isSelected()){
-            selectedType = SportType.volleyball;
-            teamSize = volleyballSizeComboBox.getValue();
-        }
-        else if(tennisRadioButton.isSelected()){
-            selectedType = SportType.tennis;
-            teamSize = tennisSizeComboBox.getValue();
+        else
+        {
+            name = nameTextField.getText();
         }
 
-        if(tournamentRadioButton.isSelected()){
-            Tournament myTournament = new Tournament(placeTextField.getText(), myDate, selectedType, roundNumberComboBox.getValue()) {
-            
-            };
-            Database.insertNewEvent(myTournament);
+        String day = dayComboBox.getSelectionModel().getSelectedItem();
+        String month;
+        String year;
+        String hour;
+        String minute;
+        if(dayComboBox.getSelectionModel().getSelectedItem().length() == 1)
+        {
+
         }
-        else{
-            SingleEvent mySingleEvent = new SingleEvent(placeTextField.getText(), myDate, selectedType, teamSize);
-            Database.insertNewEvent(mySingleEvent);
-        }    
+        datetime += dayComboBox.getSelectionModel().getSelectedItem();
+        datetime += "/";
+        datetime += monthComboBox.getSelectionModel().getSelectedItem();
+        datetime += "/";
+        datetime += yearComboBox.getSelectionModel().getSelectedItem();
+        datetime += " ";
+        datetime += hourComboBox.getSelectionModel().getSelectedItem();
+        datetime += ":";
+        datetime += minuteComboBox.getSelectionModel().getSelectedItem();
     }
 
     @FXML
