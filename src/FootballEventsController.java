@@ -132,6 +132,7 @@ public class FootballEventsController implements Initializable
 
     void displayMatches(int index)
     {
+        System.out.println("aaaaaaaaaaa");
         String datetime = "";
         String date = "";
         String time = "";
