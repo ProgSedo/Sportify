@@ -59,6 +59,7 @@ public class VolleyballEventsController implements Initializable{
         matchIndex = 0;
         tournamentIndex = 0;
         timeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        displayMatches(matchIndex);
     }
 
     @FXML
