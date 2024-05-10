@@ -924,7 +924,7 @@ public class Database {
         try 
         {
             Statement st = connection.createStatement();
-            String sql = "SELECT details FROM " + parameterToTableName(parameter) + " WHERE eventID = " + eventID ;
+            String sql = "SELECT details FROM " + parameterToTableName(parameter) + " WHERE ID = " + eventID ;
             ResultSet rs = st.executeQuery(sql);
             while (rs.next())
             {
