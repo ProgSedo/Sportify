@@ -282,9 +282,8 @@ public class CreateEventPageController implements Initializable
         }
         else
         {
-            System.out.println("------------------------------------------------");
-            System.out.println(dateTime);
             Database.insertNewEvent(parameter, name, dateTime, teamSize, place, details, false);
+            clearPage();
         }
     }
 
@@ -299,6 +298,27 @@ public class CreateEventPageController implements Initializable
         {
             Model.getInstance().getViewFactory().getDecider().set("CreateEvents");
         }
+    }
+
+    void clearPage()
+    {
+        footballSizeComboBox.getSelectionModel().selectFirst();
+        volleyballSizeComboBox.getSelectionModel().selectFirst();
+        tennisSizeComboBox.getSelectionModel().selectFirst();
+        roundNumberComboBox.getSelectionModel().selectFirst();
+        dayComboBox.getSelectionModel().selectFirst();
+        monthComboBox.getSelectionModel().selectFirst();
+        yearComboBox.getSelectionModel().selectFirst();
+        hourComboBox.getSelectionModel().selectFirst();
+        minuteComboBox.getSelectionModel().selectFirst();
+
+        nameTextField.setText("");
+        placeTextField.setText("");
+        detailsTextArea.setText("");
+        warningLabel.setText("");
+
+        tennisRadioButton.setSelected(true);
+        matchRadioButton.setSelected(true);
     }
 
 }
