@@ -282,6 +282,8 @@ public class CreateEventPageController implements Initializable
         }
         else
         {
+            System.out.println("------------------------------------------------");
+            System.out.println(dateTime);
             Database.insertNewEvent(parameter, name, dateTime, teamSize, place, details, false);
         }
     }
