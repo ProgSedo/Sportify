@@ -753,7 +753,7 @@ public class Database {
             Statement st = connection.createStatement();
             System.out.println(Timestamp.valueOf(datetime));
             String sql = "INSERT INTO " + parameterToTableName(parameter) + " (name, datetime, teamSize, place, details, isOver)"
-            + "VALUES ('" + name + "', " + Timestamp.valueOf(datetime) + "," + teamSize + ", '" + place + "', '" + details + "', " + Boolean.valueOf(isOver) + ")";
+            + "VALUES ('" + name + "', '" + Timestamp.valueOf(datetime) + "'," + teamSize + ", '" + place + "', '" + details + "', " + Boolean.valueOf(isOver) + ")";
             st.execute(sql);
         } 
         catch (Exception e) 
