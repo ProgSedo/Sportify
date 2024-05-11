@@ -1,16 +1,9 @@
-
-
 import java.net.URL;
-import java.text.DateFormat;
+import java.sql.Timestamp;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -130,23 +123,41 @@ public class CreateEventPageController implements Initializable
         }
         dayComboBox.getSelectionModel().selectFirst();
 
-        for (int month = 1; month <= 12; month++) {
+        for (int month = 1; month <= 12; month++) 
+        {
             monthComboBox.getItems().add(Integer.toString(month));
         }
         monthComboBox.getSelectionModel().selectFirst();
 
-        for (int year = 2024; year <= 2025; year++) {
+        for (int year = 2024; year <= 2025; year++) 
+        {
             yearComboBox.getItems().add(Integer.toString(year));
         }
         yearComboBox.getSelectionModel().selectFirst();
 
-        for (int hour = 0; hour <= 23; hour++) {
-            hourComboBox.getItems().add(Integer.toString(hour));
+        for (int hour = 0; hour <= 23; hour++) 
+        {
+            if(hour < 10)
+            {
+                hourComboBox.getItems().add("0" + Integer.toString(hour));
+            }
+            else
+            {
+                hourComboBox.getItems().add(Integer.toString(hour));
+            }
         }
         hourComboBox.getSelectionModel().selectFirst();
 
-        for (int minute = 0; minute <= 59; minute++) {
-            minuteComboBox.getItems().add(Integer.toString(minute));
+        for (int minute = 0; minute <= 59; minute++) 
+        {
+            if(minute < 10)
+            {
+                minuteComboBox.getItems().add("0" + Integer.toString(minute));
+            }
+            else
+            {
+                minuteComboBox.getItems().add(Integer.toString(minute));
+            }
         }
         minuteComboBox.getSelectionModel().selectFirst();
 
@@ -160,12 +171,15 @@ public class CreateEventPageController implements Initializable
         String datetime = "";
         String place = "";
         String details = "";
+        int teamSize = -1;
+        Timestamp time;
         int parameter = -1;
         int roundNumber = -1;
 
         if(nameTextField.getText().length() < 10 || nameTextField.getText().length() > 25)
         {
             warningLabel.setText("Name should contain 10-25 characters");
+            return;
         }
         else
         {
@@ -178,22 +192,6 @@ public class CreateEventPageController implements Initializable
         String hour = hourComboBox.getSelectionModel().getSelectedItem();
         String minute = minuteComboBox.getSelectionModel().getSelectedItem();
 
-        if(day.length() == 1)
-        {
-            day = "0" + day;
-        }
-        if(month.length() == 1)
-        {
-            month = "0" + month;
-        }
-        if(hour.length() == 1)
-        {
-            hour = "0" + hour;
-        }
-        if(minute.length() == 1)
-        {
-            minute = "0" + minute;
-        }
         datetime += day;
         datetime += "/";
         datetime += month;
@@ -206,10 +204,71 @@ public class CreateEventPageController implements Initializable
 
         LocalDateTime dateTime = LocalDateTime.parse(datetime, dateFormat);
         LocalDateTime now = LocalDateTime.now();
+        now = now.plusDays(1);
 
-        if(dateTime.isAfter(now))
+        if(!dateTime.isAfter(now))
         {
-            
+            return;
+        }
+        
+        place = placeTextField.getText();
+        if(place.length() < 5)
+        {
+            return;
+        }
+
+        details = detailsTextArea.getText();
+        if(details.length() < 15)
+        {
+            return;
+        }
+
+        roundNumber = roundNumberComboBox.getValue();
+
+        if(footballRadioButton.isSelected())
+        {
+            teamSize = footballSizeComboBox.getValue();
+            if(tournamentRadioButton.isSelected())
+            {
+                parameter = 1;
+            }
+            else
+            {
+                parameter = 0;
+            }
+        }
+        if(volleyballRadioButton.isSelected())
+        {
+            teamSize = volleyballSizeComboBox.getValue();
+            if(tournamentRadioButton.isSelected())
+            {
+                parameter = 3;
+            }
+            else
+            {
+                parameter = 2;
+            }
+        }
+        if(tennisRadioButton.isSelected())
+        {
+            teamSize = tennisSizeComboBox.getValue();
+            if(tournamentRadioButton.isSelected())
+            {
+                parameter = 5;
+            }
+            else
+            {
+                parameter = 4;
+            }
+        }
+
+        if(tournamentRadioButton.isSelected())
+        {
+            roundNumber = roundNumberComboBox.getValue();
+        }
+        else
+        {
+            Database.insertNewEvent(parameter, name, dateTime, teamSize, place, details, false);
         }
 
         
