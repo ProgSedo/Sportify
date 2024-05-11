@@ -833,6 +833,27 @@ public class Database {
         }
     }
 
+    //Will be implemented to have a variable int parameter
+    public static ArrayList<Integer> getUserEvents(String email)
+    {
+        ArrayList<Integer> events = new ArrayList<Integer>();
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "SELECT eventID FROM " + email + "_events";
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) 
+            {
+                events.add(Integer.parseInt(rs.getString(1)));
+            }
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+        return events;
+    }
+
     // football_matches: 0
     // football_tournaments: 1
     // volleyball_mathces: 2

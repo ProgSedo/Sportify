@@ -35,7 +35,6 @@ public class FootballForumController implements Initializable{
         displayForumMessages();
     }
 
-    
     @FXML
     void sideBarButtonClicked(ActionEvent event) 
     {
