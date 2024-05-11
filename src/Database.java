@@ -767,7 +767,7 @@ public class Database {
         try 
         {
             Statement st = connection.createStatement();
-            String sql = "CREATE TABLE " + eventID + "_participants (email1 VARCHAR(50), email2 VARCHAR(50))";
+            String sql = "CREATE TABLE participants_" + eventID + " (email VARCHAR(50))";
             st.executeUpdate(sql);
         } 
         catch (Exception e) 
@@ -967,5 +967,20 @@ public class Database {
             name = "tennis_tournaments";
         }
         return name;
+    }
+
+    public static int returnLastEvent(int parameter) {
+        int id = 0;
+        try {
+            Statement st = connection.createStatement();
+            String sql = "SELECT eventID FROM " + parameterToTableName(parameter) + " WHERE eventID = (SELECT MAX(eventID) FROM " + parameterToTableName(parameter) + ")";
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                id = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return id;
     }
 }
