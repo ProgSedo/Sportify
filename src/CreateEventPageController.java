@@ -119,13 +119,27 @@ public class CreateEventPageController implements Initializable
 
         for (int day = 1; day <= 30; day++) 
         {
-            dayComboBox.getItems().add(Integer.toString(day));
+            if(day<10)
+            {
+                dayComboBox.getItems().add("0" + Integer.toString(day));
+            }
+            else
+            {
+                dayComboBox.getItems().add(Integer.toString(day));
+            } 
         }
         dayComboBox.getSelectionModel().selectFirst();
 
         for (int month = 1; month <= 12; month++) 
         {
-            monthComboBox.getItems().add(Integer.toString(month));
+            if(month<10)
+            {
+                monthComboBox.getItems().add("0" + Integer.toString(month));
+            }
+            else
+            {
+                monthComboBox.getItems().add(Integer.toString(month));
+            }
         }
         monthComboBox.getSelectionModel().selectFirst();
 
@@ -270,8 +284,6 @@ public class CreateEventPageController implements Initializable
         {
             Database.insertNewEvent(parameter, name, dateTime, teamSize, place, details, false);
         }
-
-        
     }
 
     @FXML
