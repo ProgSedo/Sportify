@@ -106,9 +106,6 @@ public class RegisterController implements Initializable{
                 User user = new User(email, password, usernameTextField.getText(), yearComboBox.getValue(), isFootballSelected(), isVolleyballelected(), isTennisSelected());
                 Database.createFriendsTable(email + "_friends");
                 Database.createCommentsTable(email+ "_comments");
-                Database.addComment("berke","a");
-                System.out.println("c");
-                //LATER GOING TO BE USED ON APP
                 Model.getInstance().getViewFactory().showSignInPage();
     
             }

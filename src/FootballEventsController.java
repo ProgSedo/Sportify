@@ -142,7 +142,10 @@ public class FootballEventsController implements Initializable
         String seperator = "------------------------------------------------";
         String info = "";
         ArrayList<Integer> footballMatches = Database.getEvents(0);
-        int id = footballMatches.get(index);
+        
+
+        if (footballMatches.size() > 0) {
+            int id = footballMatches.get(index);
 
 
         matchName.setText(Database.getEventName(id, 0));
@@ -153,9 +156,14 @@ public class FootballEventsController implements Initializable
         time = datetime.substring(11, 16);
         place = Database.getPlace(id, 0);
         details = Database.getDetails(id, 0);
-
-
         info += "Date: " + date + "\n" + seperator + "\n" + "Time: " + time + "\n" + seperator + "\n" + "Place: " + place + "\n"  + seperator + "\n" + "Details: " + details;
+        }
+        else {
+            info = "Currently there is no such event";
+        }        
+
+
+        
         footballMatchesInfoArea.setText(info);
     }
 
