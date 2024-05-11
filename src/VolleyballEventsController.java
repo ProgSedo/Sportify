@@ -137,7 +137,9 @@ public class VolleyballEventsController implements Initializable{
         String seperator = "------------------------------------------------";
         String info = "";
         ArrayList<Integer> volleyballMatches = Database.getEvents(2);
-        int id = volleyballMatches.get(index);
+
+        if (volleyballMatches.size() > 0) {
+            int id = volleyballMatches.get(index);
 
         matchName.setText(Database.getEventName(id, 2));
         datetime = Database.getDateTime(id, 2).format(timeFormatter);
@@ -147,6 +149,12 @@ public class VolleyballEventsController implements Initializable{
         details = Database.getDetails(id, 2);
 
         info += "Date: " + date + "\n" + seperator + "\n" + "Time: " + time + "\n" + seperator + "\n" + "Place: " + place + "\n"  + seperator + "\n" + "Details: " + details;
+        
+        }
+
+        else {
+            info = "Currently there is no such event";
+        }      
         volleyballMatchesInfoArea.setText(info);
     }
 
