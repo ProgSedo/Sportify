@@ -64,7 +64,27 @@ public class VolleyballEventsController implements Initializable{
 
     @FXML
     void joinMatchButtonClicked(ActionEvent event) {
+        ArrayList<Integer> IDs = Database.getEvents(2);
 
+        if (!IDs.isEmpty()) 
+        {
+            int id = IDs.get(matchIndex);
+            ArrayList<String> participants  = Database.getEventParticipants(id);
+            if (participants.size() < 2 * Database.getEventSize(id, 2)) {
+                if (!participants.contains(Model.getInstance().getEmail())) {
+                    Database.joinEvent(Model.getInstance().getEmail(), id);
+                    Database.addParticipant(Model.getInstance().getEmail(), id);
+                }
+                else {
+                    System.out.println("you in event");
+                }
+            }
+                
+            else {
+                System.out.println("event full");
+                
+            }
+        }
     }
 
     @FXML
