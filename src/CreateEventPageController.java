@@ -283,8 +283,11 @@ public class CreateEventPageController implements Initializable
         else
         {
             Database.insertNewEvent(parameter, name, dateTime, teamSize, place, details, false);
+            Model.getInstance().getViewFactory().getDecider().set("HomePage");
+
             clearPage();
         }
+
     }
 
     @FXML
