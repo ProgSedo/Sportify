@@ -90,7 +90,7 @@ public class TennisEventsController implements Initializable{
     @FXML
     void nextMatchButtonClicked(ActionEvent event) 
     {
-        if(matchIndex < Database.getEvents(0).size()-1)
+        if(matchIndex < Database.getEvents(4).size()-1)
         {
             matchIndex++;
             displayMatches(matchIndex);
@@ -110,7 +110,7 @@ public class TennisEventsController implements Initializable{
     @FXML
     void nextTournamentButtonClicked(ActionEvent event) 
     {
-        if(tournamentIndex < Database.getEvents(4).size()-1)
+        if(tournamentIndex < Database.getEvents(5).size()-1)
         {
             tournamentIndex++;
             displayTournaments(tournamentIndex);
