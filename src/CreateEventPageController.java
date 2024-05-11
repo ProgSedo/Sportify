@@ -288,7 +288,10 @@ public class CreateEventPageController implements Initializable
             Database.insertNewEvent(parameter, name, dateTime, teamSize, place, details, false);
             int id = Database.returnLastEvent(parameter);
             Database.createEventParticipants(id);
+            Database.addParticipant(Model.getInstance().getEmail(), id);
+            Database.joinEvent(Model.getInstance().getEmail(), id);
             Model.getInstance().getViewFactory().getDecider().set("HomePage");
+
 
             clearPage();
         }

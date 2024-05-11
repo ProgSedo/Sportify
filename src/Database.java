@@ -781,7 +781,7 @@ public class Database {
         try 
         {
             Statement st = connection.createStatement();
-            String sql = "INSERT INTO " + eventID + "_participants (email) VALUES ('" + email + "')";
+            String sql = "INSERT INTO participants_" + eventID + " (email) VALUES ('" + email + "')";
             st.execute(sql);
         } 
         catch (Exception e) 
@@ -789,13 +789,14 @@ public class Database {
             e.printStackTrace();
         }
     }
+    
 
     public static void joinEvent(String email, int eventID)
     {
         try 
         {
             Statement st = connection.createStatement();
-            String sql = "INSERT INTO " + email + "_events (eventID, isCommented) VALUES ('" + email + "'," + 0 + ")";
+            String sql = "INSERT INTO " + email + "_events (eventID, isCommented) VALUES ('" + eventID + "'," + 0 + ")";
             st.execute(sql);
         } 
         catch (Exception e) 
@@ -982,5 +983,38 @@ public class Database {
             e.printStackTrace();
         }
         return id;
+    }
+
+    public static ArrayList<String> getEventParticipants(int ID) {
+        ArrayList<String> lst = new ArrayList<>();
+
+        try {
+            Statement st = connection.createStatement();
+            String sql = "SELECT email FROM participants_" + ID;
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                lst.add(rs.getString(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return lst;
+
+    }
+
+    public static int getEventSize(int eventID, int parameter) {
+        int size = 0;
+
+        try {
+            Statement st = connection.createStatement();
+            String sql = "SELECT teamSize FROM " + parameterToTableName(parameter) + " WHERE eventID = " + eventID;
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                size = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return size;
     }
 }
