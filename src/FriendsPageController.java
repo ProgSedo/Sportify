@@ -37,6 +37,9 @@ public class FriendsPageController implements Initializable{
     private Label friendDisplayLabel;
 
     @FXML
+    private Label friendNumLabel;
+
+    @FXML
     private TextField friendRequestTextField;
 
     @FXML
@@ -69,6 +72,7 @@ public class FriendsPageController implements Initializable{
         displayFriendsTextArea.setWrapText(true);
         displayRequests();
         displayFriends(0);
+
     }
 
     public void displayRequests() 
@@ -96,6 +100,12 @@ public class FriendsPageController implements Initializable{
         if(friends.size() == 0)
         {
             displayFriendsTextArea.setText("");
+        }
+        if (friends.size() == 0) {
+            friendNumLabel.setText("You have no friends");
+        }
+        else {
+        friendNumLabel.setText((index + 1) + " / " + friends.size());
         }
     }
     
@@ -232,7 +242,7 @@ public class FriendsPageController implements Initializable{
     public void friendIndexManager()
     {
         ArrayList<String> friends = Database.returnList(Model.getInstance().getEmail(), 1);
-        if(friendIndex > friends.size())
+        if(friendIndex >= friends.size())
         {
             friendIndex = Math.max(friends.size()-1,0);
         }
