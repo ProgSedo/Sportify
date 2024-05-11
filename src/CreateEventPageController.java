@@ -222,18 +222,21 @@ public class CreateEventPageController implements Initializable
 
         if(!dateTime.isAfter(now))
         {
+            warningLabel.setText("Event should be at least one day later from now");
             return;
         }
         
         place = placeTextField.getText();
         if(place.length() < 5)
         {
+            warningLabel.setText("Place should contain at least 5 characters");
             return;
         }
 
         details = detailsTextArea.getText();
         if(details.length() < 15)
         {
+            warningLabel.setText("Details should contain at least 15 characters");
             return;
         }
 
