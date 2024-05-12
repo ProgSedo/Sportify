@@ -52,21 +52,21 @@
                   <Insets left="10.0" />
                </FlowPane.margin>
                <children>
-                  <TextField fx:id="start1" layoutX="8.0" layoutY="44.0" prefWidth="120.0" AnchorPane.topAnchor="44.0" />
-                  <TextField fx:id="start2" layoutX="8.0" layoutY="94.0" prefWidth="120.0" AnchorPane.topAnchor="94.0" />
-                  <TextField fx:id="start3" layoutX="8.0" layoutY="158.0" prefWidth="120.0" />
-                  <TextField fx:id="start4" layoutX="8.0" layoutY="208.0" prefWidth="120.0" />
-                  <TextField fx:id="start5" layoutX="8.0" layoutY="273.0" prefWidth="120.0" />
-                  <TextField fx:id="start6" layoutX="8.0" layoutY="323.0" prefWidth="120.0" />
-                  <TextField fx:id="start7" layoutX="8.0" layoutY="387.0" prefWidth="120.0" />
-                  <TextField fx:id="start8" layoutX="8.0" layoutY="437.0" prefWidth="120.0" AnchorPane.bottomAnchor="43.0" />
-                  <TextField layoutX="143.0" layoutY="71.0" prefWidth="120.0" AnchorPane.topAnchor="71.0" />
-                  <TextField layoutX="143.0" layoutY="181.0" prefWidth="120.0" AnchorPane.topAnchor="181.0" />
-                  <TextField layoutX="143.0" layoutY="298.0" prefWidth="120.0" AnchorPane.topAnchor="298.0" />
-                  <TextField layoutX="143.0" layoutY="411.0" prefWidth="120.0" AnchorPane.topAnchor="411.0" />
-                  <TextField layoutX="275.0" layoutY="124.0" prefWidth="120.0" />
-                  <TextField layoutX="275.0" layoutY="357.0" prefWidth="120.0" />
-                  <TextField layoutX="404.0" layoutY="240.0" prefWidth="120.0" />
+                  <TextField fx:id="firstRound1" layoutX="8.0" layoutY="44.0" prefWidth="120.0" AnchorPane.topAnchor="44.0" />
+                  <TextField fx:id="firstRound2" layoutX="8.0" layoutY="94.0" prefWidth="120.0" AnchorPane.topAnchor="94.0" />
+                  <TextField fx:id="firstRound3" layoutX="8.0" layoutY="158.0" prefWidth="120.0" />
+                  <TextField fx:id="firstRound4" layoutX="8.0" layoutY="208.0" prefWidth="120.0" />
+                  <TextField fx:id="firstRound5" layoutX="8.0" layoutY="273.0" prefWidth="120.0" />
+                  <TextField fx:id="firstRound6" layoutX="8.0" layoutY="323.0" prefWidth="120.0" />
+                  <TextField fx:id="firstRound7" layoutX="8.0" layoutY="387.0" prefWidth="120.0" />
+                  <TextField fx:id="firstRound8" layoutX="8.0" layoutY="437.0" prefWidth="120.0" AnchorPane.bottomAnchor="43.0" />
+                  <TextField fx:id="secondRound1" layoutX="143.0" layoutY="71.0" prefWidth="120.0" AnchorPane.topAnchor="71.0" />
+                  <TextField fx:id="secondRound2" layoutX="143.0" layoutY="181.0" prefWidth="120.0" AnchorPane.topAnchor="181.0" />
+                  <TextField fx:id="secondRound3" layoutX="143.0" layoutY="298.0" prefWidth="120.0" AnchorPane.topAnchor="298.0" />
+                  <TextField fx:id="secondRound4" layoutX="143.0" layoutY="411.0" prefWidth="120.0" AnchorPane.topAnchor="411.0" />
+                  <TextField fx:id="thirdRound1" layoutX="275.0" layoutY="124.0" prefWidth="120.0" />
+                  <TextField fx:id="thirdRound2" layoutX="275.0" layoutY="357.0" prefWidth="120.0" />
+                  <TextField fx:id="fourthRound" layoutX="404.0" layoutY="240.0" prefWidth="120.0" />
                   <Button fx:id="announceButton" layoutX="344.0" layoutY="452.0" mnemonicParsing="false" onAction="#announceButtonClicked" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Announce Matchmaking" />
                </children>
             </AnchorPane>

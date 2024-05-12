@@ -4,8 +4,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class tournamentViewController {
-
+public class tournamentViewController 
+{
     @FXML
     private Button announceButton;
 
@@ -43,18 +43,41 @@ public class tournamentViewController {
     private TextField start8;
 
     @FXML
-    void announceButtonClicked(ActionEvent event) {
+    private TextField secondRound1;
+
+    @FXML
+    private TextField secondRound2;
+
+    @FXML
+    private TextField secondRound3;
+
+    @FXML
+    private TextField secondRound4;
+
+    @FXML
+    private TextField thirdRound1;
+
+    @FXML
+    private TextField thirdRound2;
+
+    @FXML
+    private TextField fourthRound;
+
+    @FXML
+    void announceButtonClicked(ActionEvent event) 
+    {
 
     }
 
     @FXML
-    void joinButtonClicked(ActionEvent event) {
+    void joinButtonClicked(ActionEvent event) 
+    {
 
     }
 
     @FXML
-    void sideBarButtonClicked(ActionEvent event) {
+    void sideBarButtonClicked(ActionEvent event) 
+    {
 
     }
-
 }
