@@ -60,6 +60,7 @@ public class MyFootballEventsController implements Initializable
         tournamentIndex = 0;
         timeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
         displayMatches(matchIndex);
+        displayTournaments(tournamentIndex);
     }
 
     @FXML
@@ -74,7 +75,11 @@ public class MyFootballEventsController implements Initializable
 
     @FXML
     void nextTournamentButtonClicked(ActionEvent event) {
-
+        if(tournamentIndex < Database.getEvents(1).size()-1)
+        {
+            tournamentIndex++;
+            displayTournaments(tournamentIndex);
+        }
     }
 
     @FXML
@@ -166,6 +171,36 @@ public class MyFootballEventsController implements Initializable
         {
             matchIndex = Math.max(footballMatches.size()-1,0);
         }
+    }
+
+    void displayTournaments(int index)
+    {
+        String datetime = "";
+        String date = "";
+        String time = "";
+        String place = "";
+        String details = "";
+        String seperator = "------------------------------------------------";
+        String info = "";
+        ArrayList<Integer> footballTournaments = Database.getEvents(1);
+        
+        if (footballTournaments.size() > 0) 
+        {
+            int id = footballTournaments.get(index);
+            tournamentName.setText(Database.getEventName(id, 0));
+    
+            datetime = Database.getDateTime(id, 1).format(timeFormatter);
+            date = datetime.substring(0,10);
+            time = datetime.substring(11, 16);
+            place = Database.getPlace(id, 1);
+            details = Database.getDetails(id, 1);
+            info += "Date: " + date + "\n" + seperator + "\n" + "Time: " + time + "\n" + seperator + "\n" + "Place: " + place + "\n"  + seperator + "\n" + "Details: " + details;
+        }
+        else 
+        {
+            info = "Currently there is no such event";
+        }        
+        footballTournamentsInfoArea.setText(info);
     }
 
 }
