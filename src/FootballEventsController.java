@@ -63,6 +63,7 @@ public class FootballEventsController implements Initializable
         tournamentIndex = 0;
         timeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
         displayMatches(matchIndex);
+        displayTournaments(tournamentIndex);
     }
 
     @FXML
@@ -94,7 +95,7 @@ public class FootballEventsController implements Initializable
 
     @FXML
     void viewTournamentButtonClicked(ActionEvent event) {
-
+        //set decider
     }
 
     @FXML
@@ -184,6 +185,31 @@ public class FootballEventsController implements Initializable
 
     void displayTournaments(int index)
     {
-
+        String datetime = "";
+        String date = "";
+        String time = "";
+        String place = "";
+        String details = "";
+        String seperator = "------------------------------------------------";
+        String info = "";
+        ArrayList<Integer> footballTournaments = Database.getEvents(1);
+        
+        if (footballTournaments.size() > 0) 
+        {
+            int id = footballTournaments.get(index);
+            matchName.setText(Database.getEventName(id, 0));
+    
+            datetime = Database.getDateTime(id, 1).format(timeFormatter);
+            date = datetime.substring(0,10);
+            time = datetime.substring(11, 16);
+            place = Database.getPlace(id, 1);
+            details = Database.getDetails(id, 1);
+            info += "Date: " + date + "\n" + seperator + "\n" + "Time: " + time + "\n" + seperator + "\n" + "Place: " + place + "\n"  + seperator + "\n" + "Details: " + details;
+        }
+        else 
+        {
+            info = "Currently there is no such event";
+        }        
+        footballTournamentsInfoArea.setText(info);
     }
 }
