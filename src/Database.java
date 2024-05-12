@@ -819,7 +819,7 @@ public class Database {
         }
     }
 
-    public static void disjoinEvent(String email, int eventID)
+    public static void unjoinEvent(String email, int eventID)
     {
         try 
         {
