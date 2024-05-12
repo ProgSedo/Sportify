@@ -69,7 +69,7 @@
                         </Button>
                      </children>
                   </HBox>
-                  <Button fx:id="joinMatchButton" mnemonicParsing="false" onAction="#joinMatchButtonClicked" prefWidth="120.0" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Join Individually">
+                  <Button fx:id="joinMatchButton" mnemonicParsing="false" onAction="#joinMatchButtonClicked" prefWidth="140.0" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Join Individually">
                      <effect>
                         <DropShadow />
                      </effect>
@@ -116,7 +116,7 @@
                         </Button>
                      </children>
                   </HBox>
-                  <Button fx:id="joinTournamentButton" mnemonicParsing="false" onAction="#joinTournamentButtonClicked" prefWidth="120.0" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Join as a Team">
+                  <Button fx:id="viewTournamentButton" mnemonicParsing="false" onAction="#viewTournamentButtonClicked" prefWidth="140.0" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="View Tournament">
                      <effect>
                         <DropShadow />
                      </effect>

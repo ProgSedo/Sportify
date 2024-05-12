@@ -26,7 +26,7 @@ public class VolleyballEventsController implements Initializable{
     private Button joinMatchButton;
 
     @FXML
-    private Button joinTournamentButton;
+    private Button viewTournamentButton;
 
     @FXML
     private Button nextMatchButton;
@@ -78,8 +78,7 @@ public class VolleyballEventsController implements Initializable{
                 else {
                     System.out.println("you in event");
                 }
-            }
-                
+            }  
             else {
                 System.out.println("event full");
                 
@@ -88,7 +87,7 @@ public class VolleyballEventsController implements Initializable{
     }
 
     @FXML
-    void joinTournamentButtonClicked(ActionEvent event) {
+    void viewTournamentButtonClicked(ActionEvent event) {
 
     }
 

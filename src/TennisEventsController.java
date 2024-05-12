@@ -28,7 +28,7 @@ public class TennisEventsController implements Initializable{
     private Button joinMatchButton;
 
     @FXML
-    private Button joinTournamentButton;
+    private Button viewTournamentButton;
 
     @FXML
     private Button nextMatchButton;
@@ -91,8 +91,7 @@ public class TennisEventsController implements Initializable{
     }
 
     @FXML
-    void joinTournamentButtonClicked(ActionEvent event) 
-    {
+    void viewTournamentButtonClicked(ActionEvent event) {
 
     }
 
