@@ -94,7 +94,11 @@ public class MyFootballEventsController implements Initializable
 
     @FXML
     void previousTournamentButtonClicked(ActionEvent event) {
-
+        if(tournamentIndex > 0)
+        {
+            tournamentIndex--;
+            displayTournaments(tournamentIndex);
+        }
     }
 
     @FXML
@@ -182,7 +186,7 @@ public class MyFootballEventsController implements Initializable
         String details = "";
         String seperator = "------------------------------------------------";
         String info = "";
-        ArrayList<Integer> footballTournaments = Database.getEvents(1);
+        ArrayList<Integer> footballTournaments = Database.getUserEvents(Model.getInstance().getEmail(), 1);
         
         if (footballTournaments.size() > 0) 
         {

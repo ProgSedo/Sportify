@@ -60,12 +60,13 @@ public class MyVolleyballEventsController implements Initializable
         tournamentIndex = 0;
         timeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
         displayMatches(matchIndex);
+        displayTournaments(tournamentIndex);
     }
 
     @FXML
     void nextMatchButtonClicked(ActionEvent event) 
     {
-        if(matchIndex < Database.getUserEvents(Model.getInstance().getEmail(),2).size()-1)
+        if(matchIndex < Database.getUserEvents(Model.getInstance().getEmail(),3).size()-1)
         {
             matchIndex++;
             displayMatches(matchIndex);
@@ -75,7 +76,11 @@ public class MyVolleyballEventsController implements Initializable
     @FXML
     void nextTournamentButtonClicked(ActionEvent event) 
     {
-
+        if(tournamentIndex < Database.getEvents(3).size()-1)
+        {
+            tournamentIndex++;
+            displayTournaments(tournamentIndex);
+        }
     }
 
     @FXML
@@ -91,7 +96,11 @@ public class MyVolleyballEventsController implements Initializable
     @FXML
     void previousTournamentButtonClicked(ActionEvent event) 
     {
-
+        if(tournamentIndex > 0)
+        {
+            tournamentIndex--;
+            displayTournaments(tournamentIndex);
+        }
     }
 
     @FXML
@@ -165,6 +174,37 @@ public class MyVolleyballEventsController implements Initializable
         {
             matchIndex = Math.max(volleyballMatches.size()-1,0);
         }
+    }
+
+    void displayTournaments(int index)
+    {
+        String datetime = "";
+        String date = "";
+        String time = "";
+        String place = "";
+        String details = "";
+        String seperator = "------------------------------------------------";
+        String info = "";
+        ArrayList<Integer> volleyballTournaments = Database.getUserEvents(Model.getInstance().getEmail(), 3);
+
+        if (volleyballTournaments.size() > 0) {
+            int id = volleyballTournaments.get(index);
+
+        tournamentName.setText(Database.getEventName(id, 3));
+        datetime = Database.getDateTime(id, 3).format(timeFormatter);
+        date = datetime.substring(0,10);
+        time = datetime.substring(11, 16);
+        place = Database.getPlace(id, 3);
+        details = Database.getDetails(id, 3);
+
+        info += "Date: " + date + "\n" + seperator + "\n" + "Time: " + time + "\n" + seperator + "\n" + "Place: " + place + "\n"  + seperator + "\n" + "Details: " + details;
+        
+        }
+
+        else {
+            info = "Currently there is no such event";
+        }      
+        volleyballTournamentsInfoArea.setText(info);
     }
 }
 
