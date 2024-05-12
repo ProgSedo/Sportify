@@ -39,7 +39,7 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="matchName" prefWidth="328.0">
+                  <Label fx:id="matchName" prefWidth="328.0" textFill="#f2f2f2">
                      <font>
                         <Font size="18.0" />
                      </font>
