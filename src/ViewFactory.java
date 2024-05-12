@@ -455,6 +455,23 @@ public class ViewFactory {
         return visitFriend;
     }
 
+    public FlowPane getTournamentView()
+    {
+        FlowPane tournamentView = null;
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TournamentView.fxml"));
+            TournamentViewController controller = new TournamentViewController();
+            loader.setController(controller);
+            tournamentView = loader.load();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return tournamentView;
+    }
+
     public FlowPane getEmptyPane()
     {
         return this.emptyPane;

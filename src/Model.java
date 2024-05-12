@@ -4,6 +4,7 @@ public class Model {
     private final ViewFactory viewFactory;
     private static String email;
     private static String friendEmail;
+    private static int currentTournament;
 
     private Model()
     {
@@ -42,5 +43,15 @@ public class Model {
     public void setFriendEmail(String anEmail)
     {
         friendEmail = anEmail;
+    }
+    
+    public int getTournament()
+    {
+        return currentTournament;
+    }
+
+    public void setTournament(int eventID)
+    {
+        currentTournament = eventID;
     }
 }

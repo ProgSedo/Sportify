@@ -92,8 +92,11 @@ public class TennisEventsController implements Initializable{
     }
 
     @FXML
-    void viewTournamentButtonClicked(ActionEvent event) {
-        //set decider
+    void viewTournamentButtonClicked(ActionEvent event) 
+    {
+        ArrayList<Integer> tennisTournaments = Database.getEvents(5);
+        Model.getInstance().setTournament(tennisTournaments.get(tournamentIndex));
+        Model.getInstance().getViewFactory().getDecider().set("TournamentView");
     }
 
     @FXML

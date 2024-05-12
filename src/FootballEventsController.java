@@ -94,8 +94,11 @@ public class FootballEventsController implements Initializable
     }
 
     @FXML
-    void viewTournamentButtonClicked(ActionEvent event) {
-        //set decider
+    void viewTournamentButtonClicked(ActionEvent event) 
+    {
+        ArrayList<Integer> footballTournaments = Database.getEvents(1);
+        Model.getInstance().setTournament(footballTournaments.get(tournamentIndex));
+        Model.getInstance().getViewFactory().getDecider().set("TournamentView");
     }
 
     @FXML
