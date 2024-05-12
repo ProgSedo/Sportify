@@ -281,11 +281,15 @@ public class CreateEventPageController implements Initializable
 
         if(tournamentRadioButton.isSelected())
         {
-            roundNumber = roundNumberComboBox.getValue();
+            //should we create a different 
+            //maximum capacity is always 8
+            Database.insertNewEvent(parameter, name, dateTime, 4, place, details, false);
         }
         else
         {
             Database.insertNewEvent(parameter, name, dateTime, teamSize, place, details, false);
+            
+        }
             int id = Database.returnLastEvent(parameter);
             Database.createEventParticipants(id);
             Database.addParticipant(Model.getInstance().getEmail(), id);
@@ -294,8 +298,6 @@ public class CreateEventPageController implements Initializable
 
 
             clearPage();
-        }
-
     }
 
     @FXML
