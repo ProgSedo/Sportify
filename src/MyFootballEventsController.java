@@ -117,7 +117,7 @@ public class MyFootballEventsController implements Initializable
         String details = "";
         String seperator = "------------------------------------------------";
         String info = "";
-        ArrayList<Integer> footballMatches = Database.getUserEvents(Model.getInstance().getEmail());
+        ArrayList<Integer> footballMatches = Database.getUserEvents(Model.getInstance().getEmail(),0);
         
         if (footballMatches.size() > 0) 
         {

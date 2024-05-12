@@ -834,7 +834,7 @@ public class Database {
     }
 
     //Will be implemented to have a variable int parameter
-    public static ArrayList<Integer> getUserEvents(String email)
+    public static ArrayList<Integer> getUserEvents(String email, int parameter)
     {
         ArrayList<Integer> events = new ArrayList<Integer>();
         try 
@@ -844,7 +844,11 @@ public class Database {
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) 
             {
-                events.add(Integer.parseInt(rs.getString(1)));
+                int ID = rs.getInt(1);
+                if( parameter * 1000000 <= ID && ID < (parameter +1) * 1000000 )
+                {
+                    events.add(ID);
+                }
             }
         } 
         catch (SQLException e) 
