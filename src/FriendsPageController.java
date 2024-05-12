@@ -72,6 +72,8 @@ public class FriendsPageController implements Initializable{
         displayFriendsTextArea.setWrapText(true);
         displayRequests();
         displayFriends(0);
+        friendRequestTextField.setEditable(false);
+        displayFriendsTextArea.setEditable(false);
 
     }
 
