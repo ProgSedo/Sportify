@@ -148,5 +148,14 @@ public class MyFootballEventsController implements Initializable
         footballMatchesInfoArea.setText(info);
     }
 
+    void matchIndexManager()
+    {
+        ArrayList<Integer> footballMatches = Database.getUserEvents(Model.getInstance().getEmail(),0);
+        if(matchIndex > footballMatches.size()-1)
+        {
+            matchIndex = Math.max(footballMatches.size()-1,0);
+        }
+    }
+
 }
 

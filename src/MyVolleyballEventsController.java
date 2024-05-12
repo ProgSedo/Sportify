@@ -149,5 +149,14 @@ public class MyVolleyballEventsController implements Initializable
         }      
         volleyballMatchesInfoArea.setText(info);
     }
+
+    void matchIndexManager()
+    {
+        ArrayList<Integer> volleyballMatches = Database.getUserEvents(Model.getInstance().getEmail(),2);
+        if(matchIndex > volleyballMatches.size()-1)
+        {
+            matchIndex = Math.max(volleyballMatches.size()-1,0);
+        }
+    }
 }
 

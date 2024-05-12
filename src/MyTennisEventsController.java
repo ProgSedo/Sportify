@@ -107,7 +107,8 @@ public class MyTennisEventsController implements Initializable
     }
 
     @FXML
-    void unjoinMatchButtonClicked(ActionEvent event) {
+    void unjoinMatchButtonClicked(ActionEvent event) 
+    {
 
     }
 
@@ -143,6 +144,15 @@ public class MyTennisEventsController implements Initializable
             info = "Currently there is no such event";
         }      
         tennisMatchesInfoArea.setText(info);
+    }
+
+    void matchIndexManager()
+    {
+        ArrayList<Integer> tennisMatches = Database.getUserEvents(Model.getInstance().getEmail(),4);
+        if(matchIndex > tennisMatches.size()-1)
+        {
+            matchIndex = Math.max(tennisMatches.size()-1,0);
+        }
     }
 }
 
