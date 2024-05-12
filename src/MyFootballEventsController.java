@@ -109,6 +109,7 @@ public class MyFootballEventsController implements Initializable
     @FXML
     void unjoinMatchButtonClicked(ActionEvent event) 
     {
+        System.out.println("aa");
         ArrayList<Integer> footballMatches = Database.getUserEvents(Model.getInstance().getEmail(),0);
         if(footballMatches.size() > 0)
         {
@@ -136,6 +137,7 @@ public class MyFootballEventsController implements Initializable
         String info = "";
         ArrayList<Integer> footballMatches = Database.getUserEvents(Model.getInstance().getEmail(),0);
         
+        
         if (footballMatches.size() > 0) 
         {
             int id = footballMatches.get(index);
@@ -153,6 +155,7 @@ public class MyFootballEventsController implements Initializable
             matchName.setText("");
             info = "Currently there is no such event";
         }        
+        
         footballMatchesInfoArea.setText(info);
     }
 
