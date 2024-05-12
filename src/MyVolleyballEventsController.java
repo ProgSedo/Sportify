@@ -111,7 +111,14 @@ public class MyVolleyballEventsController implements Initializable
     @FXML
     void unjoinMatchButtonClicked(ActionEvent event) 
     {
-
+        ArrayList<Integer> volleyballMatches = Database.getUserEvents(Model.getInstance().getEmail(),2);
+        if(volleyballMatches.size() > 0)
+        {
+            Database.deleteParticipant(Model.getInstance().getEmail(), volleyballMatches.get(matchIndex));
+            Database.unjoinEvent(Model.getInstance().getEmail(), volleyballMatches.get(matchIndex));
+            matchIndexManager();
+            displayMatches(matchIndex);
+        }
     }
 
     @FXML

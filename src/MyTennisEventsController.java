@@ -107,9 +107,16 @@ public class MyTennisEventsController implements Initializable
     }
 
     @FXML
-    void unjoinMatchButtonClicked(ActionEvent event) 
+    void unjoinMatchButtonClicked(ActionEvent event)
     {
-
+        ArrayList<Integer> tennisMatches = Database.getUserEvents(Model.getInstance().getEmail(),4);
+        if(tennisMatches.size() > 0)
+        {
+            Database.deleteParticipant(Model.getInstance().getEmail(), tennisMatches.get(matchIndex));
+            Database.unjoinEvent(Model.getInstance().getEmail(), tennisMatches.get(matchIndex));
+            matchIndexManager();
+            displayMatches(matchIndex);
+        }
     }
 
     @FXML

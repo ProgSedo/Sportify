@@ -109,7 +109,14 @@ public class MyFootballEventsController implements Initializable
     @FXML
     void unjoinMatchButtonClicked(ActionEvent event) 
     {
-        
+        ArrayList<Integer> footballMatches = Database.getUserEvents(Model.getInstance().getEmail(),0);
+        if(footballMatches.size() > 0)
+        {
+            Database.deleteParticipant(Model.getInstance().getEmail(), footballMatches.get(matchIndex));
+            Database.unjoinEvent(Model.getInstance().getEmail(), footballMatches.get(matchIndex));
+            matchIndexManager();
+            displayMatches(matchIndex);
+        }
     }
 
     @FXML

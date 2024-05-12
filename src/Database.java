@@ -789,9 +789,37 @@ public class Database {
             e.printStackTrace();
         }
     }
+
+    public static void deleteParticipant(String email, int eventID)
+    {
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "DELETE FROM participants_" + eventID + " WHERE email = '" + email + "'";
+            st.execute(sql);
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+    }
     
 
     public static void joinEvent(String email, int eventID)
+    {
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "DELETE FROM " + email + "_events WHERE eventID = '" + eventID + "'";
+            st.execute(sql);
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public static void disjoinEvent(String email, int eventID)
     {
         try 
         {
