@@ -148,6 +148,7 @@ public class MyTennisEventsController implements Initializable
         }
         else 
         {
+            matchName.setText("");
             info = "Currently there is no such event";
         }      
         tennisMatchesInfoArea.setText(info);

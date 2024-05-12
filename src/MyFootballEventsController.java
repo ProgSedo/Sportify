@@ -150,6 +150,7 @@ public class MyFootballEventsController implements Initializable
         }
         else 
         {
+            matchName.setText("");
             info = "Currently there is no such event";
         }        
         footballMatchesInfoArea.setText(info);
