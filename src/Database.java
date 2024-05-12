@@ -810,7 +810,7 @@ public class Database {
         try 
         {
             Statement st = connection.createStatement();
-            String sql = "DELETE FROM " + email + "_events WHERE eventID = '" + eventID + "'";
+            String sql = "INSERT INTO " + email + "_events (eventID, isCommented) VALUES (" + eventID + "," + 0 + ")";
             st.execute(sql);
         } 
         catch (Exception e) 
@@ -824,7 +824,7 @@ public class Database {
         try 
         {
             Statement st = connection.createStatement();
-            String sql = "INSERT INTO " + email + "_events (eventID, isCommented) VALUES ('" + eventID + "'," + 0 + ")";
+            String sql = "DELETE FROM " + email + "_events WHERE eventID = " + eventID;
             st.execute(sql);
         } 
         catch (Exception e) 
