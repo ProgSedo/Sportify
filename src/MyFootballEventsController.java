@@ -63,8 +63,13 @@ public class MyFootballEventsController implements Initializable
     }
 
     @FXML
-    void nextMatchButtonClicked(ActionEvent event) {
-
+    void nextMatchButtonClicked(ActionEvent event) 
+    {
+        if(matchIndex < Database.getUserEvents(Model.getInstance().getEmail(),0).size()-1)
+        {
+            matchIndex++;
+            displayMatches(matchIndex);
+        }
     }
 
     @FXML
@@ -73,8 +78,13 @@ public class MyFootballEventsController implements Initializable
     }
 
     @FXML
-    void previousMatchButtonClicked(ActionEvent event) {
-
+    void previousMatchButtonClicked(ActionEvent event) 
+    {
+        if(matchIndex > 0)
+        {
+            matchIndex--;
+            displayMatches(matchIndex);
+        }
     }
 
     @FXML

@@ -65,7 +65,11 @@ public class MyVolleyballEventsController implements Initializable
     @FXML
     void nextMatchButtonClicked(ActionEvent event) 
     {
-
+        if(matchIndex < Database.getUserEvents(Model.getInstance().getEmail(),2).size()-1)
+        {
+            matchIndex++;
+            displayMatches(matchIndex);
+        }
     }
 
     @FXML
@@ -77,7 +81,11 @@ public class MyVolleyballEventsController implements Initializable
     @FXML
     void previousMatchButtonClicked(ActionEvent event) 
     {
-
+        if(matchIndex > 0)
+        {
+            matchIndex--;
+            displayMatches(matchIndex);
+        }
     }
 
     @FXML
