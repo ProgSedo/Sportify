@@ -197,7 +197,7 @@ public class FootballEventsController implements Initializable
         if (footballTournaments.size() > 0) 
         {
             int id = footballTournaments.get(index);
-            matchName.setText(Database.getEventName(id, 0));
+            tournamentName.setText(Database.getEventName(id, 0));
     
             datetime = Database.getDateTime(id, 1).format(timeFormatter);
             date = datetime.substring(0,10);
