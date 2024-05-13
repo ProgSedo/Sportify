@@ -92,6 +92,7 @@ public class VolleyballEventsController implements Initializable{
     {
         ArrayList<Integer> volleyballTournaments = Database.getEvents(3);
         Model.getInstance().setTournament(volleyballTournaments.get(tournamentIndex));
+        Model.getInstance().setParameter(3);
         Model.getInstance().getViewFactory().getDecider().set("TournamentView");
     }
 

@@ -5,6 +5,7 @@ public class Model {
     private static String email;
     private static String friendEmail;
     private static int currentTournament;
+    private static int parameter;
 
     private Model()
     {
@@ -53,5 +54,15 @@ public class Model {
     public void setTournament(int eventID)
     {
         currentTournament = eventID;
+    }
+
+    public int getParameter()
+    {
+        return parameter;
+    }
+
+    public void setParameter(int pm)
+    {
+        parameter = pm;
     }
 }

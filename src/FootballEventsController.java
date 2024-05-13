@@ -98,6 +98,7 @@ public class FootballEventsController implements Initializable
     {
         ArrayList<Integer> footballTournaments = Database.getEvents(1);
         Model.getInstance().setTournament(footballTournaments.get(tournamentIndex));
+        Model.getInstance().setParameter(1);
         Model.getInstance().getViewFactory().getDecider().set("TournamentView");
     }
 

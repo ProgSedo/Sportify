@@ -96,6 +96,7 @@ public class TennisEventsController implements Initializable{
     {
         ArrayList<Integer> tennisTournaments = Database.getEvents(5);
         Model.getInstance().setTournament(tennisTournaments.get(tournamentIndex));
+        Model.getInstance().setParameter(5);
         Model.getInstance().getViewFactory().getDecider().set("TournamentView");
     }
 
