@@ -406,6 +406,27 @@ public class Database {
         return username;
     }
 
+    public static String getTeamName(String email) {
+        //not tested
+        String teamName = "";
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "SELECT teamName FROM Users WHERE email = '" + email + "'";
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                
+                teamName = rs.getString(1);
+            }
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+
+        return teamName;
+    }
+
 
     public static String getInterests(String email) {
         //not tested
