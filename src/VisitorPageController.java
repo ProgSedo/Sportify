@@ -35,6 +35,9 @@ public class VisitorPageController implements Initializable{
     @FXML
     private TextField usernameTextField;
 
+    @FXML
+    private Button inviteToYourTeamButton;
+
     public void initialize(URL location, ResourceBundle resources) {
         String email = Model.getInstance().getFriendEmail();
         emailTextField.setText(email);
@@ -60,6 +63,12 @@ public class VisitorPageController implements Initializable{
     {
         Model.getInstance().setFriendEmail(null);
         Model.getInstance().getViewFactory().getDecider().set("FriendsPage");
+    }
+
+    @FXML
+    void inviteToYourTeamButtonClicked(ActionEvent event) 
+    {
+
     }
 
 }
