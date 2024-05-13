@@ -1,13 +1,16 @@
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class TournamentViewController 
+public class TournamentViewController implements Initializable
 {
     @FXML
     private Button announceButton;
@@ -22,28 +25,28 @@ public class TournamentViewController
     private Button backButton;
 
     @FXML
-    private TextField start1;
+    private TextField firstRound1;
 
     @FXML
-    private TextField start2;
+    private TextField firstRound2;
 
     @FXML
-    private TextField start3;
+    private TextField firstRound3;
 
     @FXML
-    private TextField start4;
+    private TextField firstRound4;
 
     @FXML
-    private TextField start5;
+    private TextField firstRound5;
 
     @FXML
-    private TextField start6;
+    private TextField firstRound6;
 
     @FXML
-    private TextField start7;
+    private TextField firstRound7;
 
     @FXML
-    private TextField start8;
+    private TextField firstRound8;
 
     @FXML
     private TextField secondRound1;
@@ -73,6 +76,7 @@ public class TournamentViewController
     void announceButtonClicked(ActionEvent event) 
     {
 
+        displayTournament();
     }
 
     @FXML
@@ -99,7 +103,7 @@ public class TournamentViewController
         {
             warningLabel.setText("Event is full");
         }
-
+        displayTournament();
     }
 
     @FXML
@@ -132,5 +136,44 @@ public class TournamentViewController
             participants.remove(rnd);
         }
         return draw;
+    }
+
+    public void displayTournament() {
+        ArrayList<String> participants = Database.getEventParticipants(Model.getInstance().getTournament());
+
+        if (participants.size() > 0) {
+            String participantString = "";
+
+            for (int i = 0; i < participants.size(); i++) {
+                participantString += participants.get(i) + "\n";
+            }
+            participantsTextArea.setText(participantString);
+        }
+
+        else {
+            warningLabel.setText("No participants");
+        }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        firstRound1.setEditable(false);
+        firstRound2.setEditable(false);
+        firstRound3.setEditable(false);
+        firstRound4.setEditable(false);
+        firstRound5.setEditable(false);
+        firstRound6.setEditable(false);
+        firstRound7.setEditable(false);
+        firstRound8.setEditable(false);
+        secondRound1.setEditable(false);
+        secondRound2.setEditable(false);
+        secondRound3.setEditable(false);
+        secondRound4.setEditable(false);
+        thirdRound1.setEditable(false);
+        thirdRound2.setEditable(false);
+        fourthRound.setEditable(false);
+        participantsTextArea.setEditable(false);
+
+        displayTournament();   
     }
 }

@@ -91,9 +91,11 @@ public class VolleyballEventsController implements Initializable{
     void viewTournamentButtonClicked(ActionEvent event) 
     {
         ArrayList<Integer> volleyballTournaments = Database.getEvents(3);
-        Model.getInstance().setTournament(volleyballTournaments.get(tournamentIndex));
-        Model.getInstance().setParameter(3);
-        Model.getInstance().getViewFactory().getDecider().set("TournamentView");
+        if (volleyballTournaments.size() > 0) {
+            Model.getInstance().setTournament(volleyballTournaments.get(tournamentIndex));
+            Model.getInstance().setParameter(3);
+            Model.getInstance().getViewFactory().getDecider().set("TournamentView");
+        }
     }
 
     @FXML

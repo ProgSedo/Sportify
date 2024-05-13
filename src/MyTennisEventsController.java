@@ -10,18 +10,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
-public class MyTennisEventsController implements Initializable 
-{
+public class MyTennisEventsController implements Initializable {
     private int matchIndex;
     private int tournamentIndex;
     private DateTimeFormatter timeFormatter;
 
     @FXML
     private Label matchName;
-    
+
     @FXML
     private Label tournamentName;
-    
+
     @FXML
     private Button nextMatchButton;
 
@@ -50,8 +49,7 @@ public class MyTennisEventsController implements Initializable
     private Button viewTournamentButton;
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) 
-    {
+    public void initialize(URL location, ResourceBundle resources) {
         tennisMatchesInfoArea.setEditable(false);
         tennisTournamentsInfoArea.setEditable(false);
         tennisMatchesInfoArea.setWrapText(true);
@@ -60,13 +58,12 @@ public class MyTennisEventsController implements Initializable
         tournamentIndex = 0;
         timeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
         displayMatches(matchIndex);
+        displayTournaments(tournamentIndex);
     }
 
     @FXML
-    void nextMatchButtonClicked(ActionEvent event) 
-    {
-        if(matchIndex < Database.getUserEvents(Model.getInstance().getEmail(),4).size()-1)
-        {
+    void nextMatchButtonClicked(ActionEvent event) {
+        if (matchIndex < Database.getUserEvents(Model.getInstance().getEmail(), 4).size() - 1) {
             matchIndex++;
             displayMatches(matchIndex);
         }
@@ -74,18 +71,15 @@ public class MyTennisEventsController implements Initializable
 
     @FXML
     void nextTournamentButtonClicked(ActionEvent event) {
-        if(tournamentIndex < Database.getUserEvents(Model.getInstance().getEmail(), 5).size()-1)
-        {
+        if (tournamentIndex < Database.getUserEvents(Model.getInstance().getEmail(), 5).size() - 1) {
             tournamentIndex++;
             displayTournaments(tournamentIndex);
         }
     }
 
     @FXML
-    void previousMatchButtonClicked(ActionEvent event) 
-    {
-        if(matchIndex > 0)
-        {
+    void previousMatchButtonClicked(ActionEvent event) {
+        if (matchIndex > 0) {
             matchIndex--;
             displayMatches(matchIndex);
         }
@@ -93,33 +87,26 @@ public class MyTennisEventsController implements Initializable
 
     @FXML
     void previousTournamentButtonClicked(ActionEvent event) {
-        if(tournamentIndex > 0)
-        {
+        if (tournamentIndex > 0) {
             tournamentIndex--;
             displayTournaments(tournamentIndex);
         }
     }
 
     @FXML
-    void sideBarButtonClicked(ActionEvent event) 
-    {
+    void sideBarButtonClicked(ActionEvent event) {
         Model.getInstance().getViewFactory().closeAndOpenSideBar();
-        if(Model.getInstance().getViewFactory().getIsSideBarOpen())
-        {
+        if (Model.getInstance().getViewFactory().getIsSideBarOpen()) {
             Model.getInstance().getViewFactory().getDecider().set("MyTennisEvents+");
-        }
-        else
-        {
+        } else {
             Model.getInstance().getViewFactory().getDecider().set("MyTennisEvents");
         }
     }
 
     @FXML
-    void unjoinMatchButtonClicked(ActionEvent event)
-    {
-        ArrayList<Integer> tennisMatches = Database.getUserEvents(Model.getInstance().getEmail(),4);
-        if(tennisMatches.size() > 0)
-        {
+    void unjoinMatchButtonClicked(ActionEvent event) {
+        ArrayList<Integer> tennisMatches = Database.getUserEvents(Model.getInstance().getEmail(), 4);
+        if (tennisMatches.size() > 0) {
             Database.deleteParticipant(Model.getInstance().getEmail(), tennisMatches.get(matchIndex));
             Database.unjoinEvent(Model.getInstance().getEmail(), tennisMatches.get(matchIndex));
             matchIndexManager();
@@ -128,16 +115,16 @@ public class MyTennisEventsController implements Initializable
     }
 
     @FXML
-    void viewTournamentButtonClicked(ActionEvent event) 
-    {
-        ArrayList<Integer> tennisTournaments = Database.getUserEvents(Model.getInstance().getEmail(),5);
-        Model.getInstance().setTournament(tennisTournaments.get(tournamentIndex));
-        Model.getInstance().setParameter(5);
-        Model.getInstance().getViewFactory().getDecider().set("MyTournamentView");
+    void viewTournamentButtonClicked(ActionEvent event) {
+        ArrayList<Integer> tennisTournaments = Database.getUserEvents(Model.getInstance().getEmail(), 5);
+        if (tennisTournaments.size() > 0) {
+            Model.getInstance().setTournament(tennisTournaments.get(tournamentIndex));
+            Model.getInstance().setParameter(5);
+            Model.getInstance().getViewFactory().getDecider().set("MyTournamentView");
+        }
     }
 
-    void displayMatches(int index)
-    {
+    void displayMatches(int index) {
         String datetime = "";
         String date = "";
         String time = "";
@@ -145,38 +132,33 @@ public class MyTennisEventsController implements Initializable
         String details = "";
         String seperator = "------------------------------------------------";
         String info = "";
-        ArrayList<Integer> tennisMatches = Database.getUserEvents(Model.getInstance().getEmail(),4);
+        ArrayList<Integer> tennisMatches = Database.getUserEvents(Model.getInstance().getEmail(), 4);
 
-        if (tennisMatches.size() > 0) 
-        {
+        if (tennisMatches.size() > 0) {
             int id = tennisMatches.get(index);
             matchName.setText(Database.getEventName(id, 4));
             datetime = Database.getDateTime(id, 4).format(timeFormatter);
-            date = datetime.substring(0,10);
+            date = datetime.substring(0, 10);
             time = datetime.substring(11, 16);
             place = Database.getPlace(id, 4);
             details = Database.getDetails(id, 4);
-            info += "Date: " + date + "\n" + seperator + "\n" + "Time: " + time + "\n" + seperator + "\n" + "Place: " + place + "\n"  + seperator + "\n" + "Details: " + details;
-        }
-        else 
-        {
+            info += "Date: " + date + "\n" + seperator + "\n" + "Time: " + time + "\n" + seperator + "\n" + "Place: "
+                    + place + "\n" + seperator + "\n" + "Details: " + details;
+        } else {
             matchName.setText("");
             info = "Currently there is no such event";
-        }      
+        }
         tennisMatchesInfoArea.setText(info);
     }
 
-    void matchIndexManager()
-    {
-        ArrayList<Integer> tennisMatches = Database.getUserEvents(Model.getInstance().getEmail(),4);
-        if(matchIndex > tennisMatches.size()-1)
-        {
-            matchIndex = Math.max(tennisMatches.size()-1,0);
+    void matchIndexManager() {
+        ArrayList<Integer> tennisMatches = Database.getUserEvents(Model.getInstance().getEmail(), 4);
+        if (matchIndex > tennisMatches.size() - 1) {
+            matchIndex = Math.max(tennisMatches.size() - 1, 0);
         }
     }
 
-    void displayTournaments(int index)
-    {
+    void displayTournaments(int index) {
         String datetime = "";
         String date = "";
         String time = "";
@@ -189,20 +171,19 @@ public class MyTennisEventsController implements Initializable
         if (tennisTournaments.size() > 0) {
             int id = tennisTournaments.get(index);
 
-        tournamentName.setText(Database.getEventName(id, 5));
-        datetime = Database.getDateTime(id, 5).format(timeFormatter);
-        date = datetime.substring(0,10);
-        time = datetime.substring(11, 16);
-        place = Database.getPlace(id, 5);
-        details = Database.getDetails(id, 5);
+            tournamentName.setText(Database.getEventName(id, 5));
+            datetime = Database.getDateTime(id, 5).format(timeFormatter);
+            date = datetime.substring(0, 10);
+            time = datetime.substring(11, 16);
+            place = Database.getPlace(id, 5);
+            details = Database.getDetails(id, 5);
 
-        info += "Date: " + date + "\n" + seperator + "\n" + "Time: " + time + "\n" + seperator + "\n" + "Place: " + place + "\n"  + seperator + "\n" + "Details: " + details;
-        
-        }
-        else {
+            info += "Date: " + date + "\n" + seperator + "\n" + "Time: " + time + "\n" + seperator + "\n" + "Place: "
+                    + place + "\n" + seperator + "\n" + "Details: " + details;
+
+        } else {
             info = "Currently there is no such event";
-        }      
+        }
         tennisTournamentsInfoArea.setText(info);
     }
 }
-
