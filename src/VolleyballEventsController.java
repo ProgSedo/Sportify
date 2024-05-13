@@ -157,6 +157,7 @@ public class VolleyballEventsController implements Initializable{
     {
         String datetime = "";
         String date = "";
+        String capacity = "";
         String time = "";
         String place = "";
         String details = "";
@@ -170,12 +171,13 @@ public class VolleyballEventsController implements Initializable{
         matchName.setText(Database.getEventName(id, 2));
         datetime = Database.getDateTime(id, 2).format(timeFormatter);
         date = datetime.substring(0,10);
+        capacity = "" + Database.getEventSize(id, 2);
         time = datetime.substring(11, 16);
         place = Database.getPlace(id, 2);
         details = Database.getDetails(id, 2);
 
-        info += "Date: " + date + "\n" + seperator + "\n" + "Time: " + time + "\n" + seperator + "\n" + "Place: " + place + "\n"  + seperator + "\n" + "Details: " + details;
-        
+        info += "Date: " + date + "\n" + seperator + "\n" + "Time: " + time + "\n" + seperator + "\n" + "Team Size: " + capacity + "\n" + seperator + "\n" + "Place: "
+                    + place + "\n" + seperator + "\n" + "Details: " + details;
         }
 
         else 
@@ -192,6 +194,7 @@ public class VolleyballEventsController implements Initializable{
         String date = "";
         String time = "";
         String place = "";
+        String capacity = "";
         String details = "";
         String seperator = "------------------------------------------------";
         String info = "";
@@ -203,12 +206,13 @@ public class VolleyballEventsController implements Initializable{
         tournamentName.setText(Database.getEventName(id, 3));
         datetime = Database.getDateTime(id, 3).format(timeFormatter);
         date = datetime.substring(0,10);
+        capacity = "" + Database.getEventSize(id, 3);
         time = datetime.substring(11, 16);
         place = Database.getPlace(id, 3);
         details = Database.getDetails(id, 3);
 
-        info += "Date: " + date + "\n" + seperator + "\n" + "Time: " + time + "\n" + seperator + "\n" + "Place: " + place + "\n"  + seperator + "\n" + "Details: " + details;
-        
+        info += "Date: " + date + "\n" + seperator + "\n" + "Time: " + time +  "\n" + seperator + "\n" + "Place: "
+                    + place + "\n" + seperator + "\n" + "Details: " + details;
         }
 
         else 

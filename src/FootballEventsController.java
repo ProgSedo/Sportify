@@ -142,6 +142,7 @@ public class FootballEventsController implements Initializable {
         String datetime = "";
         String date = "";
         String time = "";
+        String capacity = "";
         String place = "";
         String details = "";
         String seperator = "------------------------------------------------";
@@ -155,9 +156,10 @@ public class FootballEventsController implements Initializable {
             datetime = Database.getDateTime(id, 0).format(timeFormatter);
             date = datetime.substring(0, 10);
             time = datetime.substring(11, 16);
+            capacity = "" + Database.getEventSize(id, 0);
             place = Database.getPlace(id, 0);
             details = Database.getDetails(id, 0);
-            info += "Date: " + date + "\n" + seperator + "\n" + "Time: " + time + "\n" + seperator + "\n" + "Place: "
+            info += "Date: " + date + "\n" + seperator + "\n" + "Time: " + time + "\n" + seperator + "\n" + "Team Size: " + capacity + "\n" + seperator + "\n" + "Place: "
                     + place + "\n" + seperator + "\n" + "Details: " + details;
         } else {
             matchName.setText("");
@@ -172,6 +174,7 @@ public class FootballEventsController implements Initializable {
         String time = "";
         String place = "";
         String details = "";
+        String capacity = "";
         String seperator = "------------------------------------------------";
         String info = "";
         ArrayList<Integer> footballTournaments = Database.getEvents(1);
@@ -183,9 +186,10 @@ public class FootballEventsController implements Initializable {
             datetime = Database.getDateTime(id, 1).format(timeFormatter);
             date = datetime.substring(0, 10);
             time = datetime.substring(11, 16);
+            capacity = "" + Database.getEventSize(id, 1);
             place = Database.getPlace(id, 1);
             details = Database.getDetails(id, 1);
-            info += "Date: " + date + "\n" + seperator + "\n" + "Time: " + time + "\n" + seperator + "\n" + "Place: "
+            info += "Date: " + date + "\n" + seperator + "\n" + "Time: " + time +  "\n" + seperator + "\n" + "Place: "
                     + place + "\n" + seperator + "\n" + "Details: " + details;
         } else {
             tournamentName.setText("");

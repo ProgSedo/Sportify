@@ -142,6 +142,7 @@ public class TennisEventsController implements Initializable {
         String datetime = "";
         String date = "";
         String time = "";
+        String capacity = "";
         String place = "";
         String details = "";
         String seperator = "------------------------------------------------";
@@ -154,11 +155,12 @@ public class TennisEventsController implements Initializable {
             matchName.setText(Database.getEventName(id, 4));
             datetime = Database.getDateTime(id, 4).format(timeFormatter);
             date = datetime.substring(0, 10);
+            capacity = "" + Database.getEventSize(id, 4);
             time = datetime.substring(11, 16);
             place = Database.getPlace(id, 4);
             details = Database.getDetails(id, 4);
 
-            info += "Date: " + date + "\n" + seperator + "\n" + "Time: " + time + "\n" + seperator + "\n" + "Place: "
+            info += "Date: " + date + "\n" + seperator + "\n" + "Time: " + time + "\n" + seperator + "\n" + "Team Size: " + capacity + "\n" + seperator + "\n" + "Place: "
                     + place + "\n" + seperator + "\n" + "Details: " + details;
 
         } else {
@@ -173,6 +175,7 @@ public class TennisEventsController implements Initializable {
         String date = "";
         String time = "";
         String place = "";
+        String capacity = "";
         String details = "";
         String seperator = "------------------------------------------------";
         String info = "";
@@ -184,13 +187,13 @@ public class TennisEventsController implements Initializable {
             tournamentName.setText(Database.getEventName(id, 5));
             datetime = Database.getDateTime(id, 5).format(timeFormatter);
             date = datetime.substring(0, 10);
+            capacity = "" + Database.getEventSize(id, 5);
             time = datetime.substring(11, 16);
             place = Database.getPlace(id, 5);
             details = Database.getDetails(id, 5);
 
-            info += "Date: " + date + "\n" + seperator + "\n" + "Time: " + time + "\n" + seperator + "\n" + "Place: "
+            info += "Date: " + date + "\n" + seperator + "\n" + "Time: " + time  + "\n" + seperator + "\n" + "Place: "
                     + place + "\n" + seperator + "\n" + "Details: " + details;
-
         } else {
             tournamentName.setText("");
             info = "Currently there is no such event";
