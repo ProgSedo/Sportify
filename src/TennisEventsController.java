@@ -178,7 +178,9 @@ public class TennisEventsController implements Initializable{
         info += "Date: " + date + "\n" + seperator + "\n" + "Time: " + time + "\n" + seperator + "\n" + "Place: " + place + "\n"  + seperator + "\n" + "Details: " + details;
         
         }
-        else {
+        else 
+        {
+            matchName.setText("");
             info = "Currently there is no such event";
         }      
         tennisMatchesInfoArea.setText(info);
@@ -208,7 +210,9 @@ public class TennisEventsController implements Initializable{
         info += "Date: " + date + "\n" + seperator + "\n" + "Time: " + time + "\n" + seperator + "\n" + "Place: " + place + "\n"  + seperator + "\n" + "Details: " + details;
         
         }
-        else {
+        else 
+        {
+            tournamentName.setText("");
             info = "Currently there is no such event";
         }      
         tennisTournamentsInfoArea.setText(info);

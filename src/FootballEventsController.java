@@ -75,17 +75,20 @@ public class FootballEventsController implements Initializable
         {
             int id = IDs.get(matchIndex);
             ArrayList<String> participants  = Database.getEventParticipants(id);
-            if (participants.size() < 2 * Database.getEventSize(id, 0)) {
-                if (!participants.contains(Model.getInstance().getEmail())) {
+            if (participants.size() < 2 * Database.getEventSize(id, 0)) 
+            {
+                if (!participants.contains(Model.getInstance().getEmail())) 
+                {
                     Database.joinEvent(Model.getInstance().getEmail(), id);
                     Database.addParticipant(Model.getInstance().getEmail(), id);
                 }
-                else {
+                else 
+                {
                     System.out.println("you in event");
                 }
             }
-                
-            else {
+            else 
+            {
                 System.out.println("event full");
                 
             }
@@ -182,6 +185,7 @@ public class FootballEventsController implements Initializable
         }
         else 
         {
+            matchName.setText("");
             info = "Currently there is no such event";
         }        
         footballMatchesInfoArea.setText(info);
@@ -212,6 +216,7 @@ public class FootballEventsController implements Initializable
         }
         else 
         {
+            tournamentName.setText("");
             info = "Currently there is no such event";
         }        
         footballTournamentsInfoArea.setText(info);

@@ -97,7 +97,6 @@ public class TournamentViewController
         }  
         else 
         {
-            
             warningLabel.setText("Event is full");
         }
 

@@ -176,7 +176,9 @@ public class VolleyballEventsController implements Initializable{
         
         }
 
-        else {
+        else 
+        {
+            matchName.setText("");
             info = "Currently there is no such event";
         }      
         volleyballMatchesInfoArea.setText(info);
@@ -207,7 +209,9 @@ public class VolleyballEventsController implements Initializable{
         
         }
 
-        else {
+        else 
+        {
+            tournamentName.setText("");
             info = "Currently there is no such event";
         }      
         volleyballTournamentsInfoArea.setText(info);
