@@ -148,6 +148,7 @@ public class TournamentViewController implements Initializable
                 participantString += participants.get(i) + "\n";
             }
             participantsTextArea.setText(participantString);
+            warningLabel.setText(participants.size() + " / 8" );
         }
 
         else {
