@@ -1,6 +1,6 @@
 import java.io.IOException;
 
-import FXMLandControllers.FootballForumPage.FootballForumController;
+//import FXMLandControllers.FootballForumPage.FootballForumController;
 import FXMLandControllers.JoinEventPage.JoinEventPageController;
 
 import javafx.beans.property.SimpleStringProperty;
@@ -32,10 +32,6 @@ public class ViewFactory {
     private VBox friendsPageView;
     private FlowPane joinEventView;
     private FlowPane emptyPane;
-
-    private FlowPane myTennisEvents;
-    private FlowPane myFootballEvents;
-    private FlowPane myVolleyballEvents;
 
     private boolean isSideBarOpen;
     private final StringProperty decider;
@@ -364,58 +360,54 @@ public class ViewFactory {
 
     public FlowPane getMyTennisEvents()
     {
-        if(myTennisEvents == null)
+        FlowPane myTennisEvents = null;
+        try
         {
-            try
-            {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("MyTennisEvents.fxml"));
-                MyTennisEventsController controller = new MyTennisEventsController();
-                loader.setController(controller);
-                myTennisEvents = loader.load();
-            }
-            catch(Exception e)
-            {
-                e.printStackTrace();
-            }
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("MyTennisEvents.fxml"));
+            MyTennisEventsController controller = new MyTennisEventsController();
+            loader.setController(controller);
+            myTennisEvents = loader.load();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
         }
         return myTennisEvents;
     }
 
     public FlowPane getMyFootballEvents()
     {
-        if(myTennisEvents == null)
+        FlowPane myFootballEvents = null;       
+        try
         {
-            try
-            {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("MyFootballEvents.fxml"));
-                MyFootballEventsController controller = new MyFootballEventsController();
-                loader.setController(controller);
-                myFootballEvents = loader.load();
-            }
-            catch(Exception e)
-            {
-                e.printStackTrace();
-            }
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("MyFootballEvents.fxml"));
+            MyFootballEventsController controller = new MyFootballEventsController();
+            loader.setController(controller);
+            myFootballEvents = loader.load();
         }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        
         return myFootballEvents;
     }
 
     public FlowPane getMyVolleyballEvents()
     {
-        if(myVolleyballEvents == null)
+        FlowPane myVolleyballEvents = null;
+        try
         {
-            try
-            {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("MyVolleyballEvents.fxml"));
-                MyVolleyballEventsController controller = new MyVolleyballEventsController();
-                loader.setController(controller);
-                myVolleyballEvents = loader.load();
-            }
-            catch(Exception e)
-            {
-                e.printStackTrace();
-            }
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("MyVolleyballEvents.fxml"));
+            MyVolleyballEventsController controller = new MyVolleyballEventsController();
+            loader.setController(controller);
+            myVolleyballEvents = loader.load();
         }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        
         return myVolleyballEvents;
     }
 
@@ -512,8 +504,6 @@ public class ViewFactory {
         joinEventView = null;
         emptyPane = null;
 
-        myTennisEvents = null;
-        myFootballEvents = null;
-        myVolleyballEvents = null;
+        
     }
 }

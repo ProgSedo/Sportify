@@ -75,7 +75,7 @@ public class MyFootballEventsController implements Initializable
 
     @FXML
     void nextTournamentButtonClicked(ActionEvent event) {
-        if(tournamentIndex < Database.getEvents(1).size()-1)
+        if(tournamentIndex < Database.getUserEvents(Model.getInstance().getEmail(),1).size()-1)
         {
             tournamentIndex++;
             displayTournaments(tournamentIndex);
