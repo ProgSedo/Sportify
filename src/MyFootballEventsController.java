@@ -47,7 +47,7 @@ public class MyFootballEventsController implements Initializable
     private Button unjoinMatchButton;
 
     @FXML
-    private Button unjoinTournamentButton;
+    private Button viewTournamentButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) 
@@ -130,9 +130,12 @@ public class MyFootballEventsController implements Initializable
     }
 
     @FXML
-    void unjoinTournamentButtonClicked(ActionEvent event) 
+    void viewTournamentButtonClicked(ActionEvent event) 
     {
-        
+        ArrayList<Integer> footballTournaments = Database.getUserEvents(Model.getInstance().getEmail(),1);
+        Model.getInstance().setTournament(footballTournaments.get(tournamentIndex));
+        Model.getInstance().setParameter(1);
+        Model.getInstance().getViewFactory().getDecider().set("MyTournamentView");
     }
 
     void displayMatches(int index)
@@ -206,6 +209,5 @@ public class MyFootballEventsController implements Initializable
         }        
         footballTournamentsInfoArea.setText(info);
     }
-
 }
 

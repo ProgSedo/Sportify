@@ -41,7 +41,7 @@ public class MyVolleyballEventsController implements Initializable
     private Button unjoinMatchButton;
 
     @FXML
-    private Button unjoinTournamentButton;
+    private Button viewTournamentButton;
 
     @FXML
     private TextArea volleyballMatchesInfoArea;
@@ -131,9 +131,12 @@ public class MyVolleyballEventsController implements Initializable
     }
 
     @FXML
-    void unjoinTournamentButtonClicked(ActionEvent event) 
+    void viewTournamentButtonClicked(ActionEvent event) 
     {
-
+        ArrayList<Integer> volleyballTournaments = Database.getUserEvents(Model.getInstance().getEmail(),3);
+        Model.getInstance().setTournament(volleyballTournaments.get(tournamentIndex));
+        Model.getInstance().setParameter(3);
+        Model.getInstance().getViewFactory().getDecider().set("MyTournamentView");
     }
 
     void displayMatches(int index)

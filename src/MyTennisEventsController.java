@@ -47,7 +47,7 @@ public class MyTennisEventsController implements Initializable
     private Button unjoinMatchButton;
 
     @FXML
-    private Button unjoinTournamentButton;
+    private Button viewTournamentButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) 
@@ -74,7 +74,11 @@ public class MyTennisEventsController implements Initializable
 
     @FXML
     void nextTournamentButtonClicked(ActionEvent event) {
-
+        if(tournamentIndex < Database.getEvents(1).size()-1)
+        {
+            tournamentIndex++;
+            displayTournaments(tournamentIndex);
+        }
     }
 
     @FXML
@@ -89,7 +93,11 @@ public class MyTennisEventsController implements Initializable
 
     @FXML
     void previousTournamentButtonClicked(ActionEvent event) {
-
+        if(tournamentIndex > 0)
+        {
+            tournamentIndex--;
+            displayTournaments(tournamentIndex);
+        }
     }
 
     @FXML
@@ -120,8 +128,12 @@ public class MyTennisEventsController implements Initializable
     }
 
     @FXML
-    void unjoinTournamentButtonClicked(ActionEvent event) {
-
+    void viewTournamentButtonClicked(ActionEvent event) 
+    {
+        ArrayList<Integer> tennisTournaments = Database.getUserEvents(Model.getInstance().getEmail(),5);
+        Model.getInstance().setTournament(tennisTournaments.get(tournamentIndex));
+        Model.getInstance().setParameter(5);
+        Model.getInstance().getViewFactory().getDecider().set("MyTournamentView");
     }
 
     void displayMatches(int index)

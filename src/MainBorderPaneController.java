@@ -129,6 +129,9 @@ public class MainBorderPaneController implements Initializable{
                 case "TournamentView":
                     generalPane.setCenter(Model.getInstance().getViewFactory().getTournamentView());
                     break;
+                case "MyTournamentView":
+                    generalPane.setCenter(Model.getInstance().getViewFactory().getMyTournamentView());
+                    break;
             }
             Model.getInstance().getViewFactory().getStage().sizeToScene();
         });
