@@ -152,7 +152,10 @@ public class SettingsPageController implements Initializable{
 
     @FXML
     void createTeamButtonClicked(ActionEvent event) {
-
+        Database.updateTeamName(teamName.getText());
+        Database.updateTeamPassword(teamPassword.getText());
+        teamName.setText("");
+        teamPassword.setText("");
     }
 
 }
