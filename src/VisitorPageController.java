@@ -10,7 +10,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-
+import java.util.*;
 public class VisitorPageController implements Initializable{
 
     @FXML
@@ -75,7 +75,19 @@ public class VisitorPageController implements Initializable{
 
     @FXML
     void joinTeamButtonClicked(ActionEvent event) {
+        ArrayList<String> teamNames = Database.getAllTeamNames();
+        if (teamName.getText().isEmpty() || passwordName.getText().isEmpty()) {
+            return;
+        }
 
+        if (teamNames.contains(teamName.getText())) {
+            if (passwordName.getText().equals(Database.getTeamPasswordByTeamName(teamName.getText()))) {
+                Database.updateTeamName(teamName.getText());
+                Database.updateTeamPassword(passwordName.getText());
+                passwordName.setText("");
+                teamName.setText("");
+            }
+        }
     }
 
 }

@@ -450,6 +450,27 @@ public class Database {
         return teamName;
     }
 
+    public static String getTeamPasswordByTeamName(String teamName) {
+        String password = "";
+        
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "SELECT teamPassword FROM Users WHERE teamName = '" + teamName + "'";
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                
+                password = rs.getString(1);
+            }
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+
+        return password;
+    }
+
     public static void updateTeamName(String text) 
     {
         try 
@@ -480,7 +501,23 @@ public class Database {
         }
     }
 
+    public static ArrayList<String> getAllTeamNames() {
+        ArrayList<String> teamNames = new ArrayList<>();
 
+        try {
+            Statement st = connection.createStatement();
+            String sql = "SELECT teamName FROM Users";
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                if (rs.getString(1) != null)
+                    teamNames.add(rs.getString(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return teamNames;
+    }
     public static String getInterests(String email) {
         //not tested
         String interests = "";
