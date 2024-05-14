@@ -46,7 +46,7 @@
                   <Insets bottom="15.0" />
                </VBox.margin>
             </VBox>
-            <TextField fx:id="emailTextField" promptText="Email" />
+            <TextField fx:id="emailTextField" promptText="Email (user@gmail)" />
             <PasswordField fx:id="passwordField" promptText="Password" />
             <Button fx:id="signInButton" mnemonicParsing="false" onAction="#signInButtonClicked" prefHeight="30.0" prefWidth="285.0" text="Sign in" />
             <Button fx:id="registerButton" mnemonicParsing="false" onAction="#registerButtonClicked" prefHeight="30.0" prefWidth="70.0" text="Register" />

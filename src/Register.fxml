@@ -38,10 +38,10 @@
                   </Text>
                </children>
             </HBox>
-            <TextField fx:id="emailTextField" promptText="Email" />
+            <TextField fx:id="emailTextField" prefHeight="25.0" prefWidth="1.0" promptText="Email (user@gmail)" />
             <TextField fx:id="usernameTextField" promptText="Username" />
-            <PasswordField fx:id="passwordField" promptText="password" />
-            <TextField fx:id="confirmPasswordTextField" promptText="Confirm Password" />
+            <PasswordField fx:id="passwordField" promptText="Enter Password" />
+            <PasswordField fx:id="confirmPasswordTextField" promptText="Confirm Password" />
             <HBox alignment="CENTER" prefHeight="145.0" prefWidth="200.0">
                <children>
                   <VBox alignment="CENTER" prefHeight="165.0" prefWidth="115.0" spacing="10.0" style="-fx-border-color: #000000;">
