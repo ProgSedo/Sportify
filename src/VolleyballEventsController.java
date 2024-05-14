@@ -131,7 +131,7 @@ public class VolleyballEventsController implements Initializable{
     @FXML
     void nextTournamentButtonClicked(ActionEvent event) 
     {
-        if(tournamentIndex < Database.getEvents(1).size()-1)
+        if(tournamentIndex < Database.getEvents(3).size()-1)
         {
             tournamentIndex++;
             displayTournaments(tournamentIndex);
