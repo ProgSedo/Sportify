@@ -248,6 +248,11 @@ public class CreateEventPageController implements Initializable
             if(tournamentRadioButton.isSelected())
             {
                 parameter = 1;
+                if (Database.getTeamName(Model.getInstance().getEmail()) == null) {
+                    warningLabel.setText("you need a team");
+                    return;
+                }
+                    
             }
             else
             {
@@ -260,6 +265,10 @@ public class CreateEventPageController implements Initializable
             if(tournamentRadioButton.isSelected())
             {
                 parameter = 3;
+                if (Database.getTeamName(Model.getInstance().getEmail()) == null) {
+                    warningLabel.setText("you need a team");
+                    return;
+                }
             }
             else
             {

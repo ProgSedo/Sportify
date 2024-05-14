@@ -94,7 +94,10 @@ public class TournamentViewController implements Initializable
         {
             teams.add(Database.getTeamName(e));
         }
-
+        if (Database.getTeamName(email) == null && Model.getInstance().getParameter() != 5) {
+            warningLabel.setText("you need a team");
+            return;
+        }
         if (participants.size() < 2 * Database.getEventSize(id, parameter)) 
         {
             if (!participants.contains(email) && !teams.contains(Database.getTeamName(email))) 
@@ -104,7 +107,7 @@ public class TournamentViewController implements Initializable
             }
             else 
             {
-                warningLabel.setText("You or your team have already joined");
+                warningLabel.setText("You have already joined");
             }
         }  
         else 
@@ -149,19 +152,39 @@ public class TournamentViewController implements Initializable
     public void displayTournament() {
         ArrayList<String> participants = Database.getEventParticipants(Model.getInstance().getTournament());
 
-        if (participants.size() > 0) {
-            String participantString = "";
-
-            for (int i = 0; i < participants.size(); i++) {
-                participantString += participants.get(i) + "\n";
+        if (Model.getInstance().getParameter() != 5) {
+            if (participants.size() > 0) {
+                String participantString = "";
+    
+                for (int i = 0; i < participants.size(); i++) {
+                    participantString += Database.getTeamName(participants.get(i)) + "\n";
+                }
+                participantsTextArea.setText(participantString);
+                infoLabel.setText(participants.size() + " / 8" );
             }
-            participantsTextArea.setText(participantString);
-            infoLabel.setText(participants.size() + " / 8" );
+    
+            else {
+                warningLabel.setText("No participants");
+            }
         }
-
         else {
-            warningLabel.setText("No participants");
+            if (participants.size() > 0) {
+                String participantString = "";
+    
+                for (int i = 0; i < participants.size(); i++) {
+                    participantString += participants.get(i) + "\n";
+                }
+                participantsTextArea.setText(participantString);
+                infoLabel.setText(participants.size() + " / 8" );
+            }
+    
+            else {
+                warningLabel.setText("No participants");
+            }
         }
+    
+
+        
     }
 
     @Override

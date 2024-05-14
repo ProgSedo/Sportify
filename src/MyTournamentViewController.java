@@ -72,6 +72,9 @@ public class MyTournamentViewController implements Initializable {
     private Label warningLabel;
 
     @FXML
+    private Label infoLabel;
+
+    @FXML
     void announceButtonClicked(ActionEvent event) {
 
         displayTournament();
@@ -131,7 +134,8 @@ public class MyTournamentViewController implements Initializable {
     }
 
     public void displayTournament() {
-        ArrayList<String> participants = Database.getEventParticipants(Model.getInstance().getTournament());
+        if (Model.getInstance().getParameter() == 5) {
+            ArrayList<String> participants = Database.getEventParticipants(Model.getInstance().getTournament());
 
         if (participants.size() > 0) {
             String participantString = "";
@@ -140,11 +144,30 @@ public class MyTournamentViewController implements Initializable {
                 participantString += participants.get(i) + "\n";
             }
             participantsTextArea.setText(participantString);
-            warningLabel.setText(participants.size() + " / 8" );
+            infoLabel.setText(participants.size() + " / 8" );
         }
 
         else {
             warningLabel.setText("No participants");
+        }
+        }
+
+        else {
+            ArrayList<String> participants = Database.getEventParticipants(Model.getInstance().getTournament());
+
+        if (participants.size() > 0) {
+            String participantString = "";
+
+            for (int i = 0; i < participants.size(); i++) {
+                participantString += Database.getTeamName(participants.get(i)) + "\n";
+            }
+            participantsTextArea.setText(participantString);
+            infoLabel.setText(participants.size() + " / 8" );
+        }
+
+        else {
+            warningLabel.setText("No participants");
+        }
         }
     }
 
