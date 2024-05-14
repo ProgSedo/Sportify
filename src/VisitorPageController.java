@@ -48,6 +48,9 @@ public class VisitorPageController implements Initializable{
     @FXML
     private Label warningLabel;
 
+    @FXML
+    private Button commentButton;
+
     public void initialize(URL location, ResourceBundle resources) {
         String email = Model.getInstance().getFriendEmail();
         emailTextField.setText(email);
@@ -95,6 +98,15 @@ public class VisitorPageController implements Initializable{
             }
         } else {
             warningLabel.setText("No such team");
+        }
+    }
+
+    @FXML
+    void commentButtonClicked(ActionEvent event) {
+        if(!commentsTextArea.getText().isEmpty())
+        {
+            Database.addComment(Model.getInstance().getFriendEmail(), commentsTextArea.getText());
+            commentsTextArea.setText("");
         }
     }
 
