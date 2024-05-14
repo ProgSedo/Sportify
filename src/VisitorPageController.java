@@ -70,9 +70,8 @@ public class VisitorPageController implements Initializable{
         usernameTextField.setEditable(false);
         ageTextField.setEditable(false);
         aboutMeTextArea.setEditable(false);
-        commentsTextArea.setEditable(false);
-        commentTextField.setEditable(false);
-
+        commentsTextArea.setEditable(false);    
+        displayComments();
     }
 
     @FXML
@@ -112,6 +111,23 @@ public class VisitorPageController implements Initializable{
             Database.addComment(Model.getInstance().getFriendEmail(), commentTextField.getText());
             commentTextField.setText("");
         }
+        displayComments();
+    }
+
+    void displayComments()
+    {
+        ArrayList<String> comments = Database.getComments(Model.getInstance().getFriendEmail());
+        int length = comments.size();
+
+        String commentArea = "";
+        for(int i = length - 1; i > Math.max(length - 11, -1); i--)
+        {
+            commentArea += Database.getUsernameByComment(comments.get(i), Model.getInstance().getFriendEmail());
+            commentArea += ": ";
+            commentArea += comments.get(i);
+            commentArea += "\n";
+        }
+        commentsTextArea.setText(commentArea);
     }
 
 }

@@ -246,7 +246,7 @@ public class Database {
         try 
         {
             Statement st = connection.createStatement();
-            String sql = "CREATE TABLE " + emailTable + "( email VARCHAR(50) UNIQUE NOT NULL, comment VARCHAR(MAX))";
+            String sql = "CREATE TABLE " + emailTable + "( email VARCHAR(50), comment VARCHAR(MAX))";
             st.executeUpdate(sql);
         } 
         catch (Exception e) 
