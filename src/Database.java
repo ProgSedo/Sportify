@@ -450,6 +450,36 @@ public class Database {
         return teamName;
     }
 
+    public static void updateTeamName(String text) 
+    {
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "UPDATE Users SET teamName = '" + text + "' WHERE email = '" + Model.getInstance().getEmail() + "'";
+            st.execute( sql );
+        
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateTeamPassword(String text) 
+    {
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "UPDATE Users SET teamPassword = '" + text + "' WHERE email = '" + Model.getInstance().getEmail() + "'";
+            st.execute( sql );
+        
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+    }
+
 
     public static String getInterests(String email) {
         //not tested
