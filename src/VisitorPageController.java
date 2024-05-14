@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -31,13 +32,19 @@ public class VisitorPageController implements Initializable{
     private TextField interestsTextField;
 
     @FXML
+    private Button joinTeamButton;
+
+    @FXML
+    private PasswordField passwordName;
+
+    @FXML
     private ImageView profilePhoto;
 
     @FXML
-    private TextField usernameTextField;
+    private TextField teamName;
 
     @FXML
-    private Button inviteToYourTeamButton;
+    private TextField usernameTextField;
 
     public void initialize(URL location, ResourceBundle resources) {
         String email = Model.getInstance().getFriendEmail();
@@ -64,6 +71,11 @@ public class VisitorPageController implements Initializable{
     {
         Model.getInstance().setFriendEmail(null);
         Model.getInstance().getViewFactory().getDecider().set("FriendsPage");
+    }
+
+    @FXML
+    void joinTeamButtonClicked(ActionEvent event) {
+
     }
 
 }
