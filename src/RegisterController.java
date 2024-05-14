@@ -100,9 +100,9 @@ public class RegisterController implements Initializable{
         String email = emailTextField.getText();
         String password = passwordField.getText();
         if (!Database.checkEmail(email) && !Database.checkUsername(usernameTextField.getText())) {
-            System.out.println("a");
+            
             if (password.equals(confirmPasswordTextField.getText())) {
-                System.out.println("b");
+                
                 User user = new User(email, password, usernameTextField.getText(), yearComboBox.getValue(), isFootballSelected(), isVolleyballelected(), isTennisSelected());
                 Database.createFriendsTable(email + "_friends");
                 Database.createCommentsTable(email+ "_comments");
