@@ -1,5 +1,4 @@
 import java.net.URL;
-import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -45,6 +44,9 @@ public class VisitorPageController implements Initializable{
 
     @FXML
     private TextField usernameTextField;
+
+    @FXML
+    private Label warningLabel;
 
     public void initialize(URL location, ResourceBundle resources) {
         String email = Model.getInstance().getFriendEmail();
