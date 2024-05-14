@@ -71,6 +71,7 @@ public class VisitorPageController implements Initializable{
         ageTextField.setEditable(false);
         aboutMeTextArea.setEditable(false);
         commentsTextArea.setEditable(false);
+        commentTextField.setEditable(false);
 
     }
 
@@ -106,10 +107,10 @@ public class VisitorPageController implements Initializable{
 
     @FXML
     void commentButtonClicked(ActionEvent event) {
-        if(!commentsTextArea.getText().isEmpty())
+        if(!commentTextField.getText().isEmpty())
         {
-            Database.addComment(Model.getInstance().getFriendEmail(), commentsTextArea.getText());
-            commentsTextArea.setText("");
+            Database.addComment(Model.getInstance().getFriendEmail(), commentTextField.getText());
+            commentTextField.setText("");
         }
     }
 
