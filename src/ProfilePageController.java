@@ -51,6 +51,9 @@ public class ProfilePageController implements Initializable{
     @FXML
     private Button volleyballEventsButton;
 
+    @FXML
+    private TextField teamTextField;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         String email = Model.getInstance().getEmail();
@@ -73,7 +76,7 @@ public class ProfilePageController implements Initializable{
         ageTextField.setEditable(false);
         aboutMeTextArea.setEditable(false);
         commentsTextArea.setEditable(false);
-
+        displayTeam();
     }
 
    
@@ -125,6 +128,19 @@ public class ProfilePageController implements Initializable{
             commentArea += "\n";
         }
         commentsTextArea.setText(commentArea);
+    }
+
+    void displayTeam()
+    {
+        String teamName = Database.getTeamName(Model.getInstance().getEmail());
+        if(teamName != null)
+        {
+            teamTextField.setText(teamName);
+        }
+        else
+        {
+            teamTextField.setText("You are not in a team");
+        }
     }
 
 }
