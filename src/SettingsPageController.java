@@ -10,16 +10,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
 public class SettingsPageController implements Initializable{
 
-    @FXML
-    private Label passwordWarningLabel;
-
-    @FXML
+     @FXML
     private Button aboutMeSaveButton;
 
     @FXML
@@ -35,25 +33,25 @@ public class SettingsPageController implements Initializable{
     private TextField confirmNewPasswordTextField;
 
     @FXML
+    private Button createTeamButton;
+
+    @FXML
     private TextField emailTextField;
-
-    @FXML
-    private Button informationSaveButton;
-
-    @FXML
-    private Label infoWarningLabel;
-
-    @FXML
-    private CheckBox tennisCheckBox;
-
-    @FXML
-    private CheckBox volleyballCheckBox;
 
     @FXML
     private CheckBox footballCheckBox;
 
     @FXML
+    private Label infoWarningLabel;
+
+    @FXML
+    private Button informationSaveButton;
+
+    @FXML
     private TextField newPasswordTextField;
+
+    @FXML
+    private Label passwordWarningLabel;
 
     @FXML
     private ImageView profilePhoto;
@@ -62,7 +60,19 @@ public class SettingsPageController implements Initializable{
     private Button sideBarButton;
 
     @FXML
+    private TextField teamName;
+
+    @FXML
+    private PasswordField teamPassword;
+
+    @FXML
+    private CheckBox tennisCheckBox;
+
+    @FXML
     private TextField usernameTextField;
+
+    @FXML
+    private CheckBox volleyballCheckBox;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) 
@@ -138,6 +148,11 @@ public class SettingsPageController implements Initializable{
         {
             Model.getInstance().getViewFactory().getDecider().set("Settings");
         }
+    }
+
+    @FXML
+    void createTeamButtonClicked(ActionEvent event) {
+
     }
 
 }

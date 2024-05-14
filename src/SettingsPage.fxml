@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
@@ -46,6 +47,21 @@
                      <effect>
                         <DropShadow />
                      </effect>
+                  </Button>
+                  <TextField fx:id="teamName" promptText="Name of your team">
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="50.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <PasswordField fx:id="teamPassword" promptText="Password of your team">
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="10.0" />
+                     </VBox.margin>
+                  </PasswordField>
+                  <Button fx:id="createTeamButton" mnemonicParsing="false" onAction="#createTeamButtonClicked" style="-fx-background-color: #90EE90; -fx-background-radius: 5; -fx-border-color: #000000; -fx-border-radius: 5;" text="Create Team">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
                   </Button>
                </children>
                <HBox.margin>
