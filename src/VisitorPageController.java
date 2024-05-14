@@ -51,6 +51,9 @@ public class VisitorPageController implements Initializable{
     @FXML
     private Button commentButton;
 
+    @FXML
+    private TextField commentTextField;
+
     public void initialize(URL location, ResourceBundle resources) {
         String email = Model.getInstance().getFriendEmail();
         emailTextField.setText(email);
