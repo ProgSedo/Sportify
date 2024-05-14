@@ -79,6 +79,7 @@ public class VisitorPageController implements Initializable{
     void joinTeamButtonClicked(ActionEvent event) {
         ArrayList<String> teamNames = Database.getAllTeamNames();
         if (teamName.getText().isEmpty() || passwordName.getText().isEmpty()) {
+            warningLabel.setText("missing fields");
             return;
         }
 
@@ -88,7 +89,12 @@ public class VisitorPageController implements Initializable{
                 Database.updateTeamPassword(passwordName.getText());
                 passwordName.setText("");
                 teamName.setText("");
+                
+            } else {
+                warningLabel.setText("Wrong password");
             }
+        } else {
+            warningLabel.setText("No such team");
         }
     }
 

@@ -73,6 +73,9 @@ public class TournamentViewController implements Initializable
     private Label warningLabel;
 
     @FXML
+    private Label infoLabel;
+
+    @FXML
     void announceButtonClicked(ActionEvent event) 
     {
 
@@ -86,17 +89,22 @@ public class TournamentViewController implements Initializable
         int parameter = Model.getInstance().getParameter();
         String email = Model.getInstance().getEmail();
         ArrayList<String> participants  = Database.getEventParticipants(id);
+        ArrayList<String> teams = new ArrayList<>();
+        for(String e : participants)
+        {
+            teams.add(Database.getTeamName(e));
+        }
 
         if (participants.size() < 2 * Database.getEventSize(id, parameter)) 
         {
-            if (!participants.contains(email)) 
+            if (!participants.contains(email) && !teams.contains(Database.getTeamName(email))) 
             {
                 Database.joinEvent(email, id);
                 Database.addParticipant(email, id);
             }
             else 
             {
-                warningLabel.setText("You have already joined");
+                warningLabel.setText("You or your team have already joined");
             }
         }  
         else 
@@ -148,7 +156,7 @@ public class TournamentViewController implements Initializable
                 participantString += participants.get(i) + "\n";
             }
             participantsTextArea.setText(participantString);
-            warningLabel.setText(participants.size() + " / 8" );
+            infoLabel.setText(participants.size() + " / 8" );
         }
 
         else {
