@@ -73,6 +73,7 @@ public class ProfilePageController implements Initializable{
         emailTextField.setEditable(false);
         interestsTextField.setEditable(false);
         usernameTextField.setEditable(false);
+        teamTextField.setEditable(false);
         ageTextField.setEditable(false);
         aboutMeTextArea.setEditable(false);
         commentsTextArea.setEditable(false);
