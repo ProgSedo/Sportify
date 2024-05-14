@@ -107,6 +107,8 @@ public class Database {
             return false;
     }
 
+
+
     
 
     public static ArrayList<String> returnList(String email, int number) {
@@ -413,6 +415,27 @@ public class Database {
         {
             Statement st = connection.createStatement();
             String sql = "SELECT teamName FROM Users WHERE email = '" + email + "'";
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                
+                teamName = rs.getString(1);
+            }
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+
+        return teamName;
+    }
+
+    public static String getTeamPassword(String email) {
+        //not tested
+        String teamName = "";
+        try 
+        {
+            Statement st = connection.createStatement();
+            String sql = "SELECT teamPassword FROM Users WHERE email = '" + email + "'";
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
                 
